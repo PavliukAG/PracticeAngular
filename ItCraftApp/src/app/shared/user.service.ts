@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +40,11 @@ readonly BaseURL = 'http://localhost:54374';
 
     };
     return this.http.post( this.BaseURL + '/api/AppUser/Register', body);
+  }
+  login(formData){
+    return this.http.post( this.BaseURL + '/api/AppUser/Login', formData);
+  }
+  getUserProfile(){
+    return this.http.get(this.BaseURL + '/UserProfile');
   }
 }
