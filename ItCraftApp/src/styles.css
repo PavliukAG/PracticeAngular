@@ -1,23 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
-body{
-  background-color: #04c582;;
+:root {
+  --interactiveColor: #04c582;
+  --interactiveColor: #8777d7;
+  --backcolor: #636b7b;
 }
 
-input.form-control,input.form-control:focus{
-  background-color: #636b7b;
-  color: #fff;
-  border: 1px solid #636b7b;
+/* input */
+.form-group > label:first-child {
+  padding: 0;
+}
 
+input.form-control,input.form-control:focus{ 
+  background-color: var(--backcolor);
+  color: #fff;
+  border: 0;
+  height: 35px;
 }
 
 input.form-control:focus{
   box-shadow: none;
 }
 
-button[type=submit].btn{
-  border-radius: 20px;
-  background-color: #04c582;
+button[type=submit].btn, .btn {
+  background-color: var(--interactiveColor);
   color: #fff;
+  margin: 12px 0;
+
 }
 
 div.form-group label:not(.text-danger){
@@ -27,37 +34,16 @@ div.form-group label:not(.text-danger){
 
 div.form-group.required>label:first-child:after{
   content:'*';
-  color: #fff;
+  color: #eee;
   padding-left: 5px;
 }
+
+/* ----------------------------------------------------- Tabs */
 
 #toast-container > div {
   opacity:1;
 }
 
-.wrapper {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  padding: 20px;
-}
-
-.wrapped-div {
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
-  background: #2e3137;
-  padding: 30px;
-  width: 90%;
-  max-width: 450px;
-  position: relative;
-  padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-}
-
-/* Tabs */
 .tab-header{
   text-align: center;
 }

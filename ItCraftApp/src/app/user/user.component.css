@@ -1,0 +1,27 @@
+h2 {
+    transition: color 0.5s, border-color 0.5s;
+}
+
+.auth-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    padding-top: 10vh;
+    background: linear-gradient(to left top, #736b9b, #636b7b, #2e2127);
+  }
+  
+  .auth-wrapper > .wrapped-div {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
+    background: #2e3137;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-width: 500px;
+    position: relative;
+    -webkit-box-shadow: 0 20px 50px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 20px 50px 0 rgba(0,0,0,0.5);
+  }

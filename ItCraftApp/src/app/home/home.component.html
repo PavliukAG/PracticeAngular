@@ -1,11 +1,40 @@
-<nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand text-white">JWT Auth System</a>
-  <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
+<nav class="navbar">
+  <a class="navbar-brand text-white" >Product manager</a>
+  <button class="btn my-2 my-sm-0" (click)="onLogout()">Logout</button>
 </nav>
-<div class="card m-5" style="width:18rem" *ngIf="userDetails">
-  <ul class="list-group">
-    <li class="list-group-item"><strong>Username : </strong>{{userDetails.userName}}</li>
-    <li class="list-group-item"><strong>FullName : </strong>{{userDetails.fullName}}</li>
-    <li class="list-group-item"><strong>Email : </strong>{{userDetails.email}}</li>
-  </ul>
+<div class="row">
+  <div class="profile col-2" *ngIf="userDetails">
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Username : </strong>{{userDetails.userName}}</li>
+      <li class="list-group-item"><strong>FullName : </strong>{{userDetails.fullName}}</li>
+      <li class="list-group-item"><strong>Email : </strong>{{userDetails.email}}</li>
+    </ul>
+  </div>
+  <div class="col-10">
+  awdaw
+  </div>
+  <div class="col-12 table-container">
+    <table class="">
+      <tr>
+        <td class="col-4">
+          <span>Name</span>
+          <button>Sort</button>
+        </td>
+        <td class="col-4">
+          <span>Price</span>
+          <button>Sort</button>
+        </td>
+        <td class="col-4" colspan="3">
+          <span>Actions</span>
+        </td>
+      </tr>
+      <tr class="tr-product" *ngFor="let item of items">
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td class="col-2"> <button>Edit</button> </td>
+        <td class="col-2"> <button>Remove</button> </td>
+        <td class="col-3"> <button>Income/Outcome</button> </td>
+      </tr>
+    </table>
+  </div>
 </div>

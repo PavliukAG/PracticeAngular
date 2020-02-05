@@ -9,7 +9,7 @@ export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 readonly BaseURL = 'http://localhost:54374/api';
-
+ // ----------------------------------------------------------------------  relocation
   formModel = this.fb.group({
     UserName : ['', Validators.required],
     Email : ['', Validators.email],
@@ -31,6 +31,7 @@ readonly BaseURL = 'http://localhost:54374/api';
       }
     }
   }
+  // rename variables ------------------------------------------------------------- ! 
   register() {
     let body = {
       UserName: this.formModel.value.UserName,

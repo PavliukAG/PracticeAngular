@@ -7,9 +7,13 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 userDetails;
   constructor(private router: Router, private service: UserService) { }
+
+  
+  items = new Array(new Product("Samsung", 8000), new Product("Apple", 12000));
 
   ngOnInit() {
     this.service.getUserProfile().subscribe(
@@ -25,4 +29,12 @@ onLogout() {
     localStorage.removeItem('token');
     this.router.navigate(['/user/login']);
 }
+}
+class Product {
+  name : string;
+  price : number;
+  constructor(name: string, price: number) {
+    this.name = name;
+    this.price = price;
+  }
 }
