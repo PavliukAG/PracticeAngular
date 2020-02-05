@@ -9,4 +9,10 @@
 #logo > img {
     width: 100%;
     border-radius: 50%;
+    transition: 1s;
+}
+
+#logo > img:hover {
+    border-top-right-radius: 10%;
+    transform: rotate(-22deg);
 }

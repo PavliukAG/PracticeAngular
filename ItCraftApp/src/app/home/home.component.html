@@ -11,30 +11,9 @@
     </ul>
   </div>
   <div class="col-10">
-  awdaw
+  component add product
   </div>
   <div class="col-12 table-container">
-    <table class="">
-      <tr>
-        <td class="col-4">
-          <span>Name</span>
-          <button>Sort</button>
-        </td>
-        <td class="col-4">
-          <span>Price</span>
-          <button>Sort</button>
-        </td>
-        <td class="col-4" colspan="3">
-          <span>Actions</span>
-        </td>
-      </tr>
-      <tr class="tr-product" *ngFor="let item of items">
-        <td>{{item.name}}</td>
-        <td>{{item.price}}</td>
-        <td class="col-2"> <button>Edit</button> </td>
-        <td class="col-2"> <button>Remove</button> </td>
-        <td class="col-3"> <button>Income/Outcome</button> </td>
-      </tr>
-    </table>
+    <app-table></app-table>
   </div>
 </div>

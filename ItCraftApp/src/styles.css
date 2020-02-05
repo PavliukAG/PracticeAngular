@@ -2,6 +2,11 @@
   --interactiveColor: #04c582;
   --interactiveColor: #8777d7;
   --backcolor: #636b7b;
+  --textcolor: #545d6a;
+}
+
+hr {
+  background-color: var(--textcolor);
 }
 
 /* input */
@@ -24,11 +29,10 @@ button[type=submit].btn, .btn {
   background-color: var(--interactiveColor);
   color: #fff;
   margin: 12px 0;
-
 }
 
 div.form-group label:not(.text-danger){
-  color: #545d6a;
+  color: var(--textcolor);
   font-weight: 700;
 }
 

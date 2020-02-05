@@ -1,0 +1,44 @@
+<nav class="col-12">
+  <div>
+    <label for="select">Count of goods</label>
+    <select class="col-1" name="" id="">
+      <option value="5">5</option>
+      <option value="5">10</option>
+      <option value="5">15</option>
+      <option value="5">20</option>
+      <option value="5">30</option>
+      <option value="5">40</option>
+    </select>
+  </div>
+  <ul class="pagination">
+    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link">1</a></li>
+    <li class="page-item"><a class="page-link">2</a></li>
+    <li class="page-item"><a class="page-link">3</a></li>
+    <li class="page-item"><a class="page-link">Next</a></li>
+  </ul> 
+</nav>
+<table class="">
+  <tr>
+    <td class="col-4">
+      <span>Name</span>
+      <button>Sort</button>
+    </td>
+    <td class="col-4">
+      <span>Price</span>
+      <button>Sort</button>
+    </td>
+    <td class="col-4" colspan="3">
+      <span>Actions</span>
+    </td>
+  </tr>
+  <tr class="" *ngFor="let item of getSegment(pageNumber*countOfProductsOnPage, countOfProductsOnPage)">
+    <td class="col-5">{{item.name}}</td>
+    <td class="col-5">{{item.price}}</td>
+    <div class="col-1">
+    <td class="col-4"> <button >Edit</button> </td>
+    <td class="col-4"> <button>Remove</button> </td>
+    <td class="col-4"> <button>Income/Outcome</button> </td>
+  </div>
+  </tr>
+</table>

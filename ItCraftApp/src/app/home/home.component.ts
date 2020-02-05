@@ -1,6 +1,7 @@
 import { UserService } from './../shared/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {TableComponent} from './table/table.component'
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,6 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 userDetails;
   constructor(private router: Router, private service: UserService) { }
-
-  
-  items = new Array(new Product("Samsung", 8000), new Product("Apple", 12000));
 
   ngOnInit() {
     this.service.getUserProfile().subscribe(
@@ -29,12 +27,4 @@ onLogout() {
     localStorage.removeItem('token');
     this.router.navigate(['/user/login']);
 }
-}
-class Product {
-  name : string;
-  price : number;
-  constructor(name: string, price: number) {
-    this.name = name;
-    this.price = price;
-  }
 }
