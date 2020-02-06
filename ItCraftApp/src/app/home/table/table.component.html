@@ -2,7 +2,7 @@
   <div class="col-md-5 col-xs-12">
     <label class="offset-1" for="selectPageSize" >Count of goods</label>
 
-    <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" onchange="reloadTable()">
+    <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize">
 
       <option *ngFor="let c of [5,10,15,30,50,100]" value="{{c}}" >{{c}}</option>
     </select>
@@ -10,7 +10,7 @@
   </div>
   <ul class="col-md-5 col-xs-12 pagination">
     <li class="page-item"><button class="page-link" (click)="prevPage()">Previous</button></li>
-    <li class="page-item" *ngFor="let item of range(0, 5)"><button class="page-link">{{i}}</button></li>
+    <li class="page-item" *ngFor="let i of range(this.items.length / this.pageSize, 1)"><button class="page-link">{{i}}</button></li>
     <li class="page-item"><button class="page-link" (click)="nextPage()">Next</button></li>
   </ul> 
 </nav>

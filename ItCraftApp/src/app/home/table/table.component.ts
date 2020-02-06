@@ -24,7 +24,7 @@ export class TableComponent implements OnInit {
 
   constructor(private service: UserService) { 
     for (let i = 0; i < 100; i++) {
-      // this.items.push(generateProducts(i));
+      //  this.items.push(generateProducts(i));
     }
   }
 
@@ -33,7 +33,7 @@ export class TableComponent implements OnInit {
   ngOnInit() {
     this.service.getProducts().subscribe(
       res =>{
-        this.items = res;
+         this.items = res;
       },
       err => {
         console.log(err);
@@ -42,23 +42,27 @@ export class TableComponent implements OnInit {
   }
   
   public range(n: number, startFrom: number): number[] {
-    return [...Array(n).keys()].map(i => i + startFrom);
+      var foo = [];
+      for (var i = startFrom; i <= n; i++) {
+        foo.push(i);  
+      }
+    return foo;
   }
   
-  private pageNumber = 1;
-  private pageSize = 2;
+  private pageNumber : number = 1;
+  private pageSize : number = 1;
 
   public getSegment(pageSize, pageNumber) {
-    return this.items;
-    // return this.items.slice((pageNumber-1)*pageSize, (pageNumber-1)*pageSize + pageSize);
+    return this.items.slice((pageNumber-1)*pageSize, (pageNumber-1)*pageSize + pageSize);
   }
 
   public nextPage() {
-    this.pageNumber++;
+    let limit : number = this.items.length / this.pageSize;
+    this.pageNumber += this.pageNumber < limit ? 1 : 0;
   }
 
   public prevPage() {
-    this.pageNumber--;
+    this.pageNumber -= this.pageNumber > 1 ? 1 : 0;
   }
 
 }
