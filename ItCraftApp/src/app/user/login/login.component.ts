@@ -1,5 +1,5 @@
 import {Toast, ToastrService} from 'ngx-toastr';
-import { UserService } from './../../shared/user.service';
+import { ExternalRoutingService } from './../../core/externalRouting.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,10 +11,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 formModel = {
-  UserName : '',
-  Password : ''
+  userName : '',
+  password : ''
 }
-  constructor(private service: UserService, private  router: Router, private toastr: ToastrService) { }
+  constructor(private service: ExternalRoutingService, private  router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -26,7 +26,7 @@ formModel = {
     },
     err => {
       if (err.status == 400) {
-        this.toastr.error('Incorrect username or password', 'Authentication failed.');
+        this.toastr.error('Incorrect userName or password', 'Authentication failed.');
       } else {
         console.log(err);
       }

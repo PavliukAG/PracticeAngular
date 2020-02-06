@@ -1,7 +1,8 @@
-import { UserService } from './../shared/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {TableComponent} from './table/table.component'
+import { UserProfileService} from './../core/userProfile.service'
+
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ import {TableComponent} from './table/table.component'
 
 export class HomeComponent implements OnInit {
 userDetails;
-  constructor(private router: Router, private service: UserService) { }
+  constructor(private router: Router, private service: UserProfileService) { }
 
   ngOnInit() {
     this.service.getUserProfile().subscribe(
