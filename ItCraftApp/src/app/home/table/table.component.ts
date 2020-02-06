@@ -24,16 +24,16 @@ export class TableComponent implements OnInit {
 
   constructor(private service: UserProfileService) { 
     for (let i = 0; i < 100; i++) {
-        this.items.push(generateProducts(i));
+        // this.items.push(generateProducts(i));
     }
   }
 
-  items = [];
+  items;
   
   ngOnInit() {
     this.service.getProducts().subscribe(
       res =>{
-        //  this.items = res;
+          this.items = res;
       },
       err => {
         console.log(err);
@@ -50,7 +50,7 @@ export class TableComponent implements OnInit {
   }
   
   private pageNumber : number = 1;
-  private pageSize : number = 1;
+  private pageSize : number = 5;
 
   public getSegment(pageSize, pageNumber) {
     return this.items.slice((pageNumber-1)*pageSize, (pageNumber-1)*pageSize + pageSize);
@@ -63,6 +63,10 @@ export class TableComponent implements OnInit {
 
   public prevPage() {
     this.pageNumber -= this.pageNumber > 1 ? 1 : 0;
+  }
+
+  public getPagesCount() {
+    return Math.ceil(this.items.length / this.pageSize);
   }
 
 }

@@ -10,19 +10,24 @@
   </div>
   <ul class="col-md-5 col-xs-12 pagination">
     <li class="page-item"><button class="page-link" (click)="prevPage()">Previous</button></li>
-    <li class="page-item" *ngFor="let i of range(this.items.length / this.pageSize, 1)"><button class="page-link">{{i}}</button></li>
+    <!-- <li class="page-item" *ngFor="let i of range(this.items.length / this.pageSize, 1)"><button class="page-link">{{i}}</button></li> -->
+    <li class="page-item"><button class="page-link"> {{pageNumber}} of {{getPagesCount()}} </button></li>
     <li class="page-item"><button class="page-link" (click)="nextPage()">Next</button></li>
   </ul> 
 </nav>
 <table class="">
   <tr>
     <td class="col-4">
-      <span>Name</span>
-      <button>Sort</button>
+      <button>
+        <span>Name</span>
+        <img src="#" alt="">
+      </button>
     </td>
     <td class="col-4">
-      <span>Price</span>
-      <button>Sort</button>
+      <button>
+        <span>Price</span>
+        <img src="#" alt="">
+      </button>
     </td>
     <td class="col-4" colspan="3">
       <span>Actions</span>
