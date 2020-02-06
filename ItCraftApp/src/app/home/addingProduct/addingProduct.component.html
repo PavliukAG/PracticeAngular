@@ -1,12 +1,12 @@
 <nav>
-  <form #form='ngForm' class="row" autocomplete="off" (submit)="onSubmit()" >
+  <form #form='ngForm' [formGroup]="form" class="row" autocomplete="off" (click)="onSubmit(form)">
     <div class="form-group col-5">
       <label>Name</label>
-      <input class="form-control" [(ngModel)]="form.name" name="name" required>
+      <input class="form-control" [(ngModel)]="form.name" formControlName="name" required>
     </div>
     <div class="form-group col-5">
       <label>Price</label>
-      <input class="form-control" [(ngModel)]="form.price" name="price" required>
+      <input class="form-control" [(ngModel)]="form.price" formControlName="price" required>
     </div>
     <button class="col-2" type="sumbit" [disabled]="form.invalid">ADD<br>PRODUCT</button>
   </form>

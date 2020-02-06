@@ -12,6 +12,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
  public form: any;
+ 
   constructor(public service: ExternalRoutingService, private toastr: ToastrService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -44,7 +45,7 @@ export class RegistrationComponent implements OnInit {
       userName: this.form.value.userName,
       email: this.form.value.email,
       fullName: this.form.value.fullName,
-      password: this.form.value.passwords.password,
+      password: this.form.value.passwords.password
     };
 
     this.service.register(body).subscribe (

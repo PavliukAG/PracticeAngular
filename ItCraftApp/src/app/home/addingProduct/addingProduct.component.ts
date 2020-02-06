@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup } from '@angular/forms';
 import { ExternalRoutingService } from './../../core/externalRouting.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -11,25 +11,35 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddingProductComponent implements OnInit {
 
-  formModel = {
-    name : '',
-    price : Number
-  }
+  // public form : FormGroup;
 
   constructor(private service: ExternalRoutingService, private  router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
+
   }
 
-  onSubmit(form: NgForm) {
-    form.value.price = Number(form.value.price);
+  onSubmit(form) {
 
-    this.service.addProduct(form).subscribe(
+    let productModel = {
+      name : String(form.value.name),
+      price : Number(form.value.price)
+      // name : 'awdawd',
+      // price : 2000
+    }
+
+    this.service.addProduct(productModel).subscribe(
       (res: any) => {
-        this.router.navigateByUrl('/home');
+        if (res.succeeded) { 
+    
+          // this.router.navigateByUrl('/home');
+        } else {
+          console.log(res.errors);
+          this.toastr.error('unsucceeded ' + productModel.name + " " + productModel.price);
+        }
       },
       err => {
-        this.toastr.error(form.value.name + " " + form.value.price);
+        this.toastr.error(productModel.name + " " + productModel.price);
         console.log(err);
       });
   }
