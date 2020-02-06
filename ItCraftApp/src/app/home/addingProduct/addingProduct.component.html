@@ -1,13 +1,13 @@
 <nav>
-  <form #form='ngForm' class="row" autocomplete="off" (submit)="onSubmit(form)">
+  <form #form='ngForm' class="row" autocomplete="off" (submit)="onSubmit()" >
     <div class="form-group col-5">
       <label>Name</label>
-      <input type='text'>
+      <input class="form-control" [(ngModel)]="form.name" name="name" required>
     </div>
     <div class="form-group col-5">
       <label>Price</label>
-      <input type='text'>
+      <input class="form-control" [(ngModel)]="form.price" name="price" required>
     </div>
-    <button class="col-2" type="sumbit">ADD<br>PRODUCT</button>
+    <button class="col-2" type="sumbit" [disabled]="form.invalid">ADD<br>PRODUCT</button>
   </form>
 </nav>

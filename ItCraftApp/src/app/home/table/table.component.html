@@ -8,7 +8,6 @@
   </div>
   <ul class="col-md-5 col-xs-12 pagination">
     <li class="page-item"><button class="page-link" (click)="prevPage()">Previous</button></li>
-    <!-- <li class="page-item" *ngFor="let i of range(this.items.length / this.pageSize, 1)"><button class="page-link">{{i}}</button></li> -->
     <li class="page-item" ><button disabled class="page-link"> {{pageNumber}} of {{getPagesCount()}} </button></li>
     <li class="page-item"><button class="page-link" (click)="nextPage()">Next</button></li>
   </ul> 
@@ -35,7 +34,7 @@
     <td class="col-5">{{item.name}}</td>
     <td class="col-5">{{item.price}}</td>
     <div class="col-1">
-    <td class="col-4"> <button >Edit</button> </td>
+    <td class="col-4"> <button>Edit</button> </td>
     <td class="col-4"> <button>Remove</button> </td>
     <td class="col-4"> <button>Income/Outcome</button> </td>
   </div>

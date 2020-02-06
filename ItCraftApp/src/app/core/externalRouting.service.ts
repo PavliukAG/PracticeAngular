@@ -8,17 +8,15 @@ export class ExternalRoutingService {
 
   constructor(private http: HttpClient) { }
   readonly BaseURL = 'http://localhost:54374/api';
-  register(form) {
-    let body = {
-      userName: form.value.userName,
-      email: form.value.email,
-      fullName: form.value.fullName,
-      password: form.value.passwords.password,
-
-    };
-    return this.http.post( this.BaseURL + '/Auth/Register', body);
+  register(registrModelInfo) {
+    return this.http.post( this.BaseURL + '/Auth/Register', registrModelInfo);
   }
+
   login(formData){
     return this.http.post( this.BaseURL + '/Auth/Login', formData);
+  }
+
+  addProduct(formData) {
+    return this.http.post( this.BaseURL + '/Home/CreateProduct', formData);
   }
 }

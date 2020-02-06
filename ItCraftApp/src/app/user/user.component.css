@@ -1,15 +1,13 @@
 h2 {
     transition: color 0.5s, border-color 0.5s;
 }
-
 .auth-wrapper {
     display: flex;
     align-items: flex-start;
     justify-content: center;
     width: 100%;
     height: 100vh;
-    padding-top: 10vh;
-    background: linear-gradient(to left top, #736b9b, #636b7b, #2e2127);
+    background: radial-gradient(ellipse at top left, #492c32,#444458);
   }
 
   @keyframes showing {
@@ -42,10 +40,18 @@ h2 {
     border-radius: 10px;
     background: #2e3137;
     width: 100%;
+    margin-top: 10vh;
     max-height: 90vh;
     overflow-y: auto;
     overflow-x: hidden;
     max-width: 500px;
     position: relative;
     animation: shadowAnim 2s forwards;
+  }
+
+  @media (max-width: 576px) {
+    .auth-wrapper > .wrapped-div {
+      height: 100vh;
+      margin: 0;
+    }
   }

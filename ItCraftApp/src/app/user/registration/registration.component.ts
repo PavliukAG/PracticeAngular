@@ -11,7 +11,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
- form: any;
+ public form: any;
   constructor(public service: ExternalRoutingService, private toastr: ToastrService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -39,8 +39,15 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
-  onSubmit(form) {
-    this.service.register(form).subscribe(
+  onSubmit() {
+    let body = {
+      userName: this.form.value.userName,
+      email: this.form.value.email,
+      fullName: this.form.value.fullName,
+      password: this.form.value.passwords.password,
+    };
+
+    this.service.register(body).subscribe (
       (res: any) => {
         if (res.succeeded) {
           this.form.reset();
