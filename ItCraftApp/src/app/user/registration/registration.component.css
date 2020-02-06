@@ -1,6 +1,10 @@
-#regform {
+form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    animation: showing 0.5s;
 }
 
+button {
+    margin: 12px 0;
+  }

@@ -3,15 +3,15 @@
   <button class="btn my-2 my-sm-0" (click)="onLogout()">Logout</button>
 </nav>
 <div class="row">
-  <div class="profile col-2" *ngIf="userDetails">
+  <div class="profile col-md-3 col-xs-12" *ngIf="userDetails">
     <ul class="list-group">
       <li class="list-group-item"><strong>userName : </strong>{{userDetails.userName}}</li>
       <li class="list-group-item"><strong>fullName : </strong>{{userDetails.fullName}}</li>
       <li class="list-group-item"><strong>email : </strong>{{userDetails.email}}</li>
     </ul>
   </div>
-  <div class="col-10">
-  component add product
+  <div class="col-md-6 col-xs-12">
+    <app-addingProduct></app-addingProduct>
   </div>
   <div class="col-12 table-container">
     <app-table></app-table>

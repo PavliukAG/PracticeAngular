@@ -16,6 +16,7 @@ import {AuthInterceptor} from './auth/auth.interceptor';
 import {TableComponent} from 'src/app/home/table/table.component';
 import { UserProfileService } from './core/userProfile.service';
 import { ExternalRoutingService} from './core/externalRouting.service'
+import { AddingProductComponent } from './home/addingProduct/addingProduct.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ExternalRoutingService} from './core/externalRouting.service'
     RegistrationComponent,
     LoginComponent,
     HomeComponent,
-    TableComponent
+    TableComponent,
+    AddingProductComponent
   ],
   imports: [
     BrowserModule,
