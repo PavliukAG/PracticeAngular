@@ -1,17 +1,15 @@
 <nav class="row">
   <div class="col-md-5 col-xs-12">
     <label class="offset-1" for="selectPageSize" >Count of goods</label>
-
-    <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize">
-
-      <option *ngFor="let c of [5,10,15,30,50,100]" value="{{c}}" >{{c}}</option>
+    <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" (change)="checkPages()">
+      <option *ngFor="let c of [2, 5,10,15,30,50,100]" value="{{c}}" >{{c}}</option>
     </select>
   
   </div>
   <ul class="col-md-5 col-xs-12 pagination">
     <li class="page-item"><button class="page-link" (click)="prevPage()">Previous</button></li>
     <!-- <li class="page-item" *ngFor="let i of range(this.items.length / this.pageSize, 1)"><button class="page-link">{{i}}</button></li> -->
-    <li class="page-item"><button class="page-link"> {{pageNumber}} of {{getPagesCount()}} </button></li>
+    <li class="page-item" ><button disabled class="page-link"> {{pageNumber}} of {{getPagesCount()}} </button></li>
     <li class="page-item"><button class="page-link" (click)="nextPage()">Next</button></li>
   </ul> 
 </nav>
@@ -33,7 +31,7 @@
       <span>Actions</span>
     </td>
   </tr>
-  <tr *ngFor="let item of getSegment(pageSize, pageNumber)">
+  <tr *ngFor="let item of getSegmentOfList()">
     <td class="col-5">{{item.name}}</td>
     <td class="col-5">{{item.price}}</td>
     <div class="col-1">

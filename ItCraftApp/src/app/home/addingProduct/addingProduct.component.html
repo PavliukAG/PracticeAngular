@@ -1,5 +1,5 @@
 <nav>
-  <form class="row" action="">
+  <form #form='ngForm' class="row" autocomplete="off" (submit)="onSubmit(form)">
     <div class="form-group col-5">
       <label>Name</label>
       <input type='text'>
