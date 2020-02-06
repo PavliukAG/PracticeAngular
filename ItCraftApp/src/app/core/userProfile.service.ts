@@ -5,6 +5,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserProfileService {
 
   constructor(private http: HttpClient) { }
@@ -12,5 +13,9 @@ export class UserProfileService {
 
   getUserProfile(){
     return this.http.get(this.BaseURL + '/UserProfile');
+  }
+
+  getProducts(){
+    return this.http.get(this.BaseURL + '/Home/ListProducts');
   }
 }

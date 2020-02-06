@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/shared/user.service';
+import { UserProfileService } from 'src/app/core/userProfile.service';
 
 class Product {
   name : string;
@@ -22,18 +22,18 @@ function generateProducts(id : number) {
 
 export class TableComponent implements OnInit {
 
-  constructor(private service: UserService) { 
+  constructor(private service: UserProfileService) { 
     for (let i = 0; i < 100; i++) {
-      //  this.items.push(generateProducts(i));
+        this.items.push(generateProducts(i));
     }
   }
 
-  items;
+  items = [];
   
   ngOnInit() {
     this.service.getProducts().subscribe(
       res =>{
-         this.items = res;
+        //  this.items = res;
       },
       err => {
         console.log(err);
