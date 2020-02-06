@@ -15,6 +15,7 @@ import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import {AuthInterceptor} from './auth/auth.interceptor';
 import {TableComponent} from 'src/app/home/table/table.component'
+import { AddingProductComponent } from './home/addingProduct/addingProduct.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {TableComponent} from 'src/app/home/table/table.component'
     RegistrationComponent,
     LoginComponent,
     HomeComponent,
-    TableComponent
+    TableComponent,
+    AddingProductComponent
   ],
   imports: [
     BrowserModule,

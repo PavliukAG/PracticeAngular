@@ -4,15 +4,30 @@
     align-self: center;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-#logo > img {
-    width: 100%;
-    border-radius: 50%;
     transition: 1s;
 }
 
-#logo > img:hover {
-    border-top-right-radius: 10%;
-    transform: rotate(-22deg);
+@keyframes uncloseA {
+    from {
+        width: 0%;
+        transform: scaleY(-1);
+    }
+    to {
+        
+        transform: scaleY(1);
+        width: 100%;
+    }
+}
+
+#logo > img {
+    border-radius: 50%;
+    animation: uncloseA 1s ease-in-out forwards;
+}
+
+form {
+    animation: showing 0.5s;
+}
+
+button {
+    margin: 12px 0;
 }

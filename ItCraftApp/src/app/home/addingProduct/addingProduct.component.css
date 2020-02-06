@@ -1,0 +1,11 @@
+form {
+    border: 1px solid black;   
+    box-sizing: border-box;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}

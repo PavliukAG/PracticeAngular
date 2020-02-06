@@ -45,7 +45,12 @@ readonly BaseURL = 'http://localhost:54374/api';
   login(formData){
     return this.http.post( this.BaseURL + '/Auth/Login', formData);
   }
+
   getUserProfile(){
     return this.http.get(this.BaseURL + '/UserProfile');
+  }
+
+  getProducts() {
+    return this.http.get(this.BaseURL + '/Home/ListProducts');
   }
 }

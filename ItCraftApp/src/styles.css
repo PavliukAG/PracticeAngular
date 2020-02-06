@@ -25,10 +25,10 @@ input.form-control:focus{
   box-shadow: none;
 }
 
-button[type=submit].btn, .btn {
+button[type=submit].btn, .btn, button {
   background-color: var(--interactiveColor);
   color: #fff;
-  margin: 12px 0;
+  border: 0;
 }
 
 div.form-group label:not(.text-danger){
