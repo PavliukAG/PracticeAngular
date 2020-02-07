@@ -1,34 +1,29 @@
-<nav class="navbar">
-  <a class="navbar-brand text-white">Product manager</a>
-  <select class="" id="" *ngIf="userDetails">
-    <option disabled class="list-group-item"><strong>PROFILE</strong></option>
-    <option disabled class="list-group-item"><strong>Username : </strong>{{userDetails.userName}}</option>
-    <option disabled class="list-group-item"><strong>Full Name : </strong>{{userDetails.fullName}}</option>
-    <option disabled class="list-group-item"><strong>Email : </strong>{{userDetails.email}}</option>
-  </select>
-  <button class="btn" (click)="onLogout()">Logout</button>
-</nav>
+<div id="body">
+    <nav class="navbar row">
+        <a class="navbar-brand text-white offset-1">Product manager</a>
+        <div>
+            <select class="col-5" id="" *ngIf="userDetails">
+        <option disabled class="list-group-item"><strong>PROFILE</strong></option>
+        <option disabled class="list-group-item"><strong>Username : </strong>{{userDetails.userName}}</option>
+        <option disabled class="list-group-item"><strong>Full Name : </strong>{{userDetails.fullName}}</option>
+        <option disabled class="list-group-item"><strong>Email : </strong>{{userDetails.email}}</option>
+      </select>
+            <button class="btn col-5 offset-1" (click)="onLogout()">Logout</button>
+        </div>
+    </nav>
 
-<div class="row">
-  <div class="col-md-3 col-xs-12 statistics-container">
-    <app-productStatistics></app-productStatistics>
-  </div>
+    <div class="col-md-2 statisticsContainer">
+        <app-productStatistics></app-productStatistics>
+    </div>
+    <div class="row">
+        <!-- ---------------------------------------------------------------------------------------- -->
+        <nav class="col-md-8 offset-3 col-xs-12">
+            <app-addingProduct></app-addingProduct>
+        </nav>
 
-  <div class="col-md-7 col-xs-12">
-    <app-addingProduct></app-addingProduct>
-  </div>
+        <div class="col-md-10 offset-2 table-container">
+            <app-table></app-table>
+        </div>
 
-  <div class="col-md-2 col-xs-12">
-    <h4>Developers</h4>
-    <ul>
-      <li>Bogya</li>
-      <li>Sanya</li>
-      <li>Nastya</li>
-      <li>Zenya</li>
-    </ul>
-  </div>
-  <div class="col-md-10 col-xs-12 table-container">
-    <app-table></app-table>
-  </div>
-
+    </div>
 </div>

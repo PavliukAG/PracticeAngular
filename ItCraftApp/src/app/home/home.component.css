@@ -1,7 +1,16 @@
+#body {
+    overflow-x: hidden;
+    height: 100vh;
+}
+
 .navbar {
     background-color: #6050a0;
 }
 
 .table-container {
-    padding: 2.5%;
+    padding: 0 2.5%;
+}
+
+.statisticsContainer {
+    position: absolute;
 }

@@ -1,13 +1,11 @@
-<nav>
-  <form #form='ngForm' [formGroup]="formAdding" class="row" autocomplete="off" (submit)="addProduct()">
+<form #form='ngForm' [formGroup]="formAdding" class="row" autocomplete="off" (submit)="addProduct()">
     <div class="form-group col-5">
-      <label>Name</label>
-      <input class="form-control" [(ngModel)]="form.name" formControlName="name" required>
+        <label>Name</label>
+        <input class="form-control" [(ngModel)]="form.name" formControlName="name" required>
     </div>
     <div class="form-group col-5">
-      <label>Price</label>
-      <input class="form-control" [(ngModel)]="form.price" formControlName="price" required>
+        <label>Price</label>
+        <input class="form-control" [(ngModel)]="form.price" formControlName="price" required>
     </div>
     <button class="col-2" id="submit" [disabled]="form.invalid">ADD<br>PRODUCT</button>
-  </form>
-</nav>
+</form>

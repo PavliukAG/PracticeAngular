@@ -1,6 +1,7 @@
 form {
-    border: 1px solid black;   
+    background-color: #dde;
     box-sizing: border-box;
+    margin-top: 20px;
 }
 
 .form-group {
