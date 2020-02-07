@@ -12,10 +12,14 @@ export class UserProfileService {
   readonly BaseURL = 'http://localhost:54374/api';
 
   getUserProfile(){
-    return this.http.get(this.BaseURL + '/UserProfile');
+    return this.http.get(`${this.BaseURL}/UserProfile`);
   }
 
-  getProducts(){
-    return this.http.get(this.BaseURL + '/Home/ListProducts');
+  register(registrModelInfo) {
+    return this.http.post(`${this.BaseURL}/Auth/Register`, registrModelInfo);
+  }
+
+  login(formData){
+    return this.http.post(`${this.BaseURL}/Auth/Login`, formData);
   }
 }

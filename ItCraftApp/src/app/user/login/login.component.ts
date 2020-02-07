@@ -1,5 +1,5 @@
 import {Toast, ToastrService} from 'ngx-toastr';
-import { ExternalRoutingService } from './../../core/externalRouting.service';
+import { UserProfileService } from './../../core/userProfile.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,7 +15,7 @@ formModel = {
   userName : '',
   password : ''
 }
-  constructor(private service: ExternalRoutingService, private  router: Router, private toastr: ToastrService) { }
+  constructor(private service: UserProfileService, private  router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
   }

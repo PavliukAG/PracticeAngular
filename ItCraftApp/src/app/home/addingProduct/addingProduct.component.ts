@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ExternalRoutingService } from './../../core/externalRouting.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { TableComponent } from '../table/table.component';
+import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'app-addingProduct',
@@ -11,36 +13,32 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddingProductComponent implements OnInit {
 
-  // public form : FormGroup;
+  public formAdding : FormGroup;
 
-  constructor(private service: ExternalRoutingService, private  router: Router, private toastr: ToastrService) { }
-
-  ngOnInit() {
-
+  constructor(private service: ExternalRoutingService, private toastr: ToastrService, private fb: FormBuilder) { 
   }
 
-  onSubmit(form) {
+  ngOnInit() {
+    this.formAdding = this.fb.group({
+      name : ['', Validators.required],
+      price : ['', [Validators.required, Validators.pattern(`^[0-9]*[.,]?[0-9]+$`)]],
+      count : 0
+    });
+  }
 
-    let productModel = {
-      name : String(form.value.name),
-      price : Number(form.value.price)
-      // name : 'awdawd',
-      // price : 2000
+  addProduct() {
+    let model = {
+      name : this.formAdding.value.name,
+      price : Number(this.formAdding.value.price)
     }
+    this.service.addProduct(model).subscribe(
+      (res : any) => {
+        this.toastr.success(`${model.name} was added to table`);
 
-    this.service.addProduct(productModel).subscribe(
-      (res: any) => {
-        if (res.succeeded) { 
-    
-          // this.router.navigateByUrl('/home');
-        } else {
-          console.log(res.errors);
-          this.toastr.error('unsucceeded ' + productModel.name + " " + productModel.price);
-        }
-      },
-      err => {
-        this.toastr.error(productModel.name + " " + productModel.price);
-        console.log(err);
-      });
+      }
+    );
+      // ===========================
+      
+
   }
 }

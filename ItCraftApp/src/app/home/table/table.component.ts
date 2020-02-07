@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { UserProfileService } from 'src/app/core/userProfile.service';
+import { Component, OnInit, ContentChild } from '@angular/core';
+import { ExternalRoutingService } from 'src/app/core/externalRouting.service';
 import { ToastrService } from 'ngx-toastr';
+import { HomeComponent } from '../home.component';
 
 @Component({
   selector: 'app-table',
@@ -9,16 +10,14 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class TableComponent implements OnInit {
+  private items;
+  public pageNumber: number = 1;
+  public pageSize = 'ALL';
+  public edit = false;
 
-  constructor(private service: UserProfileService, private toastr: ToastrService) {
-    for (let i = 0; i < 100; i++) {
-      // this.items.push(generateProducts(i));
-    }
-  }
+  constructor(private service: ExternalRoutingService, private toastr: ToastrService) { }
 
-  items;
-
-  ngOnInit() {
+  initTable() {
     this.service.getProducts().subscribe(
       res => {
         this.items = res;
@@ -28,21 +27,17 @@ export class TableComponent implements OnInit {
       });
   }
 
-  public range(n: number, startFrom: number): number[] {
-    var foo = [];
-    for (var i = startFrom; i <= n; i++) {
-      foo.push(i);
-    }
-    return foo;
+  ngOnInit() {
+    this.initTable();
   }
 
-  pageNumber: number = 1;
-  pageSize: number = 5;
-
   public getSegmentOfList() {
-    let start : number = (this.pageNumber-1) * this.pageSize;
-    let end : number = Number(start) + Number(this.pageSize); 
-    return this.items.slice(start,end);
+    if (String(this.pageSize) == "ALL") {
+      return this.items;
+    }
+    let start: number = (this.pageNumber - 1) * Number(this.pageSize);
+    let end: number = Number(start) + Number(this.pageSize);
+    return this.items.slice(start, end);
   }
 
   public nextPage() {
@@ -56,17 +51,79 @@ export class TableComponent implements OnInit {
   }
 
   public getPagesCount() {
-    return Math.ceil(this.items.length / this.pageSize);
-  }
-
-  // checks out of page limits
-  public checkPages() {
-    this.pageNumber = 1;
-    
+    if (this.pageSize == "ALL") return this.pageSize;
+    return Math.ceil(this.items.length / Number(this.pageSize));
   }
 
   private getPageLimit() {
-    return Math.ceil(this.items.length / this.pageSize);
+    return Math.ceil(this.items.length / Number(this.pageSize));
+  }
+
+  public showStatistics(item) {
+    let res = "Name: " + item.name
+      + "\nPrice: " + item.price
+      + "\nCount: " + item.count
+      + "\nTotal Price: " + Number(item.count * item.price)
+      + "\nId: " + item.productId;
+    + "\n"
+    alert(res)
+
+    let info = {
+      name : item.name,
+      price: item.price,
+      count: item.count,
+      totalPrice: Number(item.count * item.price),
+      id: item.productId
+    }
+
+    // statistics ------------------------------
+
+  }
+  public remove(item) {
+    let res = confirm("Are you sure you want to delete the item?");
+    if (res) {
+      this.service.removeProduct(item.productId).subscribe();
+      let id = this.items.indexOf(item)
+      this.items = this.items.slice(0, id).concat(this.items.slice(id + 1, this.items.length));
+    } 
+  }
+
+
+  directionName = true;
+  public sortName() {
+    this.directionName = !this.directionName;
+    this.items.sort(function(a,b) {
+      if (a.name > b.name) return 1;
+      if (b.name > a.name) return -1
+      else return 0;
+    });
+    if (this.directionName) this.items.reverse();
+  }
+
+  
+  directionPrice = true;
+  public sortPrice() {
+    this.directionPrice = !this.directionPrice;
+    this.items.sort(function(a,b) {
+      if (a.price > b.price) return 1;
+      if (b.price > a.price) return -1
+      else return 0;
+    });
+    if (this.directionPrice) this.items.reverse();
+  }
+
+  public clearDB() {
+    let res = confirm("Clear all database?")
+    if (res) {
+      this.items.forEach(item => {
+        this.service.removeProduct(item.productId).subscribe();
+        this.items = [];
+      });
+    }
+  }
+
+  public changeStateProduct() {
+    this.edit = !this.edit;
   }
 
 }

@@ -1,8 +1,8 @@
 <nav class="row">
-  <div class="col-md-5 col-xs-12">
+  <div class="col-md-5 col-xs-12" id="selectPageSize-group">
     <label class="offset-1" for="selectPageSize" >Count of goods</label>
-    <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" (change)="checkPages()">
-      <option *ngFor="let c of [2, 5,10,15,30,50,100]" value="{{c}}" >{{c}}</option>
+    <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" (change)="pageNumber=1">
+      <option *ngFor="let c of [2, 5,10,15,30,50,100, 'ALL']" value="{{c}}" >{{c}}</option>
     </select>
   
   </div>
@@ -15,28 +15,49 @@
 <table class="">
   <tr>
     <td class="col-4">
-      <button>
-        <span>Name</span>
-        <img src="#" alt="">
+      <button (click)="sortName()">
+        <span>NAME</span>
+        <img src="../../../assets/images/sorticon.png" alt="">
       </button>
     </td>
     <td class="col-4">
-      <button>
-        <span>Price</span>
-        <img src="#" alt="">
+      <button (click)="sortPrice()">
+        <span>PRICE</span>
+        <img src="../../../assets/images/sorticon.png" alt="">
       </button>
     </td>
     <td class="col-4" colspan="3">
-      <span>Actions</span>
+      <span>ACTIONS</span>
     </td>
   </tr>
-  <tr *ngFor="let item of getSegmentOfList()">
-    <td class="col-5">{{item.name}}</td>
-    <td class="col-5">{{item.price}}</td>
+  <tr class="trProduct" *ngFor="let item of getSegmentOfList()">
+    <!-- show  -->
+    <td *ngIf="!edit" class="col-5" (click)="showStatistics(item)">{{item.name}}</td>
+    <td *ngIf="!edit" class="col-5" (click)="showStatistics(item)">{{item.price}}</td>
+    <!-- edit -->
+    <td *ngIf="edit" class="col-5"> <input type="text" value="{{item.name}}"></td>
+    <td *ngIf="edit" class="col-5"> <input type="text" value="{{item.price}}"></td>
+    <!--  -->
     <div class="col-1">
-    <td class="col-4"> <button>Edit</button> </td>
-    <td class="col-4"> <button>Remove</button> </td>
-    <td class="col-4"> <button>Income/Outcome</button> </td>
-  </div>
+      <td *ngIf="!edit" class="col-4"> <button (click)="changeStateProduct()">Edit</button> </td> <!-- EDIT MODE -->
+      <td *ngIf="edit" class="col-4"> <button (click)="changeStateProduct()">Save</button> </td> <!-- SHOW MODE -->
+      <td class="col-4"> <button (click)="remove(item)">Remove</button> </td>
+      <td class="col-4"> <button>Income/Outcome</button> </td>
+    </div>
   </tr>
 </table>
+<button (click)="clearDB()">CLEAR DB</button>
+<nav *ngIf="(pageSize >= 15 || pageSize == 'ALL') && (items.length >= 15)" class="row">
+  <div class="col-md-5 col-xs-12" id="selectPageSize-group">
+    <label class="offset-1" for="selectPageSize" >Count of goods</label>
+    <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" (change)="pageNumber=1">
+      <option *ngFor="let c of [2, 5,10,15,30,50,100, 'ALL']" value="{{c}}" >{{c}}</option>
+    </select>
+  
+  </div>
+  <ul class="col-md-5 col-xs-12 pagination">
+    <li class="page-item"><button class="page-link" (click)="prevPage()">Previous</button></li>
+    <li class="page-item" ><button disabled class="page-link"> {{pageNumber}} of {{getPagesCount()}} </button></li>
+    <li class="page-item"><button class="page-link" (click)="nextPage()">Next</button></li>
+  </ul> 
+</nav>

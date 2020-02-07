@@ -8,15 +8,18 @@ export class ExternalRoutingService {
 
   constructor(private http: HttpClient) { }
   readonly BaseURL = 'http://localhost:54374/api';
-  register(registrModelInfo) {
-    return this.http.post( this.BaseURL + '/Auth/Register', registrModelInfo);
-  }
 
-  login(formData){
-    return this.http.post( this.BaseURL + '/Auth/Login', formData);
+  getProducts(){
+    return this.http.get(`${this.BaseURL}/Product`);
   }
 
   addProduct(formData) {
-    return this.http.post( this.BaseURL + '/Home/CreateProduct', formData);
+    // alert(`Was added product: \nName: ${formData.name}\nPrice: ${formData.price}`)
+    return this.http.post(`${this.BaseURL}/Product`, formData);
   }
+
+  removeProduct(id) {
+    return this.http.delete(`${this.BaseURL}/Product/${Number(id)}`);
+  }
+
 }

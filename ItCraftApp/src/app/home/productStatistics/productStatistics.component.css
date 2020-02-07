@@ -1,0 +1,14 @@
+section {
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-left: 15px;
+    box-sizing: border-box;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+label {
+    font-size: 20px;
+}

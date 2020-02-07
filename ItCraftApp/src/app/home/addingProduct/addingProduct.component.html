@@ -1,5 +1,5 @@
 <nav>
-  <form #form='ngForm' [formGroup]="form" class="row" autocomplete="off" (click)="onSubmit(form)">
+  <form #form='ngForm' [formGroup]="formAdding" class="row" autocomplete="off" (submit)="addProduct()">
     <div class="form-group col-5">
       <label>Name</label>
       <input class="form-control" [(ngModel)]="form.name" formControlName="name" required>
@@ -8,6 +8,6 @@
       <label>Price</label>
       <input class="form-control" [(ngModel)]="form.price" formControlName="price" required>
     </div>
-    <button class="col-2" type="sumbit" [disabled]="form.invalid">ADD<br>PRODUCT</button>
+    <button class="col-2" id="submit" [disabled]="form.invalid">ADD<br>PRODUCT</button>
   </form>
 </nav>

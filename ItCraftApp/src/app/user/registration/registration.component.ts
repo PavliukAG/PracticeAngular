@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExternalRoutingService } from '../../core/externalRouting.service';
+import { UserProfileService } from '../../core/userProfile.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -13,7 +13,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class RegistrationComponent implements OnInit {
  public form: any;
  
-  constructor(public service: ExternalRoutingService, private toastr: ToastrService, private router: Router, private fb: FormBuilder) { }
+  constructor(public service: UserProfileService, private toastr: ToastrService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.form = this.fb.group({
