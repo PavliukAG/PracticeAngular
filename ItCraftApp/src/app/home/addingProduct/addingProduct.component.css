@@ -1,40 +1,32 @@
-:root {}
+:root {
+}
 
 form {
-    /* background-color: #dde; */
-    box-sizing: border-box;
-    margin-top: 20px;
-    margin-left: -7.5%;
+  /* background-color: #dde; */
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-left: -7.5%;
 }
 
-form>button {
-    margin-top: -15px;
-    border-radius: 20%;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    border: 0 solid orange;
-    border-top-width: 6px;
-    z-index: 2;
-    padding: 10px 0 10px 0;
-    filter: drop-shadow(0 7px 8px rgba(0, 0, 0, 0.5));
-    box-sizing: border-box;
+form > button {
+  margin-top: -5px;
+  z-index: 2;
+  padding: 10px 0 10px 0;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.5));
+  box-sizing: border-box;
+  border-radius: 10px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
-form>button>div {
-    background-color: orange;
-    width: 15%;
-    margin-left: 43%;
-    margin-top: -50px;
-    height: 40px;
-}
-
-form>button:active {
-    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.6));
+form > button:active {
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.6));
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
 }

@@ -1,7 +1,5 @@
-:root {}
-
 nav {
-    margin-top: -55px;
+    margin-top: -50px;
     padding-top: 10px;
     border: 0 solid black;
     border-left-width: 4px;
@@ -12,17 +10,17 @@ nav {
 }
 
 nav>#hole-container {
-    margin-top: -10px;
-    margin-bottom: 5px;
+    margin-top: -60px;
+    margin-bottom: 15px;
 }
 
 nav>#hole-container>#hole {
-    border-radius: 0 0 500% 500%;
+    border-radius: 30px;
     background-color: red;
-    width: 75%;
-    margin-left: 12.5%;
+    width: 72%;
+    margin-left: 14%;
     background-color: white;
-    height: 100%;
+    height: 105%;
 }
 
 #selectPageSize-group {
@@ -62,7 +60,7 @@ td {
     from {}
     50% {
         filter: opacity(0.9);
-        background-color: #f0e0e0;
+        background-color: #fff4fd;
         box-shadow: 0 5px 10px rgba(100, 100, 100, 0.5);
     }
     to {}
@@ -114,7 +112,17 @@ tr:first-child {
 }
 
 .action-row>td>img:hover {
-    filter: drop-shadow(0 5px 5px #eaf);
+    transition: 0.4s;
+}
+
+.action-row>td:nth-child(1)>img:hover {
+    filter: drop-shadow(0 5px 5px #0f0) drop-shadow(0 2px 50px #0f0);
+}
+.action-row>td:nth-child(2)>img:hover {
+    filter: drop-shadow(0 5px 5px red) drop-shadow(0 2px 50px red);
+}
+.action-row>td:nth-child(3)>img:hover {
+    filter: drop-shadow(0 5px 5px orange) drop-shadow(0 2px 50px orange);
 }
 
 .action-row>td>img:active {
