@@ -15,7 +15,8 @@ export class TableComponent implements OnInit {
   public pageSize = 'ALL';
   public edit = false;
 
-  constructor(private service: ExternalRoutingService, private toastr: ToastrService) { }
+  constructor(private service: ExternalRoutingService, private toastr: ToastrService) {
+   }
 
   initTable() {
     this.service.getProducts().subscribe(
@@ -28,7 +29,19 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.generateHardcodeProduct();
     this.initTable();
+  }
+  // ! This method for testing without backend
+  generateHardcodeProduct() {
+    this.items = []
+    for (let i = 0; i < 100; i++) {
+      let model = {name : `Product${i}`, 
+      price : Math.round((Math.random()*1000)*100) / 100, 
+      productId : i, 
+      count : 0}
+      this.items.push(model)
+    }
   }
 
   public getSegmentOfList() {
@@ -117,8 +130,8 @@ export class TableComponent implements OnInit {
     if (res) {
       this.items.forEach(item => {
         this.service.removeProduct(item.productId).subscribe();
-        this.items = [];
       });
+      this.items = [];
     }
   }
 

@@ -1,85 +1,97 @@
 :root {
-  --interactiveColor: #04c582;
-  --interactiveColor: #8777d7;
-  --backcolor: #636b7b;
-  --textcolor: #545d6a;
+    --interactiveColor: #04c582;
+    --interactiveColor: #8777d7;
+    --backcolor: #636b7b;
+    --textcolor: #545d6a;
+}
+
+body {
+    margin: 0;
+    overflow-y: hidden;
 }
 
 hr {
-  background-color: var(--textcolor);
+    background-color: var(--textcolor);
 }
+
 
 /* input */
-.form-group > label:first-child {
-  padding: 0;
+
+.form-group>label:first-child {
+    padding: 0;
 }
 
-input.form-control,input.form-control:focus{ 
-  background-color: var(--backcolor);
-  color: #fff;
-  border: 0;
-  height: 35px;
+input.form-control,
+input.form-control:focus {
+    background-color: var(--backcolor);
+    color: #fff;
+    border: 0;
+    height: 35px;
 }
 
-input.form-control:focus{
-  box-shadow: none;
+input.form-control:focus {
+    box-shadow: none;
 }
 
-button[type=submit].btn, .btn, button {
-  background-color: var(--interactiveColor);
-  color: #fff;
-  border: 0;
+button[type=submit].btn,
+.btn,
+button {
+    background-color: var(--interactiveColor);
+    color: #fff;
+    border: 0;
 }
 
-div.form-group label:not(.text-danger){
-  color: var(--textcolor);
-  font-weight: 700;
+div.form-group label:not(.text-danger) {
+    color: var(--textcolor);
+    font-weight: 700;
 }
 
-div.form-group.required>label:first-child:after{
-  content:'*';
-  color: #eee;
-  padding-left: 5px;
+div.form-group.required>label:first-child:after {
+    content: '*';
+    color: #eee;
+    padding-left: 5px;
 }
+
 
 /* ----------------------------------------------------- Tabs */
 
-#toast-container > div {
-  opacity:1;
+#toast-container>div {
+    opacity: 1;
 }
 
-.tab-header{
-  text-align: center;
+.tab-header {
+    text-align: center;
 }
 
 .tab-header h2.active {
-  color: #fff;
-  border-bottom: 4px solid #fff;
+    color: #fff;
+    border-bottom: 4px solid #fff;
 }
 
 .tab-header h2 {
-  text-align: center;
-  font-size: 18px;
-  font-weight: 600;
-  display:inline-block;
-  padding: 30px 40px 10px 40px;
-  cursor: pointer;
-  color: #545d6a;
-  border-bottom: 2px solid #545d6a;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-block;
+    padding: 30px 40px 10px 40px;
+    cursor: pointer;
+    color: #545d6a;
+    border-bottom: 2px solid #545d6a;
 }
 
 .tab-header h2:focus {
-  outline: none;
+    outline: none;
 }
 
-form{
-  margin: 0px 16px;
+form {
+    margin: 0px 16px;
 }
 
-div.form-group input.invalid{
-  border: 1px solid #dc3545;
+div.form-group input.invalid {
+    border: 1px solid #dc3545;
 }
-div.form-group label:first-child{
-  text-transform: uppercase;
-  font-size: 0.9rem;
+
+div.form-group label:first-child {
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
