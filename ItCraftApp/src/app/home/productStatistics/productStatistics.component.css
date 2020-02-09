@@ -2,12 +2,18 @@ section {
     margin-top: -4px;
     box-sizing: border-box;
     opacity: 0.8;
-    height: 90vh;
-    border: 0 solid #b0a0ff;
-    border-top-width: 4px;
+    height: 95vh;
     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
     background-color: #eeeeee;
-    padding-top: 20px;
+}
+
+section > div {
+    width: 100%;
+    height: 4px;
+    position: relative;
+    top: 0;
+    background: linear-gradient(to left top, #ff6e8b,#9e9eff);
+    margin-bottom: 20px;
 }
 
 label {

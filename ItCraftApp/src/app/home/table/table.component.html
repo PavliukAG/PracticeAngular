@@ -8,7 +8,7 @@
     <div class="col-md-3" id="hole-container">
         <div id="hole"></div>
     </div>
-    <ul class="col-md-3 offset-2 col-xs-12 pagination">
+    <ul class="col-md-4 offset-1 col-xs-12 pagination" *ngIf="pageSize != 'ALL'">
         <li class="page-item"><button class="page-link" (click)="prevPage()">Previous</button></li>
         <li class="page-item"><button disabled class="page-link"> {{pageNumber}} of {{getPagesCount()}} </button></li>
         <li class="page-item"><button class="page-link" (click)="nextPage()">Next</button></li>
@@ -16,42 +16,43 @@
 </nav>
 <div class="row">
     <h1 *ngIf="items.length == 0"> <br>Data base is empty<br>Please add new product</h1>
+    <!--*  ------- TABLE --------------------- -->
     <table class="col-12" *ngIf="items.length > 0">
         <tr>
-            <td class="col-5">
+            <td class="">
                 <button (click)="sortName()">
                     <span>NAME</span>
                     <img src="../../../assets/images/sorticon.png" alt="">
                 </button>
             </td>
-            <td class="col-5">
+            <td class="">
                 <button (click)="sortPrice()">
                     <span>PRICE</span>
                     <img src="../../../assets/images/sorticon.png" alt="">
                 </button>
             </td>
-            <td class="col-2" colspan="3">
+            <td class="" colspan="3">
                 <span>ACTIONS</span>
             </td>
         </tr>
         <tr class="trProduct" *ngFor="let item of getSegmentOfList(); let i = index">
             <!-- show  -->
-            <td *ngIf="!edit" class="col-5" (click)="showStatistics(item)">{{item.name}}</td>
-            <td *ngIf="!edit" class="col-5" (click)="showStatistics(item)">{{item.price}}</td>
+            <td *ngIf="!edit" class="" (click)="showStatistics(item)">{{item.name}}</td>
+            <td *ngIf="!edit" class="" (click)="showStatistics(item)">{{item.price}}</td>
             <!-- edit -->
-            <td *ngIf="edit" class="col-5"> <input type="text" value="{{item.name}}"></td>
-            <td *ngIf="edit" class="col-5"> <input type="text" value="{{item.price}}"></td>
+            <td *ngIf="edit" class=""> <input type="text" value="{{item.name}}"></td>
+            <td *ngIf="edit" class=""> <input type="text" value="{{item.price}}"></td>
             <!--  -->
             <div class="col-2 action-row">
-                <td *ngIf="!edit" class="col-4"> <img src="../../../assets/images/editicon.png"
+                <td *ngIf="!edit" class=""> <img src="../../../assets/images/editicon.png"
                         (click)="changeStateProduct()" alt="Edit"> </td>
-                <td *ngIf="edit" class="col-4"> <img src="../../../assets/images/saveicon.png"
+                <td *ngIf="edit" class=""> <img src="../../../assets/images/saveicon.png"
                         (click)="changeStateProduct()" alt="Save"> </td>
-                <td *ngIf="!edit" class="col-4"> <img src="../../../assets/images/removeicon.png" (click)="remove(item)"
+                <td *ngIf="!edit" class=""> <img src="../../../assets/images/removeicon.png" (click)="remove(item)"
                         alt="Remove"> </td>
-                <td *ngIf="edit" class="col-4"> <img src="../../../assets/images/backicon.png" (click)="remove(item)"
+                <td *ngIf="edit" class=""> <img src="../../../assets/images/backicon.png" (click)="changeStateProduct()"
                         alt="Cancel"> </td>
-                <td class="col-4"> <img src="../../../assets/images/inoutcomeicon.png" alt="Income/Outcome"> </td>
+                <td class=""> <img src="../../../assets/images/inoutcomeicon.png" alt="Income/Outcome"> </td>
             </div>
         </tr>
     </table>
@@ -64,7 +65,7 @@
         </select>
 
     </div>
-    <ul class="col-md-5 col-xs-12 pagination">
+    <ul class="col-md-4 offset-2 col-xs-12 pagination">
         <li class="page-item"><button class="page-link" (click)="prevPage()">Previous</button></li>
         <li class="page-item"><button disabled class="page-link"> {{pageNumber}} of {{getPagesCount()}} </button></li>
         <li class="page-item"><button class="page-link" (click)="nextPage()">Next</button></li>

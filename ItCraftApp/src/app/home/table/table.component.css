@@ -1,15 +1,13 @@
 nav {
-    border: 0 solid black;
-    border-left-width: 4px;
-    color: black;
-    background-color: white;
+    color: white;
     /* box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.2); */
-    background-color: #ddd;
+    background-color: #969696;
     padding-top: 10px;
+    height: 64px;
 }
 
 nav:first-of-type {
-    margin-top: -55px;
+    margin-top: -50px;
 }
 
 
@@ -20,10 +18,9 @@ nav>#hole-container {
 
 nav>#hole-container>#hole {
     border-radius: 30px;
-    background-color: red;
     width: 72%;
     margin-left: 14%;
-    background-color: white;
+    background-color: #f3f3f3;
     height: 105%;
 }
 
@@ -38,6 +35,19 @@ table {
     border-right-width: 2px;
     box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.2);
     z-index: 1;
+}
+
+td:nth-child(1) {
+    width: 50%;
+}
+
+td:nth-child(2) {
+    width: 40%
+}
+
+td:nth-child(3) {
+    width: 10%;
+    min-width: 42px;
 }
 
 td {
@@ -63,15 +73,14 @@ td {
 @keyframes hoverAnim {
     from {}
     50% {
-        filter: opacity(0.9);
-        background-color: #fff4fd;
-        box-shadow: 0 5px 10px rgba(100, 100, 100, 0.5);
+        filter: opacity(0.9), brightness(1.03);
+        box-shadow: 0 5px 10px rgba(100, 100, 100, 0.5), -10px 0 8px rgba(0, 47, 255, 0.4);
     }
     to {}
 }
 
 .trProduct:hover {
-    animation: hoverAnim 1s ease-in-out infinite reverse;
+    animation: hoverAnim 1s linear infinite reverse;
 }
 
 tr:first-child>td {
@@ -90,6 +99,10 @@ tr:first-child>td>button {
     padding: 10px;
     font-size: 20px;
     font-weight: 600;
+}
+
+tr:first-child>td:hover {
+    filter: brightness(1.025);
 }
 
 button>img {
