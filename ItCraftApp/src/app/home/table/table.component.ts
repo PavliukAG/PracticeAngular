@@ -95,7 +95,19 @@ export class TableComponent implements OnInit {
   public remove(item) {
     let res = confirm("Are you sure you want to delete the item?");
     if (res) {
-      this.service.removeProduct(item.productId).subscribe();
+      this.service.removeProduct(item.productId).subscribe(
+        (res: any) => {
+          this.toastr.success(`${res.name} was successfully deleted`);
+        },
+        err => {
+          if (err.status == 400) {
+            this.toastr.error(err.error, 'Operation failed.');
+          } else {
+            console.log(err);
+          }
+    
+        }
+        );
       let id = this.items.indexOf(item)
       this.items = this.items.slice(0, id).concat(this.items.slice(id + 1, this.items.length));
     } 

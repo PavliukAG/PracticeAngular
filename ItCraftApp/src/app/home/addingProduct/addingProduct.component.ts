@@ -34,7 +34,13 @@ export class AddingProductComponent implements OnInit {
     this.service.addProduct(model).subscribe(
       (res : any) => {
         this.toastr.success(`${model.name} was added to table`);
-
+      },
+      err => {
+        if (err.status == 400) {
+          this.toastr.error(err.error, 'Operation failed.');
+        } else {
+          console.log(err);
+        }
       }
     );
       // ===========================
