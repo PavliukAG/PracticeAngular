@@ -33,8 +33,8 @@ nav>#hole-container>#hole {
     border-radius: 30px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    width: 56%;
-    margin-left: 22%;
+    width: 59%;
+    margin-left: 20.5%;
     background-color: #f3f3f3;
     height: 100%;
     border: 3px solid #545d6a;
@@ -71,10 +71,6 @@ td:nth-child(2) {
 
 /* actions */
 
-td:nth-child(3) {
-    width: 8%;
-}
-
 td {
     border: 0px solid black;
     border-bottom-width: 2px;
@@ -110,6 +106,12 @@ td {
     box-shadow: 0 3px 8px rgba(100, 100, 100, 0.5), -10px 0 20px rgba(247, 0, 103, 0.2);
 }
 
+.trProduct > td > input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
 tr:first-child>td {
     padding: 0;
 }
@@ -129,7 +131,7 @@ tr:first-child>td>button {
 }
 
 tr:first-child>td:hover {
-    filter: brightness(1.025);
+    filter: brightness(1.035);
 }
 
 button>img {
@@ -146,6 +148,10 @@ tr:nth-child(odd) {
 tr:first-child {
     font-size: 22px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
 
@@ -153,6 +159,7 @@ tr:first-child {
 
 .action-row {
     text-align: center;
+    
 }
 
 .action-row>td>img {
@@ -168,6 +175,7 @@ tr:first-child {
 
 .action-row>td {
     box-shadow: 0 2px 10px rgba(57, 11, 196, 0.2);
+    /* box-sizing: border-box; */
 }
 
 .action-row>td>img:hover {

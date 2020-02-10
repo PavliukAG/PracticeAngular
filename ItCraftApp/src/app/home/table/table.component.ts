@@ -11,28 +11,16 @@ import { ToastrService } from 'ngx-toastr';
 export class TableComponent implements OnInit {
   @Input() items;
   public pageNumber: number = 1;
-  public pageSize = 2;
-  public edit = false;
+  public pageSize = 5;
+  // ! --------------------- THIS IS HARDCODE
+  public edit = new Array<boolean>(200);
 
   @Output() changeCurrentItemTable = new EventEmitter();
   
-  constructor(private service: ExternalRoutingService, private toastr: ToastrService) {}
+  constructor(private service: ExternalRoutingService, private toastr: ToastrService) {
+  }
 
   ngOnInit() {
-  }
-  
-  // ! This method for testing without backend
-  generateHardcodeProduct() {
-    this.items = []
-    for (let i = 0; i < 100; i++) {
-      let model = {
-        name: `Product${i}`,
-        price: Math.round((Math.random() * 1000) * 100) / 100,
-        productId: i,
-        count: 0
-      }
-      this.items.push(model)
-    }
   }
 
   public getSegmentOfList() {
@@ -41,6 +29,7 @@ export class TableComponent implements OnInit {
     }
     let start: number = (this.pageNumber - 1) * Number(this.pageSize);
     let end: number = Number(start) + Number(this.pageSize);
+    
     return this.items.slice(start, end);
   }
 
@@ -123,7 +112,26 @@ export class TableComponent implements OnInit {
     }
   }
 
-  public changeStateProduct() {
-    this.edit = !this.edit;
+  public commandLine : string;
+  public command() {
+    switch (this.commandLine) {
+      case "clear":
+        this.clearDB();
+        break;
+      case "additem": {
+        let model = { 
+          name: "test" + Math.random()*100, 
+          price: Math.random()*100
+        }
+        let res = confirm("Add?");
+        if (res) 
+        this.service.addProduct(model);      
+        break; 
+      }
+    }
+  }
+
+  public changeStateProduct(id:number) {
+    this.edit[id] = !this.edit[id];
   }
 }

@@ -7,7 +7,9 @@
         <label>Price</label>
         <input class="form-control" [(ngModel)]="form.price" formControlName="price" required placeholder="Enter the price of product">
     </div>
-    <button class="col-2 offset-5" type="submit" [disabled]="form.invalid">
+    <div class="col-2 offset-5">
+        <button type="submit" [disabled]="form.invalid">
             ADD PRODUCT
-    </button>
+        </button>
+    </div>
 </form>

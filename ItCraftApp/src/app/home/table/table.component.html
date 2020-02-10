@@ -36,22 +36,22 @@
                 <span>ACTIONS</span>
             </td>
         </tr>
-        <tr class="trProduct" *ngFor="let item of getSegmentOfList(); let i = index">
+        <tr class="trProduct" *ngFor="let item of getSegmentOfList(); let id = index">
             <!-- show  -->
-            <td *ngIf="!edit" class="" (click)="showStatistics(item)">{{item.name}}</td>
-            <td *ngIf="!edit" class="" (click)="showStatistics(item)">{{item.price}}</td>
+            <td *ngIf="!edit[(id*pageNumber)+id]" class="" (click)="showStatistics(item)">{{item.name}}</td>
+            <td *ngIf="!edit[(id*pageNumber)+id]" class="" (click)="showStatistics(item)">{{item.price}} $</td>
             <!-- edit -->
-            <td *ngIf="edit" class=""> <input type="text" value="{{item.name}}"></td>
-            <td *ngIf="edit" class=""> <input type="text" value="{{item.price}}"></td>
-            <!--  -->
+            <td *ngIf="edit[(id*pageNumber)+id]" class=""> <input type="text" value="{{item.name}}"></td>
+            <td *ngIf="edit[(id*pageNumber)+id]" class=""> <input type="text" value="{{item.price}}"></td>
+            <!--*  -------------- ACTIONS ------------>
             <div class="action-row">
-                <td *ngIf="!edit" class=""> <img src="../../../assets/images/editicon.png" (click)="changeStateProduct()" alt="Edit"> </td>
-                <td *ngIf="edit" class=""> <img src="../../../assets/images/saveicon.png" (click)="changeStateProduct()" alt="Save"> </td>
+                <td *ngIf="!edit[(id*pageNumber)+id]"> <img src="../../../assets/images/editicon.png" (click)="changeStateProduct((id*pageNumber)+id)" alt="Edit"> </td>
+                <td *ngIf="edit[(id*pageNumber)+id]"> <img src="../../../assets/images/saveicon.png" (click)="changeStateProduct((id*pageNumber)+id)" alt="Save"> </td>
 
-                <td *ngIf="!edit" class=""> <img src="../../../assets/images/removeicon.png" (click)="remove(item)" alt="Remove"> </td>
-                <td *ngIf="edit" class=""> <img src="../../../assets/images/backicon.png" (click)="changeStateProduct()" alt="Cancel"> </td>
+                <td *ngIf="!edit[(id*pageNumber)+id]"> <img src="../../../assets/images/removeicon.png" (click)="remove(item)" alt="Remove"> </td>
+                <td *ngIf="edit[(id*pageNumber)+id]"> <img src="../../../assets/images/backicon.png" (click)="changeStateProduct((id*pageNumber)+id)" alt="Cancel"> </td>
 
-                <td class="">
+                <td>
                     <img src="../../../assets/images/inoutcomeicon.png" alt="Income/Outcome">
                 </td>
             </div>
@@ -72,4 +72,6 @@
         <li class="page-item"><button class="page-link" (click)="nextPage()">Next</button></li>
     </ul>
 </nav>
-<button (click)="clearDB()">Clear DatabASS</button>
+<br>
+<span class="col-1 offset-4">Console: </span>
+<input type="text" class="col-2" [(ngModel)]="commandLine" (change)="command()">

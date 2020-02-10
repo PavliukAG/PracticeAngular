@@ -1,13 +1,16 @@
+<header>
+    <img src="../../../assets/images/itcraft-logo2.png" alt="ITCRAFT">
+</header>
 <section>
-    <div></div>
-    <h3 class="col-12">STATISTICS</h3>
-    <hr>
-    <div *ngIf="item; else unknownItem">
-        <strong id="name" class="col-12">{{item.name}}</strong>
+        <div id="border"></div>
+        <h3 class="col-12">STATISTICS</h3>
         <hr>
-        <label class="col-12" for="">PRICE: </label>
-        <strong id="price" class="col-11 offset-1">{{item.price}}</strong>
-        <hr>
+        <div *ngIf="item; else unknownItem">
+            <strong id="name" class="col-12">{{item.name}}</strong>
+            <hr>
+            <label class="col-12" for="">PRICE: </label>
+            <strong id="price" class="col-11 offset-1">{{item.price}}$</strong>
+            <hr>
         <label class="col-12" for="">COUNT: </label>
         <strong id="count" class="col-11 offset-1" for="">{{item.count}}</strong>
         <hr>
@@ -16,4 +19,5 @@
     </div>
     <ng-template #unknownItem class="col-11 offset-1">Empty</ng-template>
     <hr>
+    <button class="col-10 offset-1">JOURNAL</button>
 </section>
