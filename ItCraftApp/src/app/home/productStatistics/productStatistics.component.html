@@ -2,15 +2,18 @@
     <div></div>
     <h3 class="col-12">STATISTICS</h3>
     <hr>
-    <strong id="name" class="col-12">{{item.name}}</strong>
-    <hr>
-    <label class="col-12" for="">PRICE: </label>
-    <strong id="price" class="col-11 offset-1">{{item.price}}</strong>
-    <hr>
-    <label class="col-12" for="">COUNT: </label>
-    <strong id="count" class="col-11 offset-1" for="">{{item.count}}</strong>
-    <hr>
-    <label class="col-12" for="">TOTAL COST: </label>
-    <strong id="total" class="col-11 offset-1">{{item.price * item.count}}</strong>
+    <div *ngIf="item else unknownItem">
+        <strong id="name" class="col-12">{{item.name}}</strong>
+        <hr>
+        <label class="col-12" for="">PRICE: </label>
+        <strong id="price" class="col-11 offset-1">{{item.price}}</strong>
+        <hr>
+        <label class="col-12" for="">COUNT: </label>
+        <strong id="count" class="col-11 offset-1" for="">{{item.count}}</strong>
+        <hr>
+        <label class="col-12" for="">TOTAL COST: </label>
+        <strong id="total" class="col-11 offset-1">{{item.price * item.count}}</strong>
+    </div>
+    <label #unknownItem class="col-11 offset-1">Empty</label>
     <hr>
 </section>

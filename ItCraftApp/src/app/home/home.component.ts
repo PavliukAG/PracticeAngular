@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
 
   async initProducts() {
     
-    // await this.delay(150);
+    await this.delay(150);
 
     this.dataService.getProducts().subscribe(
       res => {

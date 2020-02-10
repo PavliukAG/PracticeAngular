@@ -17,6 +17,4 @@ export class ProductStatisticsComponent implements OnInit {
   ngOnInit() {
   }
 
-  
-
 }
