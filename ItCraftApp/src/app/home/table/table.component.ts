@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class TableComponent implements OnInit {
   @Input() items;
   public pageNumber: number = 1;
-  public pageSize = 'ALL';
+  public pageSize = 2;
   public edit = false;
 
   @Output() changeCurrentItemTable = new EventEmitter();
@@ -55,7 +55,7 @@ export class TableComponent implements OnInit {
   }
 
   public getPagesCount() {
-    if (this.pageSize == "ALL") return this.pageSize;
+    if (String(this.pageSize) == "ALL") return this.pageSize;
     return Math.ceil(this.items.length / Number(this.pageSize));
   }
 

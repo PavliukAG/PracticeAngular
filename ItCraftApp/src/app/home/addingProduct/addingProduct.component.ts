@@ -1,8 +1,7 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ExternalRoutingService } from './../../core/externalRouting.service';
 import { ToastrService } from 'ngx-toastr';
-import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-addingProduct',
@@ -12,7 +11,8 @@ import { EventEmitter } from 'protractor';
 export class AddingProductComponent implements OnInit {
 
   public formAdding : FormGroup;
-  @Output() eventEmitter;
+
+  @Output() eventEmitter = new EventEmitter();
 
   constructor(private service: ExternalRoutingService, private toastr: ToastrService, private fb: FormBuilder) { 
   }
@@ -42,7 +42,8 @@ export class AddingProductComponent implements OnInit {
         }
       }
     );
-      this.updateTable();
+    this.updateTable();
+
   }
 
   updateTable() {

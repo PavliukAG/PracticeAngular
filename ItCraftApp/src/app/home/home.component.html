@@ -19,7 +19,7 @@
     </div>
     <div class="row">
         <div class="col-md-10 offset-2 col-xs-12 add-container">
-            <app-addingProduct (updateTable)="initProduct()"></app-addingProduct>
+            <app-addingProduct (eventEmitter)="initProducts()"></app-addingProduct>
         </div>
         <div class="col-md-10 offset-2 table-container">
             <app-table [items]="products" (changeCurrentItemTable)="changeCurrentItem($event)"></app-table>

@@ -4,6 +4,7 @@ import { TableComponent } from './table/table.component'
 import { UserProfileService } from './../core/userProfile.service'
 import { ExternalRoutingService } from '../core/externalRouting.service';
 import { EventEmitter } from 'protractor';
+import { delay } from 'rxjs/operators';
 
 
 @Component({
@@ -20,16 +21,6 @@ export class HomeComponent implements OnInit {
   //* Methods -------------------------------------------------------
   constructor(private router: Router, private userService: UserProfileService, private dataService: ExternalRoutingService) { }
 
-  initProducts() {
-    this.dataService.getProducts().subscribe(
-      res => {
-        this.products = res;
-        this.currentItem = this.products[this.products.length - 1];
-      },
-      err => {
-        console.log(err);
-      });
-  }
 
   ngOnInit() {
     this.initProducts();
@@ -42,6 +33,25 @@ export class HomeComponent implements OnInit {
       },
     )
   }
+
+  private delay(ms: number)
+{
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+  async initProducts() {
+    
+    // await this.delay(150);
+
+    this.dataService.getProducts().subscribe(
+      res => {
+        this.products = res;
+        this.currentItem = this.products[this.products.length - 1];
+      },
+      err => {
+        console.log(err);
+      });
+    }
 
   changeCurrentItem(item) {
     this.currentItem = item;
