@@ -2,7 +2,7 @@
     <div></div>
     <h3 class="col-12">STATISTICS</h3>
     <hr>
-    <div *ngIf="item else unknownItem">
+    <div *ngIf="item; else unknownItem">
         <strong id="name" class="col-12">{{item.name}}</strong>
         <hr>
         <label class="col-12" for="">PRICE: </label>
@@ -14,6 +14,6 @@
         <label class="col-12" for="">TOTAL COST: </label>
         <strong id="total" class="col-11 offset-1">{{item.price * item.count}}</strong>
     </div>
-    <label #unknownItem class="col-11 offset-1">Empty</label>
+    <ng-template #unknownItem class="col-11 offset-1">Empty</ng-template>
     <hr>
 </section>
