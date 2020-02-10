@@ -1,4 +1,4 @@
-import { Component, OnInit, ContentChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ContentChild, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { ExternalRoutingService } from 'src/app/core/externalRouting.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -14,10 +14,9 @@ export class TableComponent implements OnInit {
   public pageSize = 'ALL';
   public edit = false;
 
-  @Output() changeCurrentItemTable = new EventEmitter()
+  @Output() changeCurrentItemTable = new EventEmitter();
   
-  constructor(private service: ExternalRoutingService, private toastr: ToastrService) {
-  }
+  constructor(private service: ExternalRoutingService, private toastr: ToastrService) {}
 
   ngOnInit() {
   }
@@ -127,5 +126,4 @@ export class TableComponent implements OnInit {
   public changeStateProduct() {
     this.edit = !this.edit;
   }
-
 }

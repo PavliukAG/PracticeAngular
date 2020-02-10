@@ -24,17 +24,7 @@ export class HomeComponent implements OnInit {
     this.dataService.getProducts().subscribe(
       res => {
         this.products = res;
-        this.currentItem = this.products[0];
-      },
-      err => {
-        console.log(err);
-      });
-  }
-
-  update() {
-    this.dataService.getProducts().subscribe(
-      res => {
-        this.products = res;
+        this.currentItem = this.products[this.products.length - 1];
       },
       err => {
         console.log(err);

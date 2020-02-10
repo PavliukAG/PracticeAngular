@@ -7,19 +7,22 @@ form>button {
     margin-top: -5px;
     z-index: 2;
     padding: 5px 0 5px 0;
-    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.7));
     box-sizing: border-box;
     border-radius: 10px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     transition: 0.2s;
-    background-color: #4aca95;
-    border: 3px solid rgb(128, 128, 128);
+    background: radial-gradient(circle at top, #acb6c4, #8c9aaf);
+    color: #e4e4e4;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     height: 55px;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 form>button:hover {
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6));
+    filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.7));
     transition: 0.4s;
 }
 
@@ -34,6 +37,7 @@ form>button:active {
     flex-direction: column;
     justify-content: center;
     align-self: center;
+    padding-bottom: 5px;
 }
 
 input::placeholder {

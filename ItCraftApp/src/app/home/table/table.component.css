@@ -1,18 +1,23 @@
 nav {
     color: white;
     /* box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.2); */
-    background-color: #969696;
+    background-color: #b8b8b8;
     padding-top: 10px;
     height: 64px;
 }
 
+nav>.pagination {
+    margin-bottom: -2px;
+}
+
 nav>#border {
     width: 100%;
+    box-sizing: border-box;
     height: 4px;
     position: relative;
     top: 0;
     margin-top: -10px;
-    background: linear-gradient(to left top, #9800f0, #ff0000);
+    background: #545d6a;
 }
 
 nav:first-of-type {
@@ -21,7 +26,7 @@ nav:first-of-type {
 
 nav>#hole-container {
     margin-top: -18px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 nav>#hole-container>#hole {
@@ -32,7 +37,7 @@ nav>#hole-container>#hole {
     margin-left: 22%;
     background-color: #f3f3f3;
     height: 100%;
-    border: 3px solid rgb(206, 28, 28);
+    border: 3px solid #545d6a;
     border-top-width: 0;
 }
 

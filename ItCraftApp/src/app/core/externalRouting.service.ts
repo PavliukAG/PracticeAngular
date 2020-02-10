@@ -16,7 +16,6 @@ export class ExternalRoutingService {
   }
 
   addProduct(formData) {
-    formData.count = 5;
     return this.http.post(`${BaseURL}${this.addURL}`, formData);
   }
 

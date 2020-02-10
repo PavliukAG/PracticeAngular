@@ -12,6 +12,7 @@ import { EventEmitter } from 'protractor';
 export class AddingProductComponent implements OnInit {
 
   public formAdding : FormGroup;
+  @Output() eventEmitter;
 
   constructor(private service: ExternalRoutingService, private toastr: ToastrService, private fb: FormBuilder) { 
   }
@@ -44,8 +45,7 @@ export class AddingProductComponent implements OnInit {
       this.updateTable();
   }
 
-  @Output() testtt;
   updateTable() {
-    this.testtt.emit();
+    this.eventEmitter.emit();
   }
 }

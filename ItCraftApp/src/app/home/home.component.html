@@ -19,11 +19,10 @@
     </div>
     <div class="row">
         <div class="col-md-10 offset-2 col-xs-12 add-container">
-            <app-addingProduct (updateTable)="update()"></app-addingProduct>
+            <app-addingProduct (updateTable)="initProduct()"></app-addingProduct>
         </div>
         <div class="col-md-10 offset-2 table-container">
             <app-table [items]="products" (changeCurrentItemTable)="changeCurrentItem($event)"></app-table>
         </div>
     </div>
-    <div></div>
 </div>

@@ -2,15 +2,15 @@
     <div></div>
     <h3 class="col-12">STATISTICS</h3>
     <hr>
-    <label class="col-12">{{item.name}}</label>
+    <strong id="name" class="col-12">{{item.name}}</strong>
     <hr>
     <label class="col-12" for="">PRICE: </label>
-    <span class="col-11 offset-1">{{item.price}}</span>
+    <strong id="price" class="col-11 offset-1">{{item.price}}</strong>
     <hr>
     <label class="col-12" for="">COUNT: </label>
-    <span class="col-11 offset-1" for="">{{item.count}}</span>
+    <strong id="count" class="col-11 offset-1" for="">{{item.count}}</strong>
     <hr>
     <label class="col-12" for="">TOTAL COST: </label>
-    <span class="col-11 offset-1" for="">{{item.price * item.count}}</span>
+    <strong id="total" class="col-11 offset-1">{{item.price * item.count}}</strong>
     <hr>
 </section>
