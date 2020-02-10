@@ -47,9 +47,13 @@
             <div class="action-row">
                 <td *ngIf="!edit" class=""> <img src="../../../assets/images/editicon.png" (click)="changeStateProduct()" alt="Edit"> </td>
                 <td *ngIf="edit" class=""> <img src="../../../assets/images/saveicon.png" (click)="changeStateProduct()" alt="Save"> </td>
+
                 <td *ngIf="!edit" class=""> <img src="../../../assets/images/removeicon.png" (click)="remove(item)" alt="Remove"> </td>
                 <td *ngIf="edit" class=""> <img src="../../../assets/images/backicon.png" (click)="changeStateProduct()" alt="Cancel"> </td>
-                <td class=""> <img src="../../../assets/images/inoutcomeicon.png" alt="Income/Outcome"> </td>
+
+                <td class="">
+                    <img src="../../../assets/images/inoutcomeicon.png" alt="Income/Outcome">
+                </td>
             </div>
         </tr>
     </table>
@@ -62,7 +66,7 @@
         </select>
 
     </div>
-    <ul class="col-md-4 offset-2 col-xs-12 pagination">
+    <ul class="col-md-4 offset-2 col-xs-12 pagination" *ngIf="pageSize != 'ALL'">
         <li class="page-item"><button class="page-link" (click)="prevPage()">Previous</button></li>
         <li class="page-item"><button disabled class="page-link"> {{pageNumber}} of {{getPagesCount()}} </button></li>
         <li class="page-item"><button class="page-link" (click)="nextPage()">Next</button></li>

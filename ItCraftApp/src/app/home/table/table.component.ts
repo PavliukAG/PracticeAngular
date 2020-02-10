@@ -1,8 +1,6 @@
-import { Component, OnInit, ContentChild } from '@angular/core';
+import { Component, OnInit, ContentChild, Input, Output, EventEmitter } from '@angular/core';
 import { ExternalRoutingService } from 'src/app/core/externalRouting.service';
 import { ToastrService } from 'ngx-toastr';
-import { HomeComponent } from '../home.component';
-import { ProductStatisticsComponent } from '../productStatistics/productStatistics.component';
 
 @Component({
   selector: 'app-table',
@@ -11,36 +9,29 @@ import { ProductStatisticsComponent } from '../productStatistics/productStatisti
 })
 
 export class TableComponent implements OnInit {
-  private items;
+  @Input() items;
   public pageNumber: number = 1;
   public pageSize = 'ALL';
   public edit = false;
 
+  @Output() changeCurrentItemTable = new EventEmitter()
+  
   constructor(private service: ExternalRoutingService, private toastr: ToastrService) {
-   }
-
-  initTable() {
-    this.service.getProducts().subscribe(
-      res => {
-        this.items = res;
-      },
-      err => {
-        console.log(err);
-      });
   }
 
   ngOnInit() {
-    // this.generateHardcodeProduct();
-    this.initTable();
   }
+  
   // ! This method for testing without backend
   generateHardcodeProduct() {
     this.items = []
     for (let i = 0; i < 100; i++) {
-      let model = {name : `Product${i}`, 
-      price : Math.round((Math.random()*1000)*100) / 100, 
-      productId : i, 
-      count : 0}
+      let model = {
+        name: `Product${i}`,
+        price: Math.round((Math.random() * 1000) * 100) / 100,
+        productId: i,
+        count: 0
+      }
       this.items.push(model)
     }
   }
@@ -74,21 +65,7 @@ export class TableComponent implements OnInit {
   }
 
   public showStatistics(item) {
-    let res = "Name: " + item.name
-      + "\nPrice: " + item.price
-      + "\nCount: " + item.count
-      + "\nTotal Price: " + Number(item.count * item.price)
-      + "\nId: " + item.productId;
-    + "\n"
-    console.log(res)
-
-    let info = {
-      name : item.name,
-      price: item.price,
-      count: item.count,
-      id: item.productId
-    }
-    initStatistic(info);
+    this.changeCurrentItemTable.emit(item);
   }
 
 
@@ -105,19 +82,19 @@ export class TableComponent implements OnInit {
           } else {
             console.log(err);
           }
-    
+
         }
-        );
+      );
       let id = this.items.indexOf(item)
       this.items = this.items.slice(0, id).concat(this.items.slice(id + 1, this.items.length));
-    } 
+    }
   }
 
 
   directionName = true;
   public sortName() {
     this.directionName = !this.directionName;
-    this.items.sort(function(a,b) {
+    this.items.sort(function (a, b) {
       if (a.name > b.name) return 1;
       if (b.name > a.name) return -1
       else return 0;
@@ -125,11 +102,11 @@ export class TableComponent implements OnInit {
     if (this.directionName) this.items.reverse();
   }
 
-  
+
   directionPrice = true;
   public sortPrice() {
     this.directionPrice = !this.directionPrice;
-    this.items.sort(function(a,b) {
+    this.items.sort(function (a, b) {
       if (a.price > b.price) return 1;
       if (b.price > a.price) return -1
       else return 0;

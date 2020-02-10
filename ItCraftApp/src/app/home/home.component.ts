@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import {TableComponent} from './table/table.component'
-import { UserProfileService} from './../core/userProfile.service'
+import { TableComponent } from './table/table.component'
+import { UserProfileService } from './../core/userProfile.service'
+import { ExternalRoutingService } from '../core/externalRouting.service';
+import { EventEmitter } from 'protractor';
 
 
 @Component({
@@ -11,18 +13,39 @@ import { UserProfileService} from './../core/userProfile.service'
 })
 
 export class HomeComponent implements OnInit {
-  
-userDetails;
+  //* Variables ----------------------------------------------------
+  userDetails;
+  public products;
+  currentItem;
+  //* Methods -------------------------------------------------------
+  constructor(private router: Router, private userService: UserProfileService, private dataService: ExternalRoutingService) { }
 
-@Input() public showStatistic !: boolean;
+  initProducts() {
+    this.dataService.getProducts().subscribe(
+      res => {
+        this.products = res;
+        this.currentItem = this.products[0];
+      },
+      err => {
+        console.log(err);
+      });
+  }
 
-constructor(private router: Router, private service: UserProfileService) { }
+  update() {
+    this.dataService.getProducts().subscribe(
+      res => {
+        this.products = res;
+      },
+      err => {
+        console.log(err);
+      });
+  }
 
   ngOnInit() {
-    this.service.getUserProfile().subscribe(
-      res =>{
+    this.initProducts();
+    this.userService.getUserProfile().subscribe(
+      res => {
         this.userDetails = res;
-        this.showStatistic = false;
       },
       err => {
         console.log(err);
@@ -30,8 +53,13 @@ constructor(private router: Router, private service: UserProfileService) { }
     )
   }
 
-onLogout() {
+  changeCurrentItem(item) {
+    this.currentItem = item;
+  }
+
+  onLogout() {
     localStorage.removeItem('token');
     this.router.navigate(['/user/login']);
-}
+  }
+
 }

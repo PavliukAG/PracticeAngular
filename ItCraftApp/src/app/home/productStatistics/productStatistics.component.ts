@@ -9,22 +9,14 @@ import { Component, OnInit, Injectable, Input } from '@angular/core';
 @Injectable()
 export class ProductStatisticsComponent implements OnInit {
 
+  @Input() item : string;
+
   constructor() { 
   }
 
   ngOnInit() {
   }
 
-  name : string;
-  price : number;
-  count : number;
-  id : number;
-
-  @Input() initStatistic(model) {
-    this.name = model.name;
-    this.price = model.price;
-    this.count = model.count;
-    this.id = model.productId;
-  }
+  
 
 }

@@ -4,17 +4,18 @@ form {
 }
 
 form>button {
-    margin-top: -12px;
+    margin-top: -5px;
     z-index: 2;
-    padding: 10px 0 10px 0;
+    padding: 5px 0 5px 0;
     filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5));
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 10px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     transition: 0.2s;
     background-color: #4aca95;
     border: 3px solid rgb(128, 128, 128);
+    height: 55px;
 }
 
 form>button:hover {

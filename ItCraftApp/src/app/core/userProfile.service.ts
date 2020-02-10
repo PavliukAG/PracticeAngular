@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {BaseURL} from "./config";
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +9,16 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class UserProfileService {
 
   constructor(private http: HttpClient) { }
-  readonly BaseURL = 'http://localhost:54374/api';
 
   getUserProfile(){
-    return this.http.get(`${this.BaseURL}/UserProfile`);
+    return this.http.get(`${BaseURL}/UserProfile`);
   }
 
   register(registrModelInfo) {
-    return this.http.post(`${this.BaseURL}/Auth/Register`, registrModelInfo);
+    return this.http.post(`${BaseURL}/Auth/Register`, registrModelInfo);
   }
 
   login(formData){
-    return this.http.post(`${this.BaseURL}/Auth/Login`, formData);
+    return this.http.post(`${BaseURL}/Auth/Login`, formData);
   }
 }

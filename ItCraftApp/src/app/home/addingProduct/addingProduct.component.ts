@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ExternalRoutingService } from './../../core/externalRouting.service';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { TableComponent } from '../table/table.component';
-import { TestBed } from '@angular/core/testing';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-addingProduct',
@@ -43,8 +41,11 @@ export class AddingProductComponent implements OnInit {
         }
       }
     );
-      // ===========================
-      
+      this.updateTable();
+  }
 
+  @Output() testtt;
+  updateTable() {
+    this.testtt.emit();
   }
 }

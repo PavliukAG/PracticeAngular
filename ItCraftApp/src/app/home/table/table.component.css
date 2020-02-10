@@ -20,16 +20,20 @@ nav:first-of-type {
 }
 
 nav>#hole-container {
-    margin-top: -60px;
-    margin-bottom: 15px;
+    margin-top: -18px;
+    margin-bottom: 10px;
 }
 
 nav>#hole-container>#hole {
     border-radius: 30px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     width: 56%;
     margin-left: 22%;
     background-color: #f3f3f3;
-    height: 105%;
+    height: 100%;
+    border: 3px solid rgb(206, 28, 28);
+    border-top-width: 0;
 }
 
 #selectPageSize-group {
@@ -86,17 +90,19 @@ td {
     background-color: #90d090;
 }
 
-@keyframes hoverAnim {
-    from {}
-    50% {
-        filter: opacity(0.9), brightness(1.03);
-        box-shadow: 0 5px 10px rgba(100, 100, 100, 0.5), -10px 0 8px rgba(0, 47, 255, 0.4);
-    }
-    to {}
+.trProduct {
+    transition: 0.2s;
+    font-size: 24px;
 }
 
 .trProduct:hover {
-    animation: hoverAnim 1s linear infinite reverse;
+    filter: brightness(1.03);
+    box-shadow: 0 5px 10px rgba(100, 100, 100, 0.5), -8px 0 38px rgba(132, 0, 255, 0.1);
+}
+
+.trProduct:active {
+    filter: brightness(1.05);
+    box-shadow: 0 3px 8px rgba(100, 100, 100, 0.5), -10px 0 20px rgba(247, 0, 103, 0.2);
 }
 
 tr:first-child>td {
@@ -113,7 +119,7 @@ tr:first-child>td>button {
     background-color: #eee;
     color: black;
     padding: 10px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 600;
 }
 
@@ -129,11 +135,11 @@ button>img {
 }
 
 tr:nth-child(odd) {
-    background-color: #ddd;
+    background-color: rgb(233, 233, 233);
 }
 
 tr:first-child {
-    font-size: 20px;
+    font-size: 22px;
     text-align: center;
 }
 
@@ -145,7 +151,7 @@ tr:first-child {
 }
 
 .action-row>td>img {
-    height: 32px;
+    height: 38px;
     padding: 4px;
     box-sizing: border-box;
     border: 2px solid rgba(0, 0, 0, 0.2);
@@ -164,15 +170,15 @@ tr:first-child {
 }
 
 .action-row>td:nth-child(1)>img:hover {
-    filter: drop-shadow(0 5px 5px #0f0) drop-shadow(0 2px 50px #0f0);
+    filter: drop-shadow(0 5px 5px rgba(0, 255, 0, 0.4));
 }
 
 .action-row>td:nth-child(2)>img:hover {
-    filter: drop-shadow(0 5px 5px red) drop-shadow(0 2px 50px red);
+    filter: drop-shadow(0 5px 5px rgba(255, 0, 0, 0.4));
 }
 
 .action-row>td:nth-child(3)>img:hover {
-    filter: drop-shadow(0 5px 5px orange) drop-shadow(0 2px 50px orange);
+    filter: drop-shadow(0 5px 5px rgba(255, 166, 0, 0.4));
 }
 
 .action-row>td>img:active {

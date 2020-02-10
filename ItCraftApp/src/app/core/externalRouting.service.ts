@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {BaseURL} from "./config";
 
 @Injectable({
   providedIn: 'root'
@@ -7,19 +8,20 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class ExternalRoutingService {
 
   constructor(private http: HttpClient) { }
-  readonly BaseURL = 'http://localhost:54374/api';
+  readonly addURL = '/Product';
 
-  getProducts(){
-    return this.http.get(`${this.BaseURL}/Product`);
+
+  getProducts() {
+    return this.http.get(`${BaseURL}${this.addURL}`);
   }
 
   addProduct(formData) {
-    // alert(`Was added product: \nName: ${formData.name}\nPrice: ${formData.price}`)
-    return this.http.post(`${this.BaseURL}/Product`, formData);
+    formData.count = 5;
+    return this.http.post(`${BaseURL}${this.addURL}`, formData);
   }
 
   removeProduct(id) {
-    return this.http.delete(`${this.BaseURL}/Product/${Number(id)}`);
+    return this.http.delete(`${BaseURL}${this.addURL}/${Number(id)}`);
   }
 
 }

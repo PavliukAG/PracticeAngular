@@ -5,24 +5,25 @@
             <select class="col-5">
                 <option disabled class="list-group-item"><strong>PROFILE</strong></option>
                 <option disabled *ngIf="userDetails" class="list-group-item"><strong>Username :
-                    </strong>{{userDetails.userName}}</option>
+                </strong>{{userDetails.userName}}</option>
                 <option disabled *ngIf="userDetails" class="list-group-item"><strong>Full Name :
-                    </strong>{{userDetails.fullName}}</option>
+                </strong>{{userDetails.fullName}}</option>
                 <option disabled *ngIf="userDetails" class="list-group-item"><strong>Email :
-                    </strong>{{userDetails.email}}</option>
+                </strong>{{userDetails.email}}</option>
             </select>
             <button class="btn col-5 offset-1" (click)="onLogout()">Logout</button>
         </div>
     </nav>
     <div class="statistics-container">
-        <app-productStatistics></app-productStatistics>
+        <app-productStatistics [item]="currentItem"></app-productStatistics>
     </div>
     <div class="row">
         <div class="col-md-10 offset-2 col-xs-12 add-container">
-            <app-addingProduct></app-addingProduct>
+            <app-addingProduct (updateTable)="update()"></app-addingProduct>
         </div>
         <div class="col-md-10 offset-2 table-container">
-            <app-table></app-table>
+            <app-table [items]="products" (changeCurrentItemTable)="changeCurrentItem($event)"></app-table>
         </div>
     </div>
+    <div></div>
 </div>
