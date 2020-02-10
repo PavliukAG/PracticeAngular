@@ -41,6 +41,10 @@ button {
     border: 0;
 }
 
+button:focus {
+    outline: 0
+}
+
 div.form-group label:not(.text-danger) {
     color: var(--textcolor);
     font-weight: 700;

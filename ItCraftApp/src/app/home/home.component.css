@@ -9,12 +9,14 @@
     background-color: #4b4852;
 }
 
-.table-container {
+.table-container,
+.add-container {
     padding: 0 5% 0 2.5%;
 }
 
-.statisticsContainer {
+.statistics-container {
     position: absolute;
     left: 0;
     width: 14%;
+    min-width: 160px;
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, ContentChild } from '@angular/core';
 import { ExternalRoutingService } from 'src/app/core/externalRouting.service';
 import { ToastrService } from 'ngx-toastr';
 import { HomeComponent } from '../home.component';
+import { ProductStatisticsComponent } from '../productStatistics/productStatistics.component';
 
 @Component({
   selector: 'app-table',
@@ -29,7 +30,7 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.generateHardcodeProduct();
+    // this.generateHardcodeProduct();
     this.initTable();
   }
   // ! This method for testing without backend
@@ -79,19 +80,18 @@ export class TableComponent implements OnInit {
       + "\nTotal Price: " + Number(item.count * item.price)
       + "\nId: " + item.productId;
     + "\n"
-    alert(res)
+    console.log(res)
 
     let info = {
       name : item.name,
       price: item.price,
       count: item.count,
-      totalPrice: Number(item.count * item.price),
       id: item.productId
     }
-
-    // statistics ------------------------------
-
+    initStatistic(info);
   }
+
+
   public remove(item) {
     let res = confirm("Are you sure you want to delete the item?");
     if (res) {

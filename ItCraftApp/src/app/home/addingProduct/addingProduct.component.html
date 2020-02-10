@@ -1,13 +1,13 @@
 <form #form='ngForm' [formGroup]="formAdding" class="row" autocomplete="off" (submit)="addProduct()">
-    <div class="form-group col-5 offset-2">
+    <div class="form-group col-5 offset-1">
         <label>Name</label>
-        <input class="form-control" [(ngModel)]="form.name" formControlName="name" required>
+        <input class="form-control" [(ngModel)]="form.name" formControlName="name" required placeholder="Enter the name of product">
     </div>
     <div class="form-group col-5">
         <label>Price</label>
-        <input class="form-control" [(ngModel)]="form.price" formControlName="price" required>
+        <input class="form-control" [(ngModel)]="form.price" formControlName="price" required placeholder="Enter the price of product">
     </div>
-    <button class="col-2 offset-6" id="submit" [disabled]="form.invalid">
+    <button class="col-2 offset-5" type="submit" [disabled]="form.invalid">
             ADD<br>PRODUCT
     </button>
 </form>

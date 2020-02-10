@@ -1,19 +1,19 @@
 <form #form='ngForm' class="" autocomplete="off" (submit)="onSubmit(form)">
-  <div id="logo" class="col-sm-8 col-4 offset-2">
-    <!-- <img src="https://zenprospect-production.s3.amazonaws.com/uploads/pictures/5c2bd12080f93ec653e86b58/picture" alt=""> -->
-  </div>
-  <hr>
-  <div class="form-group">
-    <label>userName</label>
-    <input class="form-control" name="userName" [(ngModel)]="form.userName" required>
-  </div>
-  <div class="form-group">
-    <label>password</label>
-    <input type='password' class="form-control" name="password" [(ngModel)]="form.password" required>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-12">
-      <button type="submit" class="btn btn-lg btn-block" [disabled]="form.invalid">Login</button>
+    <div id="logo" class="col-sm-8 col-4 offset-2">
+        <img src="../../../assets/images/itcraft-logo.png">
     </div>
-  </div>
+    <hr>
+    <div class="form-group">
+        <label>userName</label>
+        <input class="form-control" name="userName" [(ngModel)]="form.userName" required>
+    </div>
+    <div class="form-group">
+        <label>password</label>
+        <input type='password' class="form-control" name="password" [(ngModel)]="form.password" required>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <button type="submit" class="btn btn-lg btn-block" [disabled]="form.invalid">Login</button>
+        </div>
+    </div>
 </form>

@@ -1,36 +1,40 @@
 form {
-  /* background-color: #dde; */
-  box-sizing: border-box;
-  margin-top: 20px;
-  margin-left: -8.2%;
+    box-sizing: border-box;
+    margin-top: 20px;
 }
 
-form > button {
-  margin-top: -10px;
-  z-index: 2;
-  padding: 10px 0 10px 0;
-  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5));
-  box-sizing: border-box;
-  border-radius: 5px;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  transition: 0.2s;
-  background: radial-gradient(ellipse at top left, #f33e3e, #755bbb);
+form>button {
+    margin-top: -12px;
+    z-index: 2;
+    padding: 10px 0 10px 0;
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5));
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: 0.2s;
+    background-color: #4aca95;
+    border: 3px solid rgb(128, 128, 128);
 }
 
-form > button:hover {
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6));
-  transition: 0.4s;
+form>button:hover {
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6));
+    transition: 0.4s;
 }
 
-form > button:active {
-  filter: brightness(1.05);
+form>button:active {
+    filter: brightness(1.05);
+    top: 2px;
 }
 
 .form-group {
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: center;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+
+input::placeholder {
+    color: #a3a3a3;
 }

@@ -6,10 +6,18 @@ nav {
     height: 64px;
 }
 
-nav:first-of-type {
-    margin-top: -50px;
+nav>#border {
+    width: 100%;
+    height: 4px;
+    position: relative;
+    top: 0;
+    margin-top: -10px;
+    background: linear-gradient(to left top, #9800f0, #ff0000);
 }
 
+nav:first-of-type {
+    margin-top: -48px;
+}
 
 nav>#hole-container {
     margin-top: -60px;
@@ -18,8 +26,8 @@ nav>#hole-container {
 
 nav>#hole-container>#hole {
     border-radius: 30px;
-    width: 72%;
-    margin-left: 14%;
+    width: 56%;
+    margin-left: 22%;
     background-color: #f3f3f3;
     height: 105%;
 }
@@ -37,17 +45,25 @@ table {
     z-index: 1;
 }
 
+
+/* name */
+
 td:nth-child(1) {
     width: 50%;
 }
+
+
+/* price */
 
 td:nth-child(2) {
     width: 40%
 }
 
+
+/* actions */
+
 td:nth-child(3) {
-    width: 10%;
-    min-width: 42px;
+    width: 8%;
 }
 
 td {
@@ -124,8 +140,23 @@ tr:first-child {
 
 /* action button */
 
+.action-row {
+    text-align: center;
+}
+
 .action-row>td>img {
-    height: 24px;
+    height: 32px;
+    padding: 4px;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    margin: -2px;
+    margin-top: -4px;
+}
+
+.action-row>td {
+    box-shadow: 0 2px 10px rgba(57, 11, 196, 0.2);
 }
 
 .action-row>td>img:hover {
@@ -135,9 +166,11 @@ tr:first-child {
 .action-row>td:nth-child(1)>img:hover {
     filter: drop-shadow(0 5px 5px #0f0) drop-shadow(0 2px 50px #0f0);
 }
+
 .action-row>td:nth-child(2)>img:hover {
     filter: drop-shadow(0 5px 5px red) drop-shadow(0 2px 50px red);
 }
+
 .action-row>td:nth-child(3)>img:hover {
     filter: drop-shadow(0 5px 5px orange) drop-shadow(0 2px 50px orange);
 }
