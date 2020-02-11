@@ -41,12 +41,12 @@
             <td *ngIf="!edit[id]" class="" (click)="showStatistics(item)">{{item.name}}</td>
             <td *ngIf="!edit[id]" class="" (click)="showStatistics(item)">{{item.price}} $</td>
             <!-- edit -->
-            <td *ngIf="edit[id]" class=""> <input type="text" value="{{item.name}}"></td>
+            <td *ngIf="edit[id]" class=""> <input #inputname type="text" value="{{item.name}}"></td>
             <td *ngIf="edit[id]" class=""> <input type="text" value="{{item.price}}"></td>
             <!--*  -------------- ACTIONS ------------>
             <div class="action-row">
                 <td *ngIf="!edit[id]"> <img src="../../../assets/images/editicon.png" (click)="changeStateProduct(id)" alt="Edit"> </td>
-                <td *ngIf="edit[id]"> <img src="../../../assets/images/saveicon.png" (click)="changeStateProduct(id); updateProduct(item)" alt="Save"> </td>
+                <td *ngIf="edit[id]"> <img src="../../../assets/images/saveicon.png" (click)="changeStateProduct(id); updateProduct()" alt="Save"> </td>
 
                 <td *ngIf="!edit[id]"> <img src="../../../assets/images/removeicon.png" (click)="remove(item)" alt="Remove"> </td>
                 <td *ngIf="edit[id]"> <img src="../../../assets/images/backicon.png" (click)="changeStateProduct(id)" alt="Cancel"> </td>
@@ -74,4 +74,4 @@
 </nav>
 <br>
 <span class="col-1 offset-4">Console: </span>
-<input type="text" class="col-2" [(ngModel)]="commandLine" (change)="command()">
+<input type="text" class="col-2" [(ngModel)]="commandLine" (keyup)="command()">

@@ -58,10 +58,15 @@ export class TableComponent implements OnInit {
   }
 
   public updateProduct(item) {
-    this.service.updateProduct(item).subscribe(
-      (res: any) => {
-        alert('updated')
-      });
+    alert(item);
+    let model = {
+      name : "test",
+      price : 20
+    }
+    // this.service.updateProduct(model).subscribe(
+    //   (res: any) => {
+    //     alert('updated')
+    //   });
   }
 
   public remove(item) {
@@ -128,12 +133,11 @@ export class TableComponent implements OnInit {
         break;
       case "additem": {
         let model = {
-          name: "test" + Math.random() * 100,
+          name: "test" + Math.ceil(Math.random() * 100),
           price: Math.random() * 100
         }
-        let res = confirm("Add?");
-        if (res)
-          this.service.addProduct(model);
+          this.service.addProduct(model).subscribe();
+          this.toastr.info("Create random product")
         break;
       }
     }

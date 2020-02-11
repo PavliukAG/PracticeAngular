@@ -28,8 +28,10 @@ export class AddingProductComponent implements OnInit {
   addProduct() {
     let model = {
       name : this.formAdding.value.name,
-      price : Number(this.formAdding.value.price)
+      // --------------------------------------------------------------------- replace , on .
+      price : Number(String(this.formAdding.value.price).replace(',','.')) 
     }
+
     this.service.addProduct(model).subscribe(
       (res : any) => {
         this.toastr.success(`${model.name} was added to table`);
@@ -42,7 +44,7 @@ export class AddingProductComponent implements OnInit {
         }
       }
     );
-    
+    this.formAdding.reset();
     this.updateTable();
 
   }
