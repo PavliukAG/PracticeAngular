@@ -1,0 +1,14 @@
+<nav class="navbar row">
+    <a class="headertext text-white col-3 offset-1">Product manager</a>
+    <ul class="col-6 row" *ngIf="userDetails">
+        <li class="col-4"><span><strong>Username : </strong>{{userDetails.userName}}</span></li>
+        <li class="col-4"><span><strong>Full Name : </strong>{{userDetails.fullName}}</span></li>
+        <li class="col-4"><span><strong>Email : </strong>{{userDetails.email}}</span></li>
+    </ul>
+    <ul class="col-6 row" *ngIf="!userDetails">
+        <li class="col-4"><strong>Username is empty</strong></li>
+        <li class="col-4"><strong>Full Name is empty</strong></li>
+        <li class="col-4"><strong>Email is empty</strong></li>
+    </ul>
+    <button class="btn col-1 offset-1" (click)="onLogout()">Logout</button>
+</nav>

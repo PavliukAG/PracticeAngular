@@ -1,27 +1,14 @@
 <div class="body">
-    <nav class="navbar row">
-        <a class="headertext text-white col-3 offset-1">Product manager</a>
-        <ul class="col-6 row" *ngIf="userDetails">
-            <li class="col-4"><span><strong>Username : </strong>{{userDetails.userName}}</span></li>
-            <li class="col-4"><span><strong>Full Name : </strong>{{userDetails.fullName}}</span></li>
-            <li class="col-4"><span><strong>Email : </strong>{{userDetails.email}}</span></li>
-        </ul>
-        <ul class="col-6 row" *ngIf="!userDetails">
-            <li class="col-4"><strong>Username is empty</strong></li>
-            <li class="col-4"><strong>Full Name is empty</strong></li>
-            <li class="col-4"><strong>Email is empty</strong></li>
-        </ul>
-        <button class="btn col-1 offset-1" (click)="onLogout()">Logout</button>
-    </nav>
+    <app-header></app-header>
     <div class="statistics-container">
         <app-productStatistics [item]="currentItem"></app-productStatistics>
     </div>
     <div class="row">
         <div class="col-md-10 offset-2 col-xs-12 add-container">
-            <app-addingProduct (eventEmitter)="initProducts()"></app-addingProduct>
+            <app-addForm (eventEmitter)="initProducts()"></app-addForm>
         </div>
         <div class="col-md-10 offset-2 table-container">
-            <app-table [items]="products" (changeCurrentItemTable)="changeCurrentItem($event)"></app-table>
+            <app-table [items]="products" (changeCurrentItemTable)="changeCurrentItem($event)" (removeItemEmitter)="remove($event)"></app-table>
         </div>
     </div>
 </div>

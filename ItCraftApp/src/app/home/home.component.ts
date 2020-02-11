@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { ExternalRoutingService } from "../core/externalRouting.service";
-import { UserProfileService } from '../core/userProfile.service';
+import { ExternalRoutingService } from '../core/externalRouting.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -10,51 +9,25 @@ import { UserProfileService } from '../core/userProfile.service';
   styleUrls: ['./home.component.css']
 })
 
+// class Product {
+//   productId: number;
+//   name: string;
+//   price: number;
+//   count: number;
+// }
+
 export class HomeComponent implements OnInit {
-  //* Variables ----------------------------------------------------
-  userDetails;
-  public products;
-  currentItem;
-  //* Methods -------------------------------------------------------
-  constructor(private router: Router, private userService: UserProfileService, private dataService: ExternalRoutingService) { }
+  public products: any;
+  public currentItem: any;
+  public editItem: any;
+  constructor(private dataService: ExternalRoutingService, private toastr: ToastrService) { }
 
 
   ngOnInit() {
     this.initProducts();
-    this.userService.getUserProfile().subscribe(
-      res => {
-        this.userDetails = res;
-      },
-      err => {
-        console.log(err);
-      });
-      // this.generateHardcodeProduct();
   }
 
-  // // ! This method for testing without backend
-  // generateHardcodeProduct() {
-  //   this.products = []
-  //   for (let i = 0; i < 16; i++) {
-  //     let model = {
-  //       name: `Product${i}`,
-  //       price: Math.round((Math.random() * 1000) * 100) / 100,
-  //       productId: i,
-  //       count: 0
-  //     }
-  //     this.products.push(model)
-  //   }
-  //   this.currentItem = this.products[this.products.length - 1];
-  // }
-
-
-  private delay(ms: number)
-{
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
   public async initProducts() {
-    await this.delay(150);
-
     this.dataService.getProducts().subscribe(
       res => {
         this.products = res;
@@ -65,13 +38,26 @@ export class HomeComponent implements OnInit {
       });
     }
 
-  changeCurrentItem(item) {
-    this.currentItem = item;
+    public remove(item) {
+        this.dataService.removeProduct(item.productId).subscribe(
+          (res: any) => {
+            this.toastr.success(`${res.name} was successfully deleted`);
+            const id = this.products.indexOf(item);
+            this.products = this.products.slice(0, id).concat(this.products.slice(id + 1, this.products.length));
+          },
+          err => {
+            switch (err.status) {
+              case 400:
+                this.toastr.error(err.error, 'Operation failed.');
+                break;
+              default:
+                break;
+          }
+        });
   }
 
-  onLogout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/user/login']);
+  changeCurrentItem(item) {
+    this.currentItem = item;
   }
 
 }

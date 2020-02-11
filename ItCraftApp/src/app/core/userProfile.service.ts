@@ -22,4 +22,3 @@ export class UserProfileService {
     return this.http.post(`${BaseURL}/Auth/Login`, model);
   }
 }
-// / 2 sevices

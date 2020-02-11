@@ -1,14 +1,15 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ExternalRoutingService } from './../../core/externalRouting.service';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { ExternalRoutingService } from 'src/app/core/externalRouting.service';
 import { ToastrService } from 'ngx-toastr';
+import { stringify } from 'querystring';
 
 @Component({
-  selector: 'app-addingProduct',
-  templateUrl: './addingProduct.component.html',
-  styleUrls: ['./addingProduct.component.css']
+  selector: 'app-addForm',
+  templateUrl: './addForm.component.html',
+  styleUrls: ['./addForm.component.css']
 })
-export class AddingProductComponent implements OnInit {
+export class AddFormComponent implements OnInit {
 
   public formAdding : FormGroup;
 
@@ -28,7 +29,6 @@ export class AddingProductComponent implements OnInit {
   addProduct() {
     let model = {
       name : this.formAdding.value.name,
-      // --------------------------------------------------------------------- replace , on .
       price : Number(String(this.formAdding.value.price).replace(',','.')) 
     }
 
@@ -36,20 +36,21 @@ export class AddingProductComponent implements OnInit {
       (res : any) => {
         this.toastr.success(`${model.name} was added to table`);
         this.formAdding.reset();
+        this.updateTable();
       },
       err => {
-        if (err.status === 401) {
+        if (err.status === 400) {
           this.toastr.error(err.error, 'Operation failed.');
         } else {
           console.log(err);
         }
       }
     );
-    this.updateTable();
 
   }
 
   updateTable() {
     this.eventEmitter.emit();
   }
+
 }

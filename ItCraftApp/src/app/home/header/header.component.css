@@ -1,0 +1,20 @@
+.headertext {
+    font-size: 24px;
+}
+
+ul>li {
+    display: inline;
+    border-left: 2px solid #ffffffd0;
+    padding: 0 10px;
+    color: #ffffffd0;
+}
+
+ul {
+    margin: 0;
+}
+
+.navbar {
+    box-sizing: border-box;
+    padding-right: 20px;
+    background-color: #4b4852;
+}
