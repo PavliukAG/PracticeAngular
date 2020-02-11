@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ExternalRoutingService } from '../core/externalRouting.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -9,12 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./home.component.css']
 })
 
-// class Product {
-//   productId: number;
-//   name: string;
-//   price: number;
-//   count: number;
-// }
+// todo: add product DTO
 
 export class HomeComponent implements OnInit {
   public products: any;
@@ -27,7 +22,7 @@ export class HomeComponent implements OnInit {
     this.initProducts();
   }
 
-  public async initProducts() {
+  public initProducts() {
     this.dataService.getProducts().subscribe(
       res => {
         this.products = res;
@@ -36,6 +31,23 @@ export class HomeComponent implements OnInit {
       err => {
         console.log(err);
       });
+    }
+
+    public addProductItem(model) {
+      this.dataService.addProduct(model).subscribe(
+        (res : any) => {
+          this.toastr.success(`${model.name} was added to table`);
+          // todo: add reseting form in addForm component 
+          this.initProducts();
+        },
+        err => {
+          if (err.status === 400) {
+            this.toastr.error(err.error, 'Operation failed.');
+          } else {
+            console.log(err);
+          }
+        }
+      );
     }
 
     public remove(item) {

@@ -1,4 +1,5 @@
 import { Component, OnInit, Injectable, Input } from '@angular/core';
+import { MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-accounting',
@@ -10,12 +11,13 @@ import { Component, OnInit, Injectable, Input } from '@angular/core';
 
 export class AccountingComponent implements OnInit {
 
-  item = {
-    name : "test",
-    price: 20
-  }
+ @Input() item;
 
-  constructor() { }
+  constructor(public dialog: MatDialogRef<AccountingComponent>) { }
+
+  close() {
+    this.dialog.close();
+  }
 
   ngOnInit() {
   }

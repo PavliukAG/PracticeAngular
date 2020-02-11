@@ -3,7 +3,7 @@
     <div class="col-md-4 col-xs-12" id="selectPageSize-group">
         <label class="offset-1" for="selectPageSize">Count of goods</label>
         <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" (change)="pageNumber=1">
-            <option *ngFor="let c of [2, 5,10,15,30,50,100]" value="{{c}}">{{c}}</option>
+            <option *ngFor="let c of [10,15,50,100]" value="{{c}}">{{c}}</option>
         </select>
     </div>
     <div class="col-md-4" id="hole-container">
@@ -16,7 +16,7 @@
     </ul>
 </nav>
 <div class="row">
-    <h1 *ngIf="items.length == 0"> <br>Data base is empty<br>Please add new product</h1>
+    <h1 *ngIf="!items" class="col-10 offset-1"> <br>Data base is empty. Please add new product</h1>
     <!--*  ------- TABLE --------------------- -->
     <table class="col-12" *ngIf="items.length > 0">
         <tr>
@@ -37,7 +37,7 @@
             </td>
         </tr>
         <tr class="trProduct" *ngFor="let item of getSegmentOfList(); let id = index">
-            <ng-template [ngIf]="product?.productId != item.productId" [ngIfElse]="edit">
+            <ng-template [ngIf]="currentEditable?.productId != item.productId" [ngIfElse]="edit">
                 <td (click)="showStatistics(item)">{{item.name}}</td>
                 <td class="priceCol" (click)="showStatistics(item)">{{item.price}} $</td>
 
@@ -50,8 +50,8 @@
                 </div>
             </ng-template>
             <ng-template #edit>
-                <td> <input type="text" class="" [(ngModel)]="product.name"></td>
-                <td class="priceCol"> <input type="text" class="" [(ngModel)]="product.price"></td>
+                <td> <input type="text" class="" [(ngModel)]="currentEditable.name"></td>
+                <td class="priceCol"> <input type="text" class="" [(ngModel)]="currentEditable.price"></td>
 
                 <div class="action-row">
                     <td> <img src="../../../assets/images/saveicon.png" (click)="updateProduct()" alt="Save"> </td>
@@ -67,7 +67,7 @@
     <div class="col-md-4 col-xs-12" id="selectPageSize-group">
         <label class="offset-1" for="selectPageSize">Count of goods</label>
         <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" (change)="pageNumber=1">
-            <option *ngFor="let c of [2, 5,10,15,30,50,100]" value="{{c}}">{{c}}</option>
+            <option *ngFor="let c of [10,15,50,100]" value="{{c}}">{{c}}</option>
         </select>
     </div>
     <ul class="col-md-4 col-xs-12 of offset-1 pagination" *ngIf="pageSize != null">
@@ -77,5 +77,3 @@
     </ul>
 </nav>
 <br>
-<span class="col-1 offset-4">Console: </span>
-<input type="text" class="col-2" [(ngModel)]="commandLine" (keyup)="command()">

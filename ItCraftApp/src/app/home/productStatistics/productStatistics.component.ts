@@ -11,18 +11,16 @@ import { AccountingComponent } from './accounting/accounting.component';
 @Injectable()
 export class ProductStatisticsComponent implements OnInit {
 
-  @Input() item;
+  @Input() public item;
 
   constructor(public dialog: MatDialog) { 
   }
 
-  openDialogAC() {
+  public openDialogAC() {
     const dialogRef = this.dialog.open(AccountingComponent, {
       height: '90%',
       width: '80%',
     });
-    // dialogRef.afterOpen(this.item);
-
   }
 
   ngOnInit() {

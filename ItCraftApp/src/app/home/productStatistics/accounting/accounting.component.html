@@ -1,14 +1,26 @@
-<h2 mat-dialog-title>Accounting of products</h2>
+<h2 class="col-12" mat-dialog-title>Accounting of product</h2>
 <mat-dialog-content class="row">
         <strong id="name" class="col-12">{{item.name}}</strong>
-        <hr>
-        <label class="col-4" for="">PRICE: </label>
-        <strong id="price" class="col-11 offset-1">{{item.price}}$</strong>
-        <hr>
+        <table class="col-12">
+            <tr>
+                <td>
+                    <span>User</span>
+                </td>
+                <td>
+                    <span>Operation</span>
+                </td>
+                <td>
+                    <span>Value</span>
+                </td>
+                <td>
+                    <span>Date</span>
+                </td>
+            </tr>
+        </table> 
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button mat-buttton mat-dialog-close mat-raised-button type="button" class="btn btn-primary">Close</button>
+    <button mat-buttton mat-raised-button type="button" (click)="close()" class="btn btn-primary">Close</button>
 </mat-dialog-actions>
 
 

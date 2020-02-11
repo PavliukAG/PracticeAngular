@@ -8,22 +8,22 @@ import { BaseURL } from './config/config';
 export class ExternalRoutingService { // productHTTPService
 
   constructor(private http: HttpClient) { }
-  readonly addURL = '/Product';
+  readonly ProductApiURL = '/Product';
 
   getProducts() {
-    return this.http.get(`${BaseURL}${this.addURL}`);
+    return this.http.get(`${BaseURL}${this.ProductApiURL}`);
   }
 
-  addProduct(formData) {
-    return this.http.post(`${BaseURL}${this.addURL}`, formData);
+  addProduct(model) {
+    return this.http.post(`${BaseURL}${this.ProductApiURL}`, model);
   }
 
-  updateProduct(formData) {
-    return this.http.put(`${BaseURL}${this.addURL}`, formData);
+  updateProduct(model) {
+    return this.http.put(`${BaseURL}${this.ProductApiURL}`, model);
   }
 
   removeProduct(id) {
-    return this.http.delete(`${BaseURL}${this.addURL}/${id}`);
+    return this.http.delete(`${BaseURL}${this.ProductApiURL}/${id}`);
   }
 
 }

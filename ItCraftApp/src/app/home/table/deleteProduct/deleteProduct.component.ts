@@ -1,6 +1,6 @@
 import { ExternalRoutingService} from '../../../core/externalRouting.service';
-import { MatDialog, MatDialogRef} from '@angular/material';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { MatDialogRef} from '@angular/material';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-deleteProduct',
