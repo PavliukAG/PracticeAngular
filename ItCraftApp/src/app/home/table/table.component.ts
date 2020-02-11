@@ -44,7 +44,7 @@ export class TableComponent implements OnInit {
     this.pageNumber -= this.pageNumber > 1 ? 1 : 0;
   }
 
-  public getPagesCount() {
+  public get pagesCount() {
     if (String(this.pageSize) == "ALL") return this.pageSize;
     return Math.ceil(this.items.length / Number(this.pageSize));
   }
@@ -57,16 +57,13 @@ export class TableComponent implements OnInit {
     this.changeCurrentItemTable.emit(item);
   }
 
-  public updateProduct(item) {
-    alert(item);
-    let model = {
-      name : "test",
-      price : 20
-    }
-    // this.service.updateProduct(model).subscribe(
-    //   (res: any) => {
-    //     alert('updated')
-    //   });
+  public updateProduct(item, th) {
+    alert(th);
+
+    this.service.updateProduct(item).subscribe(
+      (res: any) => {
+        alert('updated')
+      });
   }
 
   public remove(item) {

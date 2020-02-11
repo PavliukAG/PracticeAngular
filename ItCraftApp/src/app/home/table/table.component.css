@@ -106,10 +106,11 @@ td {
     box-shadow: 0 3px 8px rgba(100, 100, 100, 0.5), -10px 0 20px rgba(247, 0, 103, 0.2);
 }
 
-.trProduct > td > input {
+.trProduct>td>input {
     width: 100%;
     height: 100%;
     border: 0;
+    margin: 0;
 }
 
 tr:first-child>td {
@@ -151,7 +152,7 @@ tr:first-child {
     position: sticky;
     top: 0;
     z-index: 2;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 
@@ -159,7 +160,6 @@ tr:first-child {
 
 .action-row {
     text-align: center;
-    
 }
 
 .action-row>td>img {

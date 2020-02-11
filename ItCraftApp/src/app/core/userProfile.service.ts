@@ -18,7 +18,10 @@ export class UserProfileService {
     return this.http.post(`${BaseURL}/Auth/Register`, registrModelInfo);
   }
 
-  login(formData){
-    return this.http.post(`${BaseURL}/Auth/Login`, formData);
+  login(model){
+    return this.http.post(`${BaseURL}/Auth/Login`, model);
   }
 }
+// / 2 sevices
+
+//  + linter 

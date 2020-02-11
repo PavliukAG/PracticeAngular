@@ -22,7 +22,9 @@ formModel = {
   
   onSubmit(form: NgForm) {
   this.service.login(form.value).subscribe(
+    // not any
     (res: any) => {
+      // localStorage service +
       localStorage.setItem('token', res.token);
       this.router.navigateByUrl('/home');
     },

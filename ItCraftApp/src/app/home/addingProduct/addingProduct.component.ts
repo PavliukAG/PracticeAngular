@@ -35,6 +35,7 @@ export class AddingProductComponent implements OnInit {
     this.service.addProduct(model).subscribe(
       (res : any) => {
         this.toastr.success(`${model.name} was added to table`);
+        this.formAdding.reset();
       },
       err => {
         if (err.status == 400) {
@@ -44,7 +45,6 @@ export class AddingProductComponent implements OnInit {
         }
       }
     );
-    this.formAdding.reset();
     this.updateTable();
 
   }

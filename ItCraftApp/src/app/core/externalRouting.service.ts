@@ -5,11 +5,10 @@ import { BaseURL } from "./config";
 @Injectable({
   providedIn: 'root'
 })
-export class ExternalRoutingService {
+export class ExternalRoutingService { // productHTTPService
 
   constructor(private http: HttpClient) { }
   readonly addURL = '/Product';
-
 
   getProducts() {
     return this.http.get(`${BaseURL}${this.addURL}`);
@@ -24,7 +23,7 @@ export class ExternalRoutingService {
   }
 
   removeProduct(id) {
-    return this.http.delete(`${BaseURL}${this.addURL}/${Number(id)}`);
+    return this.http.delete(`${BaseURL}${this.addURL}/${id}`);
   }
 
 }

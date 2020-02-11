@@ -32,23 +32,23 @@ export class HomeComponent implements OnInit {
         console.log(err);
       },
       )
-      this.generateHardcodeProduct();
+      // this.generateHardcodeProduct();
   }
 
-  // ! This method for testing without backend
-  generateHardcodeProduct() {
-    this.products = []
-    for (let i = 0; i < 16; i++) {
-      let model = {
-        name: `Product${i}`,
-        price: Math.round((Math.random() * 1000) * 100) / 100,
-        productId: i,
-        count: 0
-      }
-      this.products.push(model)
-    }
-    this.currentItem = this.products[this.products.length - 1];
-  }
+  // // ! This method for testing without backend
+  // generateHardcodeProduct() {
+  //   this.products = []
+  //   for (let i = 0; i < 16; i++) {
+  //     let model = {
+  //       name: `Product${i}`,
+  //       price: Math.round((Math.random() * 1000) * 100) / 100,
+  //       productId: i,
+  //       count: 0
+  //     }
+  //     this.products.push(model)
+  //   }
+  //   this.currentItem = this.products[this.products.length - 1];
+  // }
 
 
   private delay(ms: number)
