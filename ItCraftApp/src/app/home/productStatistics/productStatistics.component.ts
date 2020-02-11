@@ -1,4 +1,6 @@
 import { Component, OnInit, Injectable, Input } from '@angular/core';
+import { MatDialog} from '@angular/material';
+import { AccountingComponent } from './accounting/accounting.component';
 
 @Component({
   selector: 'app-productStatistics',
@@ -9,9 +11,17 @@ import { Component, OnInit, Injectable, Input } from '@angular/core';
 @Injectable()
 export class ProductStatisticsComponent implements OnInit {
 
-  @Input() item : string;
+  @Input() item;
+  
 
-  constructor() { 
+  constructor(public dialog: MatDialog) { 
+  }
+
+  openDialogAC() {
+    const dialogRef = this.dialog.open(AccountingComponent, {
+      height: '90%',
+      width: '80%',
+    });
   }
 
   ngOnInit() {
