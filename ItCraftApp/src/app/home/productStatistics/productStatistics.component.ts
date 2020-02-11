@@ -9,7 +9,7 @@ import { Component, OnInit, Injectable, Input } from '@angular/core';
 @Injectable()
 export class ProductStatisticsComponent implements OnInit {
 
-  @Input() item : string;
+  @Input() item;
 
   constructor() { 
   }

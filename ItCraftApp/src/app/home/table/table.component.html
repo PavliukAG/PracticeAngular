@@ -43,9 +43,9 @@
 
                 <div class="action-row">
                     <td> <img src="../../../assets/images/editicon.png" (click)="editProduct(item)" alt="Edit"> </td>
-                    <td> <img src="../../../assets/images/removeicon.png" (click)="remove(item); openDialogDPC()" alt="Remove"> </td>
+                    <td> <img src="../../../assets/images/removeicon.png" (click)="remove(item); openDialogDeleteProduct()" alt="Remove"> </td>
                     <td>
-                        <img src="../../../assets/images/inoutcomeicon.png" (click)="openDialogIOC()" alt="Income/Outcome">
+                        <img src="../../../assets/images/inoutcomeicon.png" (click)="openDialogIncomeOutcome()" alt="Income/Outcome">
                     </td>
                 </div>
             </ng-template>
@@ -56,7 +56,7 @@
                 <div class="action-row">
                     <td> <img src="../../../assets/images/saveicon.png" (click)="updateProduct()" alt="Save"> </td>
                     <td> <img src="../../../assets/images/backicon.png" (click)="cancel()" alt="Cancel"> </td>
-                    <td> <img src="../../../assets/images/removeicon.png" (click)="remove(item); openDialogDPC()" alt="Remove"> </td>
+                    <td> <img src="../../../assets/images/removeicon.png" (click)="openDialogDeleteProduct()" alt="Remove"> </td>
                 </div>
             </ng-template>
         </tr>

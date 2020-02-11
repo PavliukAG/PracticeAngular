@@ -5,10 +5,10 @@
     </div>
     <div class="row">
         <div class="col-md-10 offset-2 col-xs-12 add-container">
-            <app-addForm (eventEmitter)="initProducts()"></app-addForm>
+            <app-addForm (updateTableEmitter)="initProducts()"></app-addForm>
         </div>
         <div class="col-md-10 offset-2 table-container">
-            <app-table [items]="products" (changeCurrentItemTable)="changeCurrentItem($event)" (removeItemEmitter)="remove($event)"></app-table>
+            <app-table [items]="products" (changeCurrentItemTableEmitter)="changeCurrentItem($event)" (removeItemEmitter)="remove($event)"></app-table>
         </div>
     </div>
 </div>

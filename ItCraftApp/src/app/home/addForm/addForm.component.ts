@@ -13,7 +13,7 @@ export class AddFormComponent implements OnInit {
 
   public formAdding : FormGroup;
 
-  @Output() eventEmitter = new EventEmitter();
+  @Output() updateTableEmitter = new EventEmitter();
 
   constructor(private service: ExternalRoutingService, private toastr: ToastrService, private fb: FormBuilder) { 
   }
@@ -50,7 +50,7 @@ export class AddFormComponent implements OnInit {
   }
 
   updateTable() {
-    this.eventEmitter.emit();
+    this.updateTableEmitter.emit();
   }
 
 }

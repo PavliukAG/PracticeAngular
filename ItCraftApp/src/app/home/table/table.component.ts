@@ -20,7 +20,7 @@ export class TableComponent implements OnInit {
   public pageNumber = 1;
   public pageSize  = 5;
 
-  @Output() changeCurrentItemTable = new EventEmitter();
+  @Output() changeCurrentItemTableEmitter = new EventEmitter();
   @Output() removeItemEmitter = new EventEmitter();
 
   private directionName = true;
@@ -28,13 +28,21 @@ export class TableComponent implements OnInit {
 
   public commandLine: string;
 
-  openDialogIOC() {
+  openDialogIncomeOutcome() {
     this.dialog.open(IncomeOutcomeComponent);
 
   }
 
-  openDialogDPC() {
-    this.dialog.open(DeleteProductComponent);
+  openDialogDeleteProduct() {
+    this.dialog.open(DeleteProductComponent,{
+      data:{
+        message: 'Are you sure want to delete?',
+        buttonText: {
+          ok: 'Save',
+          cancel: 'No'
+        }
+      }
+    });
   }
 
   ngOnInit() {
@@ -67,7 +75,7 @@ export class TableComponent implements OnInit {
   }
 
   public showStatistics(item) {
-    this.changeCurrentItemTable.emit(item);
+    this.changeCurrentItemTableEmitter.emit(item);
   }
 
   public remove(item) {
