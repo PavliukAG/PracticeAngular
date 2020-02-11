@@ -21,6 +21,7 @@ import { DeleteProductComponent } from './home/table/deleteProduct/deleteProduct
 import { ExternalRoutingService } from './core/externalRouting.service';
 import { AddFormComponent } from './home/addForm/addForm.component';
 import { HeaderComponent } from './home/header/header.component';
+import { AccountingComponent } from './home/productStatistics/accounting/accounting.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +35,10 @@ import { HeaderComponent } from './home/header/header.component';
     AddFormComponent,
     ProductStatisticsComponent,
     IncomeOutcomeComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
+    AccountingComponent
   ],
-  entryComponents: [IncomeOutcomeComponent, DeleteProductComponent],
+  entryComponents: [IncomeOutcomeComponent, DeleteProductComponent, AccountingComponent],
   imports: [
     MatDialogModule,
     BrowserModule,
