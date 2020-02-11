@@ -23,7 +23,6 @@ button[type="submit"] {
     box-sizing: border-box;
     background: radial-gradient(circle at top, #acc6c4, #8c9aaf);
     filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.7));
-    z-index: 2;
     transition: 0.2s;
     cursor: pointer;
     box-shadow: inset 0 0 2px #000000aa;

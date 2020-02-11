@@ -27,7 +27,7 @@ formModel = {
       this.router.navigateByUrl('/home');
     },
     err => {
-      if (err.status == 401) {
+      if (err.status === 401) {
         this.toastr.error(err.error, 'Authentication failed.');
       } else {
         console.log(err);

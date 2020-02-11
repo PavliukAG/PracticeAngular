@@ -17,7 +17,10 @@ import { TableComponent } from 'src/app/home/table/table.component';
 import { UserProfileService } from './core/userProfile.service';
 import { ExternalRoutingService } from './core/externalRouting.service'
 import { AddingProductComponent } from './home/addingProduct/addingProduct.component';
+import { IncomeOutcomeComponent } from './home/table/incomeOutcome/incomeOutcome.component';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ProductStatisticsComponent } from './home/productStatistics/productStatistics.component';
+import { DeleteProductComponent } from './home/table/deleteProduct/deleteProduct.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,13 @@ import { ProductStatisticsComponent } from './home/productStatistics/productStat
     HomeComponent,
     TableComponent,
     AddingProductComponent,
-    ProductStatisticsComponent
+    ProductStatisticsComponent,
+    IncomeOutcomeComponent,
+    DeleteProductComponent
   ],
+  entryComponents: [IncomeOutcomeComponent, DeleteProductComponent],
   imports: [
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
