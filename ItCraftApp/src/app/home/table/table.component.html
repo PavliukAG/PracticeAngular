@@ -51,8 +51,8 @@
                 <td *ngIf="!edit[id]"> <img src="../../../assets/images/removeicon.png" (click)="remove(item)" alt="Remove"> </td>
                 <td *ngIf="edit[id]"> <img src="../../../assets/images/backicon.png" (click)="changeStateProduct(id)" alt="Cancel"> </td>
 
-                <td>
-                    <img src="../../../assets/images/inoutcomeicon.png" alt="Income/Outcome">
+                <td class="" *ngIf="!edit[(id*pageNumber)+id]">
+                    <img src="../../../assets/images/inoutcomeicon.png" (click)="openDialogIOC()" alt="Income/Outcome">
                 </td>
             </div>
         </tr>

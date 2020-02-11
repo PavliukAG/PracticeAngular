@@ -4,6 +4,7 @@ nav {
     background-color: #b8b8b8;
     padding-top: 10px;
     height: 64px;
+    z-index: 2  !important;
 }
 
 nav>.pagination {

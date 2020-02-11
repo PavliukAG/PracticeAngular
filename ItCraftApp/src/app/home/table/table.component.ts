@@ -1,6 +1,11 @@
 import { Component, OnInit, ContentChild, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { ExternalRoutingService } from 'src/app/core/externalRouting.service';
 import { ToastrService } from 'ngx-toastr';
+import { HomeComponent } from '../home.component';
+import { ProductStatisticsComponent } from '../productStatistics/productStatistics.component';
+import { MatDialog} from '@angular/material';
+import { IncomeOutcomeComponent } from './incomeOutcome/incomeOutcome.component';
+import { DeleteProductComponent } from './deleteProduct/deleteProduct.component';
 
 @Component({
   selector: 'app-table',
@@ -16,8 +21,28 @@ export class TableComponent implements OnInit {
   public edit = new Array<boolean>();
 
   @Output() changeCurrentItemTable = new EventEmitter();
+  
+  constructor(private service: ExternalRoutingService, private toastr: ToastrService, public dialog: MatDialog) {
+  
+  }
+  
+  openDialogIOC() {
+    this.dialog.open(IncomeOutcomeComponent);
 
-  constructor(private service: ExternalRoutingService, private toastr: ToastrService) {
+  }
+
+  openDialogDPC() {
+    this.dialog.open(DeleteProductComponent);
+  }
+
+  initTable() {
+    this.service.getProducts().subscribe(
+      res => {
+        this.items = res;
+      },
+      err => {
+        console.log(err);
+      });
   }
 
   ngOnInit() {
