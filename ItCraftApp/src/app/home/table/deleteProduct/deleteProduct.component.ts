@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';import { ExternalRoutingService } from 'src/app/core/externalRouting.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { ExternalRoutingService} from '../../../core/externalRouting.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog} from '@angular/material';
 

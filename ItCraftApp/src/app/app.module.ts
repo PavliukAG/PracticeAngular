@@ -14,13 +14,12 @@ import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { TableComponent } from 'src/app/home/table/table.component';
-import { UserProfileService } from './core/userProfile.service';
-import { ExternalRoutingService } from './core/externalRouting.service'
-import { AddingProductComponent } from './home/addingProduct/addingProduct.component';
 import { IncomeOutcomeComponent } from './home/table/incomeOutcome/incomeOutcome.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProductStatisticsComponent } from './home/productStatistics/productStatistics.component';
 import { DeleteProductComponent } from './home/table/deleteProduct/deleteProduct.component';
+import { AddingProductComponent } from './home/addingProduct/addingProduct.component';
+import { ExternalRoutingService } from './core/externalRouting.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +48,7 @@ import { DeleteProductComponent } from './home/table/deleteProduct/deleteProduct
     FormsModule
   ],
   providers: [ExternalRoutingService,
-    UserProfileService, {
+    UserComponent, {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true

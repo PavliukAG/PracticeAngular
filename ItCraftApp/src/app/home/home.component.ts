@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { ExternalRoutingService } from '../core/externalRouting.service';
+import { ExternalRoutingService } from "../core/externalRouting.service";
 import { UserProfileService } from '../core/userProfile.service';
 
 
