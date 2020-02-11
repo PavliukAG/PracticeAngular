@@ -1,18 +1,17 @@
 <div id="body">
     <nav class="navbar row">
-        <a class="navbar-brand text-white offset-2">Product manager</a>
-        <div>
-            <select class="col-5">
-                <option disabled class="list-group-item"><strong>PROFILE</strong></option>
-                <option disabled *ngIf="userDetails" class="list-group-item"><strong>Username :
-                </strong>{{userDetails.userName}}</option>
-                <option disabled *ngIf="userDetails" class="list-group-item"><strong>Full Name :
-                </strong>{{userDetails.fullName}}</option>
-                <option disabled *ngIf="userDetails" class="list-group-item"><strong>Email :
-                </strong>{{userDetails.email}}</option>
-            </select>
-            <button class="btn col-5 offset-1" (click)="onLogout()">Logout</button>
-        </div>
+        <a class="headertext text-white col-3 offset-1">Product manager</a>
+        <ul class="col-6 row" *ngIf="userDetails">
+            <li class="col-4"><span><strong>Username : </strong>{{userDetails.userName}}</span></li>
+            <li class="col-4"><span><strong>Full Name : </strong>{{userDetails.fullName}}</span></li>
+            <li class="col-4"><span><strong>Email : </strong>{{userDetails.email}}</span></li>
+        </ul>
+        <ul class="col-6 row" *ngIf="!userDetails">
+            <li class="col-4"><strong>Username</strong></li>
+            <li class="col-4"><strong>Full Name</strong></li>
+            <li class="col-4"><strong>Email</strong></li>
+        </ul>
+        <button class="btn col-1 offset-1" (click)="onLogout()">Logout</button>
     </nav>
     <div class="statistics-container">
         <app-productStatistics [item]="currentItem"></app-productStatistics>

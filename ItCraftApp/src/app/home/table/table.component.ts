@@ -13,10 +13,10 @@ export class TableComponent implements OnInit {
   public pageNumber: number = 1;
   public pageSize = 5;
   // ! --------------------- THIS IS HARDCODE
-  public edit = new Array<boolean>(200);
+  public edit = new Array<boolean>();
 
   @Output() changeCurrentItemTable = new EventEmitter();
-  
+
   constructor(private service: ExternalRoutingService, private toastr: ToastrService) {
   }
 
@@ -29,8 +29,9 @@ export class TableComponent implements OnInit {
     }
     let start: number = (this.pageNumber - 1) * Number(this.pageSize);
     let end: number = Number(start) + Number(this.pageSize);
-    
-    return this.items.slice(start, end);
+    let result = this.items.slice(start, end);
+    if (this.edit.length != result.length) this.edit = new Array<boolean>(result.length);
+    return result;
   }
 
   public nextPage() {
@@ -56,6 +57,12 @@ export class TableComponent implements OnInit {
     this.changeCurrentItemTable.emit(item);
   }
 
+  public updateProduct(item) {
+    this.service.updateProduct(item).subscribe(
+      (res: any) => {
+        alert('updated')
+      });
+  }
 
   public remove(item) {
     let res = confirm("Are you sure you want to delete the item?");
@@ -65,12 +72,13 @@ export class TableComponent implements OnInit {
           this.toastr.success(`${res.name} was successfully deleted`);
         },
         err => {
-          if (err.status == 400) {
-            this.toastr.error(err.error, 'Operation failed.');
-          } else {
-            console.log(err);
+          switch (err.status) {
+            case 400:
+              this.toastr.error(err.error, 'Operation failed.');
+              break;
+            default:
+              break;
           }
-
         }
       );
       let id = this.items.indexOf(item)
@@ -112,26 +120,26 @@ export class TableComponent implements OnInit {
     }
   }
 
-  public commandLine : string;
+  public commandLine: string;
   public command() {
     switch (this.commandLine) {
       case "clear":
         this.clearDB();
         break;
       case "additem": {
-        let model = { 
-          name: "test" + Math.random()*100, 
-          price: Math.random()*100
+        let model = {
+          name: "test" + Math.random() * 100,
+          price: Math.random() * 100
         }
         let res = confirm("Add?");
-        if (res) 
-        this.service.addProduct(model);      
-        break; 
+        if (res)
+          this.service.addProduct(model);
+        break;
       }
     }
   }
 
-  public changeStateProduct(id:number) {
+  public changeStateProduct(id: number) {
     this.edit[id] = !this.edit[id];
   }
 }

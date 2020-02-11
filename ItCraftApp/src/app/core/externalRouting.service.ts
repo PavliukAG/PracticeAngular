@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BaseURL} from "./config";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BaseURL } from "./config";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,10 @@ export class ExternalRoutingService {
 
   addProduct(formData) {
     return this.http.post(`${BaseURL}${this.addURL}`, formData);
+  }
+
+  updateProduct(formData) {
+    return this.http.put(`${BaseURL}${this.addURL}`, formData);
   }
 
   removeProduct(id) {
