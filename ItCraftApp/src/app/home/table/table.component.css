@@ -59,14 +59,16 @@ table {
 /* name */
 
 td:nth-child(1) {
-    width: 50%;
+    width: 85%;
 }
 
 
 /* price */
 
-td:nth-child(2) {
-    width: 40%
+.priceCol {
+    width: 15%;
+    text-align: right;
+    padding-right: 0.8%;
 }
 
 

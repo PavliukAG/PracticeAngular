@@ -1,18 +1,10 @@
 <h2 mat-dialog-title>Accounting of products</h2>
 <mat-dialog-content class="row">
-    <div *ngIf="item; else unknownItem">
         <strong id="name" class="col-12">{{item.name}}</strong>
         <hr>
         <label class="col-4" for="">PRICE: </label>
         <strong id="price" class="col-11 offset-1">{{item.price}}$</strong>
         <hr>
-        <label class="col-4" for="">COUNT: </label>
-        <strong id="count" class="col-11 offset-1" for="">{{item.count}}</strong>
-        <hr>
-        <label class="col-4" for="">TOTAL COST: </label>
-        <strong id="total" class="col-11 offset-1">{{item.price * item.count}}$</strong>        
-    </div>
-    <ng-template #unknownItem class="col-11 offset-1">Empty</ng-template>
 </mat-dialog-content>
 
 <mat-dialog-actions>

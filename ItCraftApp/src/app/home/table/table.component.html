@@ -26,7 +26,7 @@
                     <img src="../../../assets/images/sorticon.png" alt="">
                 </button>
             </td>
-            <td class="">
+            <td class="priceCol">
                 <button (click)="sortPrice()">
                     <span>PRICE</span>
                     <img src="../../../assets/images/sorticon.png" alt="">
@@ -39,11 +39,11 @@
         <tr class="trProduct" *ngFor="let item of getSegmentOfList(); let id = index">
             <ng-template [ngIf]="product?.productId != item.productId" [ngIfElse]="edit">
                 <td (click)="showStatistics(item)">{{item.name}}</td>
-                <td (click)="showStatistics(item)">{{item.price}} $</td>
+                <td class="priceCol" (click)="showStatistics(item)">{{item.price}} $</td>
 
                 <div class="action-row">
                     <td> <img src="../../../assets/images/editicon.png" (click)="editProduct(item)" alt="Edit"> </td>
-                    <td> <img src="../../../assets/images/removeicon.png" (click)="remove(item); openDialogDeleteProduct()" alt="Remove"> </td>
+                    <td> <img src="../../../assets/images/removeicon.png" (click)="openDialogDeleteProduct(item)" alt="Remove"> </td>
                     <td>
                         <img src="../../../assets/images/inoutcomeicon.png" (click)="openDialogIncomeOutcome()" alt="Income/Outcome">
                     </td>
@@ -51,12 +51,12 @@
             </ng-template>
             <ng-template #edit>
                 <td> <input type="text" class="" [(ngModel)]="product.name"></td>
-                <td> <input type="text" class="" [(ngModel)]="product.price"></td>
+                <td class="priceCol"> <input type="text" class="" [(ngModel)]="product.price"></td>
 
                 <div class="action-row">
                     <td> <img src="../../../assets/images/saveicon.png" (click)="updateProduct()" alt="Save"> </td>
                     <td> <img src="../../../assets/images/backicon.png" (click)="cancel()" alt="Cancel"> </td>
-                    <td> <img src="../../../assets/images/removeicon.png" (click)="openDialogDeleteProduct()" alt="Remove"> </td>
+                    <td> <img src="../../../assets/images/removeicon.png" (click)="openDialogDeleteProduct(item)" alt="Remove"> </td>
                 </div>
             </ng-template>
         </tr>

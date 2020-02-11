@@ -33,22 +33,20 @@ export class TableComponent implements OnInit {
 
   }
 
-  openDialogDeleteProduct() {
-    this.dialog.open(DeleteProductComponent,{
-      data:{
-        message: 'Are you sure want to delete?',
-        buttonText: {
-          ok: 'Save',
-          cancel: 'No'
-        }
-      }
-    });
+  openDialogDeleteProduct(item) {
+    let dialog = this.dialog.open(DeleteProductComponent);
+
+    
+    dialog.afterClosed().subscribe(result => {
+      if (result) this.remove(item);
+    })
   }
 
   ngOnInit() {
   }
 
   public getSegmentOfList() {
+    if (this.pageNumber > this.getPageLimit()) this.pageNumber--;
     const start: number = (this.pageNumber - 1) * Number(this.pageSize);
     const end: number = Number(start) + Number(this.pageSize);
     const result = this.items.slice(start, end);

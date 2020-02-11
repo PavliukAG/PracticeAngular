@@ -10,7 +10,11 @@ import { Component, OnInit, Injectable, Input } from '@angular/core';
 
 export class AccountingComponent implements OnInit {
 
-  @Input() item;
+  item = {
+    name : "test",
+    price: 20
+  }
+
   constructor() { }
 
   ngOnInit() {

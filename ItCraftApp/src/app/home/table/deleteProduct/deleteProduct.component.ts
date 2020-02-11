@@ -1,8 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ExternalRoutingService} from '../../../core/externalRouting.service';
-import { Component, OnInit, Input, EventEmitter,Output } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { MatDialog} from '@angular/material';
+import { MatDialog, MatDialogRef} from '@angular/material';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-deleteProduct',
@@ -10,16 +8,17 @@ import { MatDialog} from '@angular/material';
   styleUrls: ['./deleteProduct.component.css']
 })
 export class DeleteProductComponent implements OnInit {
-  constructor(private service: ExternalRoutingService, public dialog: MatDialog) { }
-
-  @Output() deleteEmitter = new EventEmitter(); 
+  constructor(private service: ExternalRoutingService, public dialog: MatDialogRef<DeleteProductComponent>) { }
 
   ngOnInit() {
   }
 
   public confirmDelete() {
-    this.deleteEmitter.emit();
-    this.dialog.closeAll();
+    this.dialog.close(true);
+  }
+
+  public cancel() {
+    this.dialog.close(false);
   }
 
 }
