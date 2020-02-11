@@ -1,10 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { TableComponent } from './table/table.component'
-import { UserProfileService } from './../core/userProfile.service'
 import { ExternalRoutingService } from '../core/externalRouting.service';
-import { EventEmitter } from 'protractor';
-import { delay } from 'rxjs/operators';
+import { UserProfileService } from '../core/userProfile.service';
 
 
 @Component({
@@ -30,8 +27,7 @@ export class HomeComponent implements OnInit {
       },
       err => {
         console.log(err);
-      },
-      )
+      });
       // this.generateHardcodeProduct();
   }
 
@@ -56,8 +52,7 @@ export class HomeComponent implements OnInit {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-  async initProducts() {
-    
+  public async initProducts() {
     await this.delay(150);
 
     this.dataService.getProducts().subscribe(

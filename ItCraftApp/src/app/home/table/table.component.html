@@ -3,7 +3,7 @@
     <div class="col-md-4 col-xs-12" id="selectPageSize-group">
         <label class="offset-1" for="selectPageSize">Count of goods</label>
         <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" (change)="pageNumber=1">
-            <option *ngFor="let c of [2, 5,10,15,30,50,100, 'ALL']" [value]="c">{{c}}</option>
+            <option *ngFor="let c of [2, 5,10,15,30,50,100, 'ALL']" value="{{c}}">{{c}}</option>
         </select>
     </div>
     <div class="col-md-4" id="hole-container">
@@ -11,7 +11,7 @@
     </div>
     <ul class="col-md-4 col-xs-12 pagination" *ngIf="pageSize != 'ALL'">
         <li class="page-item"><button class="page-link" (click)="prevPage()">Previous</button></li>
-        <li class="page-item"><button disabled class="page-link"> {{pageNumber}} of {{getPagesCount()}} </button></li>
+        <li class="page-item"><button disabled class="page-link"> {{pageNumber}} of {{pagesCount()}} </button></li>
         <li class="page-item"><button class="page-link" (click)="nextPage()">Next</button></li>
     </ul>
 </nav>
@@ -48,7 +48,7 @@
                 <td *ngIf="!edit[id]"> <img src="../../../assets/images/editicon.png" (click)="changeStateProduct(id)" alt="Edit"> </td>
                 <td *ngIf="edit[id]"> <img src="../../../assets/images/saveicon.png" (click)="changeStateProduct(id); updateProduct(item, this)" alt="Save"> </td>
 
-                <td *ngIf="!edit[id]"> <img src="../../../assets/images/removeicon.png" (click)="remove(item)" alt="Remove"> </td>
+                <td *ngIf="!edit[id]"> <img src="../../../assets/images/removeicon.png" (click)="remove(item); openDialogDPC()" alt="Remove"> </td>
                 <td *ngIf="edit[id]"> <img src="../../../assets/images/backicon.png" (click)="changeStateProduct(id)" alt="Cancel"> </td>
 
                 <td class="" *ngIf="!edit[(id*pageNumber)+id]">
@@ -68,7 +68,7 @@
     </div>
     <ul class="col-md-4 offset-2 col-xs-12 pagination" *ngIf="pageSize != 'ALL'">
         <li class="page-item"><button class="page-link" (click)="prevPage()">Previous</button></li>
-        <li class="page-item"><button disabled class="page-link"> {{pageNumber}} of {{getPagesCount()}} </button></li>
+        <li class="page-item"><button disabled class="page-link"> {{pageNumber}} of {{pagesCount()}} </button></li>
         <li class="page-item"><button class="page-link" (click)="nextPage()">Next</button></li>
     </ul>
 </nav>

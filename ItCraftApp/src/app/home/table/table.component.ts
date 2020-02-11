@@ -1,8 +1,6 @@
 import { Component, OnInit, ContentChild, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { ExternalRoutingService } from 'src/app/core/externalRouting.service';
 import { ToastrService } from 'ngx-toastr';
-import { HomeComponent } from '../home.component';
-import { ProductStatisticsComponent } from '../productStatistics/productStatistics.component';
 import { MatDialog} from '@angular/material';
 import { IncomeOutcomeComponent } from './incomeOutcome/incomeOutcome.component';
 import { DeleteProductComponent } from './deleteProduct/deleteProduct.component';
@@ -23,7 +21,6 @@ export class TableComponent implements OnInit {
   @Output() changeCurrentItemTable = new EventEmitter();
   
   constructor(private service: ExternalRoutingService, private toastr: ToastrService, public dialog: MatDialog) {
-  
   }
   
   openDialogIOC() {
@@ -36,13 +33,13 @@ export class TableComponent implements OnInit {
   }
 
   initTable() {
-    this.service.getProducts().subscribe(
-      res => {
-        this.items = res;
-      },
-      err => {
-        console.log(err);
-      });
+    // this.service.getProducts().subscribe(
+    //   res => {
+    //     this.items = res;
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   });
   }
 
   ngOnInit() {
@@ -62,14 +59,14 @@ export class TableComponent implements OnInit {
   public nextPage() {
     let limit = this.getPageLimit()
     this.pageNumber += this.pageNumber < limit ? 1 : 0;
-    if (this.pageNumber > limit) this.pageNumber = limit;
+    // if (this.pageNumber > limit) this.pageNumber = limit;
   }
 
   public prevPage() {
     this.pageNumber -= this.pageNumber > 1 ? 1 : 0;
   }
 
-  public get pagesCount() {
+  public pagesCount() {
     if (String(this.pageSize) == "ALL") return this.pageSize;
     return Math.ceil(this.items.length / Number(this.pageSize));
   }

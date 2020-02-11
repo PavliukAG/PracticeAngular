@@ -38,7 +38,7 @@ export class AddingProductComponent implements OnInit {
         this.formAdding.reset();
       },
       err => {
-        if (err.status == 400) {
+        if (err.status === 401) {
           this.toastr.error(err.error, 'Operation failed.');
         } else {
           console.log(err);
