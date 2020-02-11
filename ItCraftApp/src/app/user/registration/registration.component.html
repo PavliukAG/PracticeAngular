@@ -3,7 +3,7 @@
     <div class="form-group required">
       <label>userName</label>
       <input class="form-control" formControlName="userName">
-      <label class="text-danger" *ngIf="form.get('userName').touched && form.get('userName').errors?.required">This field is mandatory.</label>
+      <label class="text-danger" *ngIf="form.get('userName').touched && form.get('userName').errors?.required">This field is required.</label>
     </div>
     <div class="form-group">
       <label>email</label>
@@ -18,13 +18,13 @@
       <div class="form-group required">
         <label>password</label>
         <input type="password" class="form-control" formControlName="password">
-        <label class="text-danger" *ngIf="form.get('passwords.password').touched && form.get('passwords.password').errors?.required">This field is mandatory.</label>
+        <label class="text-danger" *ngIf="form.get('passwords.password').touched && form.get('passwords.password').errors?.required">This field is required.</label>
         <label class="text-danger" *ngIf="form.get('passwords.password').touched && form.get('passwords.password').errors?.minlength">Minimum 6 characters required.</label>
       </div>
       <div class="form-group required">
         <label>Confirm password</label>
         <input type="password" class="form-control" formControlName="confirmPassword">
-        <label class="text-danger" *ngIf="form.get('passwords.confirmPassword').touched && form.get('passwords.confirmPassword').errors?.required">This field is mandatory.</label>
+        <label class="text-danger" *ngIf="form.get('passwords.confirmPassword').touched && form.get('passwords.confirmPassword').errors?.required">This field is required.</label>
         <label class="text-danger" *ngIf="form.get('passwords.confirmPassword').touched && form.get('passwords.confirmPassword').errors?.passwordMismatch">Confirm password does not match.</label>
       </div>
     </div>

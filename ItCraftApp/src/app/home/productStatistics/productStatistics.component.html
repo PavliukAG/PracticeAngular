@@ -3,7 +3,7 @@
 </header>
 <section>
     <div id="border"></div>
-    <h3 class="col-12">STATISTICS</h3>
+    <h3 class="col-12">DETAILS</h3>
     <hr>
     <div *ngIf="item; else unknownItem">
         <strong id="name" class="col-12">{{item.name}}</strong>
@@ -11,7 +11,7 @@
         <label class="col-12" for="">PRICE: </label>
         <strong id="price" class="col-11 offset-1">{{item.price}}$</strong>
         <hr>
-        <label class="col-12" for="">COUNT: </label>
+        <label class="col-12" for="">AMOUNT: </label>
         <strong id="count" class="col-11 offset-1" for="">{{item.count}}</strong>
         <hr>
         <label class="col-12" for="">TOTAL COST: </label>
