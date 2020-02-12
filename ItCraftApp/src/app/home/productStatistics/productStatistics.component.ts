@@ -21,6 +21,7 @@ export class ProductStatisticsComponent implements OnInit {
       height: '90%',
       width: '80%',
     });
+    dialogRef.componentInstance.item = this.item;
   }
 
   ngOnInit() {

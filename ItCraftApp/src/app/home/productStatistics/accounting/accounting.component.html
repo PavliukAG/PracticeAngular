@@ -16,6 +16,12 @@
                     <span>Date</span>
                 </td>
             </tr>
+            <tr *ngFor="let t of accountingList">
+                <td>{{t.appUserName}}</td>
+                <td>{{t.operationType}}</td>
+                <td>{{t.amount}}</td>
+                <td>{{t.date}}</td>
+            </tr>
         </table> 
 </mat-dialog-content>
 
