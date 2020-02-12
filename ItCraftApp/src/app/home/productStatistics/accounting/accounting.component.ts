@@ -1,6 +1,6 @@
 import { Component, OnInit, Injectable, Input } from '@angular/core';
 import { MatDialogRef} from '@angular/material';
-import { AccountingHttpService } from 'src/app/core/accounting-http.service';
+import { AccountingHttpService } from '../../../core/services/accounting-http.service';
 import { ToastrService } from 'ngx-toastr';
 
 class Accounting {
@@ -41,6 +41,12 @@ export class AccountingComponent implements OnInit {
       },
       err => {
         console.log(err);
-      });
-    }
+    });
+  }
+
+  public getDate(line : string):string {
+    let date = new Date(line)
+    return `${date.getFullYear()}.${date.getMonth()}.${date.getDate()}       ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+  }
+
 }

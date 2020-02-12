@@ -1,22 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ProductHttpService } from '../core/product-http.service';
+import { ProductHttpService } from '../core/services/product-http.service';
 import { ToastrService } from 'ngx-toastr';
 import { AddProductFormComponent } from './add-product-form/add-product-form.component';
-import { AccountingHttpService } from '../core/accounting-http.service';
-
-class Product {
-  productId: number;
-  name: string;
-  price: number;
-  count?: number;
-}
+import { AccountingHttpService } from '../core/services/accounting-http.service';
+import { Product } from '../core/models/Product';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-
 
 export class HomeComponent implements OnInit {
   public products: Product[];
@@ -34,14 +27,13 @@ export class HomeComponent implements OnInit {
     this.dataService.getProducts().subscribe(
       (res : Product[]) => {
         this.products = res;
-        this.currentItem = this.products[this.products.length - 1];
       },
       err => {
         console.log(err);
       });
     }
 
-    public addProductItem(model) {
+    public addProductItem(model: Product) {
       this.dataService.addProduct(model).subscribe(
         (res : Product) => {
           this.toastr.success(`${res.name} was added to table`);
@@ -59,7 +51,7 @@ export class HomeComponent implements OnInit {
       );
     }
 
-    public remove(item) {
+    public remove(item: Product) {
         this.dataService.removeProduct(item.productId).subscribe(
           (res: Product) => {
             this.toastr.success(`${res.name} was successfully deleted`);
@@ -79,7 +71,7 @@ export class HomeComponent implements OnInit {
 
   public update(model : Product) {
     model.price = Number(String(model.price).replace(',','.'));
-    model.price = Math.round(model.price*100)/100;
+    model.price = Number(model.price.toFixed(2));
     this.dataService.updateProduct(model).subscribe(res => {
       this.toastr.success(`${model.name} was updated`)  
     }, err => {
@@ -91,7 +83,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  public addItemAcounting(model) {
+  public addItemAcounting(model: Product) {
     this.accountingService.addAccounting(model).subscribe(
       (res) => {
         this.toastr.success(`was added to table`);
@@ -103,8 +95,8 @@ export class HomeComponent implements OnInit {
           console.log(err);
         }
       }
-    );
-      
+      );
+      this.initProducts();
   }
 
   changeCurrentItem(item: Product) {
