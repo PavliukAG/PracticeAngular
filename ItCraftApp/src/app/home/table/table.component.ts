@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ExternalRoutingService } from 'src/app/core/externalRouting.service';
+import { ProductHttpService } from '../../core/product-http.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog} from '@angular/material';
 import { IncomeOutcomeComponent } from './incomeOutcome/incomeOutcome.component';
@@ -13,7 +13,7 @@ import { DeleteProductComponent } from './deleteProduct/deleteProduct.component'
 
 export class TableComponent implements OnInit {
 
-  constructor(private service: ExternalRoutingService, private toastr: ToastrService, public dialog: MatDialog) {
+  constructor(private service: ProductHttpService, private toastr: ToastrService, public dialog: MatDialog) {
   }
   @Input() public items: any;
   public currentEditable: any;

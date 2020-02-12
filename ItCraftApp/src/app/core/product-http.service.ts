@@ -5,7 +5,7 @@ import { BaseURL } from './config/config';
 @Injectable({
   providedIn: 'root'
 })
-export class ExternalRoutingService { // productHTTPService
+export class ProductHttpService { // productHTTPService
 
   constructor(private http: HttpClient) { }
   readonly ProductApiURL = '/Product';

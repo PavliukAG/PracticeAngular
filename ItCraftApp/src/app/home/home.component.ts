@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ExternalRoutingService } from '../core/externalRouting.service';
+import { ProductHttpService } from '../core/product-http.service';
 import { ToastrService } from 'ngx-toastr';
-import { AddFormComponent } from './addForm/addForm.component';
+import { AddProductFormComponent } from './add-product-form/add-product-form.component';
 
 class Product {
   productId: number;
@@ -21,9 +21,9 @@ export class HomeComponent implements OnInit {
   public products: Product[];
   public currentItem: Product;
   public editItem: Product;
-  @ViewChild(AddFormComponent,  {static: false}) addComponent: AddFormComponent; 
+  @ViewChild(AddProductFormComponent,  {static: false}) addComponent: AddProductFormComponent; 
 
-  constructor(private dataService: ExternalRoutingService, private toastr: ToastrService) { }
+  constructor(private dataService: ProductHttpService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.initProducts();

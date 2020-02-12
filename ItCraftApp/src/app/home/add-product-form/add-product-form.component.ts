@@ -2,11 +2,11 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-addForm',
-  templateUrl: './addForm.component.html',
-  styleUrls: ['./addForm.component.css']
+  selector: 'app-add-product-form',
+  templateUrl: './add-product-form.component.html',
+  styleUrls: ['./add-product-form.component.css']
 })
-export class AddFormComponent implements OnInit {
+export class AddProductFormComponent implements OnInit {
 
   private formAdding : FormGroup;
 

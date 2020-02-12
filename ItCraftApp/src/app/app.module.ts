@@ -18,8 +18,7 @@ import { IncomeOutcomeComponent } from './home/table/incomeOutcome/incomeOutcome
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProductStatisticsComponent } from './home/productStatistics/productStatistics.component';
 import { DeleteProductComponent } from './home/table/deleteProduct/deleteProduct.component';
-import { ExternalRoutingService } from './core/externalRouting.service';
-import { AddFormComponent } from './home/addForm/addForm.component';
+import { AddProductFormComponent } from './home/add-product-form/add-product-form.component';
 import { HeaderComponent } from './home/header/header.component';
 import { AccountingComponent } from './home/productStatistics/accounting/accounting.component';
 
@@ -32,7 +31,7 @@ import { AccountingComponent } from './home/productStatistics/accounting/account
     HomeComponent,
     HeaderComponent,
     TableComponent,
-    AddFormComponent,
+    AddProductFormComponent,
     ProductStatisticsComponent,
     IncomeOutcomeComponent,
     DeleteProductComponent,
@@ -51,7 +50,7 @@ import { AccountingComponent } from './home/productStatistics/accounting/account
     }),
     FormsModule
   ],
-  providers: [ExternalRoutingService,
+  providers: [
     UserComponent, {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
