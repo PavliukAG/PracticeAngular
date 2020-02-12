@@ -18,7 +18,7 @@ export class AddProductFormComponent implements OnInit {
   ngOnInit() {
     this.formAdding = this.fb.group({
       name : ['', Validators.required],
-      price : ['', [Validators.required, Validators.pattern(`^[0-9]*[.,]?[0-9]+$`)]],
+      price : ['', [Validators.required, Validators.pattern(`^[0-9]*[.,]?[0-9]{0,2}$`)]],
       count : 0
     });
   }
@@ -30,7 +30,7 @@ export class AddProductFormComponent implements OnInit {
   public sendModel() {
     let model = {
       name : this.formAdding.value.name,
-      price : Number(String(this.formAdding.value.price).replace(',','.')) 
+      price : Number(String(this.formAdding.value.price).replace(',','.'))
     }
     this.addNewProductEmitter.emit(model);
   }

@@ -1,23 +1,21 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
-import { AddFormComponent } from './addForm.component';
+import { AddProductFormComponent } from './add-product-form.component';
 
-describe('AddFormComponent', () => {
-  let component: AddFormComponent;
-  let fixture: ComponentFixture<AddFormComponent>;
+describe('AddProductFormComponent', () => {
+  let component: AddProductFormComponent;
+  let fixture: ComponentFixture<AddProductFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddFormComponent ]
+      declarations: [ AddProductFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddFormComponent);
+    fixture = TestBed.createComponent(AddProductFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
