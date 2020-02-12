@@ -13,7 +13,7 @@ export class AccountingComponent implements OnInit {
 
  @Input() item;
 
-  constructor(public dialog: MatDialogRef<AccountingComponent>) { }
+ constructor(public dialog: MatDialogRef<AccountingComponent>) { }
 
   close() {
     this.dialog.close();

@@ -13,7 +13,7 @@ import { DeleteProductComponent } from './deleteProduct/deleteProduct.component'
 
 export class TableComponent implements OnInit {
 
-  constructor(private service: ProductHttpService, private toastr: ToastrService, public dialog: MatDialog) {
+  constructor(private service: ProductHttpService, private toastr: ToastrService, public matDialog: MatDialog) {
   }
   @Input() public items: any;
   public currentEditable: any;
@@ -22,17 +22,18 @@ export class TableComponent implements OnInit {
 
   @Output() changeCurrentItemTableEmitter = new EventEmitter();
   @Output() removeItemEmitter = new EventEmitter();
+  @Output() updateItemEmitter = new EventEmitter();
 
   private sortDirectionName = true;
   private sortDirectionPrice = true;
 
-  openDialogIncomeOutcome() {
-    this.dialog.open(IncomeOutcomeComponent);
-
+  openDialogIncomeOutcome(item) {
+    let dialog = this.matDialog.open(IncomeOutcomeComponent);
+    dialog.componentInstance.item = item;
   }
 
   openDialogDeleteProduct(item) {
-    let dialog = this.dialog.open(DeleteProductComponent);
+    let dialog = this.matDialog.open(DeleteProductComponent);
     
     dialog.afterClosed().subscribe(result => {
       if (result) this.remove(item);
@@ -97,21 +98,26 @@ export class TableComponent implements OnInit {
   }
 
   public updateProduct() {
-    if (this.currentEditable.id !== null) {
-      this.service.updateProduct(this.currentEditable).subscribe(res => {
-        this.toastr.success(`${this.currentEditable.name} was updated`)
+    if (this.currentEditable.productId !== null) {
+      this.currentEditable.price = Number(this.currentEditable.price) 
+      if (this.isValid(this.currentEditable)) {
+        this.updateItemEmitter.emit(this.currentEditable);
         this.cancel();
-      }, err => {
-        if (err.status === 400) {
-          this.toastr.error(err.error, 'Operation failed.');
-        } else {
-          console.log(err);
-        }
-      } );
+      } else {
+        this.toastr.error("Invalid data");
+      }
     }
   }
   
   public cancel() {
     this.currentEditable = null;
+  }
+
+  isValid(item): boolean {
+    let reg = /[0-9]*[.,]?[0-9]{0,2}$/;
+    if (reg.exec(item.price)) {
+      return true;
+    }
+    return false;
   }
 }

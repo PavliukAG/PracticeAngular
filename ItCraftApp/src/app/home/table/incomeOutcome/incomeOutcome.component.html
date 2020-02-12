@@ -1,24 +1,21 @@
 <h2 mat-dialog-title>Income and Outcome</h2>
 <mat-dialog-content>
-    <div class="row">
-        
-        <form class="">   
-            <select>
+    <form class="row">
+        <div class="col-5">
+            <label class="col-12" for="select">Choise operation</label>
+            <select name="select" class="col-12">
                 <option>Income</option>
                 <option>Outcome</option>
             </select>
-        </form>
-        <label class="">Product</label>
-        <input class="" placeholder="number" value="0">
-       
-    </div>
+        </div>
+            <div class="col-6 offset-1">
+                <label class="col-12" name="name" for="input">{{item.name}}</label>
+                <input class="col-12" name="input" placeholder="number" value="0">
+            </div>
+    </form>
 </mat-dialog-content>
-<div class="button-row">
-<mat-dialog-actions>
-    <button mat-buttton mat-dialog-close mat-raised-button type="button" class="btn btn-primary">Close</button>
-    <button mat-button mat-dialog-close mat-raised-button type="button" class="btn btn-primary" id="btn-save">Save</button>
+<mat-dialog-actions class="row">
+    <button mat-button mat-dialog-close mat-raised-button type="button" class="btn btn-primary col-4 offset-1">Close</button>
+    <button mat-button mat-raised-button type="button" class="btn btn-primary col-4" id="btn-save">Save</button>
 </mat-dialog-actions>
-</div>
-
-<!--   -->
 
