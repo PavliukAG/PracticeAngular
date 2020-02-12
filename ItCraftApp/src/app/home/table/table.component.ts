@@ -18,7 +18,7 @@ export class TableComponent implements OnInit {
   @Input() public items: any;
   public currentEditable: any;
   public pageNumber = 1;
-  public pageSize  = 5;
+  public pageSize  = 10;
 
   @Output() changeCurrentItemTableEmitter = new EventEmitter();
   @Output() removeItemEmitter = new EventEmitter();

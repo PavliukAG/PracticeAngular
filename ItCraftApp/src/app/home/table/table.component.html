@@ -3,7 +3,7 @@
     <div class="col-md-4 col-xs-12" id="selectPageSize-group">
         <label class="offset-1" for="selectPageSize">Count of goods</label>
         <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" (change)="pageNumber=1">
-            <option *ngFor="let c of [10,15,50,100]" value="{{c}}">{{c}}</option>
+            <option *ngFor="let c of [10,25,50,100]" value="{{c}}">{{c}}</option>
         </select>
     </div>
     <div class="col-md-4" id="hole-container">
@@ -67,7 +67,7 @@
     <div class="col-md-4 col-xs-12" id="selectPageSize-group">
         <label class="offset-1" for="selectPageSize">Count of goods</label>
         <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" (change)="pageNumber=1">
-            <option *ngFor="let c of [10,15,50,100]" value="{{c}}">{{c}}</option>
+            <option *ngFor="let c of [10,25,50,100]" value="{{c}}">{{c}}</option>
         </select>
     </div>
     <ul class="col-md-4 col-xs-12 of offset-1 pagination" *ngIf="pageSize != null">
