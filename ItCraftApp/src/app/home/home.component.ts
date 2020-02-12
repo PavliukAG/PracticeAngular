@@ -53,9 +53,10 @@ export class HomeComponent implements OnInit {
 
     public remove(item: Product) {
         this.dataService.removeProduct(item.productId).subscribe(
-          (res: Product) => {
-            this.toastr.success(`${res.name} was successfully deleted`);
+          (res:object) => {
+            this.toastr.success(`${item.name} was successfully deleted`);
             const id = this.products.indexOf(item);
+            this.initProducts();
             this.products = this.products.slice(0, id).concat(this.products.slice(id + 1, this.products.length));
           },
           err => {
@@ -76,7 +77,7 @@ export class HomeComponent implements OnInit {
       this.toastr.success(`${model.name} was updated`)  
     }, err => {
       if (err.status === 400) {
-          this.toastr.error('Operation failed.');
+          this.toastr.error(err.error, 'Operation failed.');
         } else {
           console.log(err);
         }
