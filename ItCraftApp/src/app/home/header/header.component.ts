@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserProfileService } from 'src/app/core/userProfile.service';
+import { UserProfileService } from './../../core/user-profile.service';
 
 @Component({
   selector: 'app-header',

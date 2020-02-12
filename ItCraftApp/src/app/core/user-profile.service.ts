@@ -13,12 +13,4 @@ export class UserProfileService {
   getUserProfile(){
     return this.http.get(`${BaseURL}/UserProfile`);
   }
-
-  register(registrModelInfo) {
-    return this.http.post(`${BaseURL}/Auth/Register`, registrModelInfo);
-  }
-
-  login(model){
-    return this.http.post(`${BaseURL}/Auth/Login`, model);
-  }
 }
