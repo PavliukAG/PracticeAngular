@@ -1,8 +1,10 @@
-<h2 class="col-12" mat-dialog-title>Accounting of product</h2>
+<mat-dialog-actions>
+    <button mat-buttton mat-raised-button type="button" (click)="close()" class="btn btn-primary col-1 offset-11">Close</button>
+</mat-dialog-actions>
+<label class="col-12" mat-dialog-title>Accounting of <strong>{{item.name}}</strong></label>
 <mat-dialog-content class="row">
-        <strong id="name" class="col-12">{{item.name}}</strong>
         <table class="col-12">
-            <tr>
+            <tr class="table-header">
                 <td>
                     <span>User</span>
                 </td>
@@ -18,15 +20,11 @@
             </tr>
             <tr *ngFor="let t of accountingList">
                 <td>{{t.appUserName}}</td>
-                <td>{{t.operationType}}</td>
+                <td>{{t.operationType? 'Outcome':'Income'}}</td>
                 <td>{{t.amount}}</td>
                 <td>{{t.dateTime}}</td>
             </tr>
         </table> 
 </mat-dialog-content>
-
-<mat-dialog-actions>
-    <button mat-buttton mat-raised-button type="button" (click)="close()" class="btn btn-primary">Close</button>
-</mat-dialog-actions>
 
 

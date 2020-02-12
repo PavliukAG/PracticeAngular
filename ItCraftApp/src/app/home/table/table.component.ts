@@ -122,7 +122,7 @@ export class TableComponent implements OnInit {
 
   isValid(item): boolean {
     let reg = /[0-9]*[.,]?[0-9]{0,2}$/;
-    if (reg.exec(item.price) && item.name.length <=50) {
+    if (reg.exec(item.price) && (item.name.length <=50) && (Number(item.price) > 0)) {
       return true;
     }
     return false;

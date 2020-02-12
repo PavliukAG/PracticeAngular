@@ -92,20 +92,19 @@ export class HomeComponent implements OnInit {
   }
 
   public addItemAcounting(model) {
-
-    
-  this.accountingService.addAccounting(model).subscribe(
-    (res) => {
-      this.toastr.success(`was added to table`);
-    },
-    err => {
-      if (err.status === 400) {
+    this.accountingService.addAccounting(model).subscribe(
+      (res) => {
+        this.toastr.success(`was added to table`);
+      },
+      err => {
+        if (err.status === 400) {
           this.toastr.error(err.error, 'Operation failed.');
         } else {
           console.log(err);
         }
       }
     );
+      
   }
 
   changeCurrentItem(item: Product) {

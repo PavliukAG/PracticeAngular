@@ -18,6 +18,7 @@ export class AddProductFormComponent implements OnInit {
   ngOnInit() {
     this.formAdding = this.fb.group({
       name : ['', [Validators.required, Validators.maxLength(50)]],
+      // todo: check if price is 0
       price : ['', [Validators.required, Validators.pattern(`^[0-9]*[.,]?[0-9]{0,2}$`)]],
       count : 0
     });

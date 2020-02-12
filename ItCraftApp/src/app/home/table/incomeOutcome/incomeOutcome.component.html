@@ -3,9 +3,8 @@
     <form class="row">
         <div class="col-5">
             <label class="col-12" for="select">Choise operation</label>
-            <select name="select" class="col-12">
-                <option>Income</option>
-                <option>Outcome</option>
+            <select name="select" class="col-12" [(ngModel)]="currentOperationType">
+                <option *ngFor="let i of operationTypes" [value]="i.id">{{i.name}}</option>
             </select>
         </div>
             <div class="col-6 offset-1">
