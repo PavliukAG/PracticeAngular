@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AddFormComponent implements OnInit {
 
-  public formAdding : FormGroup;
+  private formAdding : FormGroup;
 
   @Output() addNewProductEmitter = new EventEmitter();
 
@@ -23,7 +23,11 @@ export class AddFormComponent implements OnInit {
     });
   }
 
-  sendModel() {
+  public resetForm() {
+    this.formAdding.reset();
+  }
+
+  public sendModel() {
     let model = {
       name : this.formAdding.value.name,
       price : Number(String(this.formAdding.value.price).replace(',','.')) 

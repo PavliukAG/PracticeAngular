@@ -15,8 +15,6 @@ section {
     height: 95vh;
     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
     background-color: #eeeeee;
-    position: sticky;
-    /* top: 0; */
     z-index: 3;
 }
 
@@ -36,4 +34,12 @@ label {
 
 strong:not(:first-of-type) {
     font-size: 28px;
+}
+
+strong {
+    padding-left: 10px;
+}
+
+strong:first-of-type {
+    font-size: 0.8vw;
 }
