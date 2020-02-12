@@ -23,7 +23,7 @@ export class AddFormComponent implements OnInit {
     });
   }
 
-  submit() {
+  sendModel() {
     let model = {
       name : this.formAdding.value.name,
       price : Number(String(this.formAdding.value.price).replace(',','.')) 

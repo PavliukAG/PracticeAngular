@@ -1,27 +1,31 @@
+form {
+    margin: 0;
+}
+
 #logo {
     display: flex;
     justify-content: center;
     align-self: center;
     margin-top: 20px;
+
     margin-bottom: 20px;
     transition: 1s;
 }
 
 @keyframes uncloseA {
     from {
-        width: 0%;
+        height: 0vh;
         transform: scaleY(-1);
     }
     to {
-        
         transform: scaleY(1);
-        width: 100%;
     }
 }
 
 #logo > img {
     border-radius: 50%;
     animation: uncloseA 1s ease-in-out forwards;
+    height: 25vh;
 }
 
 form {
