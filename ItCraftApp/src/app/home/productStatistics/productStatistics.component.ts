@@ -19,7 +19,7 @@ export class ProductStatisticsComponent implements OnInit {
   public openDialogAC() {
     if (!this.item) return;
     const dialogRef = this.dialog.open(AccountingComponent, {
-      height: '50%',
+      height: '90%',
       width: '80%',
     });
     dialogRef.componentInstance.item = this.item;
