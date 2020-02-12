@@ -1,4 +1,3 @@
-import { ProductHttpService} from '../../../core/product-http.service';
 import { MatDialogRef} from '@angular/material';
 import { Component, OnInit} from '@angular/core';
 
@@ -8,7 +7,7 @@ import { Component, OnInit} from '@angular/core';
   styleUrls: ['./deleteProduct.component.css']
 })
 export class DeleteProductComponent implements OnInit {
-  constructor(private service: ProductHttpService, public dialog: MatDialogRef<DeleteProductComponent>) { }
+  constructor(public dialog: MatDialogRef<DeleteProductComponent>) { }
 
   ngOnInit() {
   }

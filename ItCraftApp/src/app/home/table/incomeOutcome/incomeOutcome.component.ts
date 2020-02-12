@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-incomeOutcome',
@@ -6,12 +7,16 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
   styleUrls: ['./incomeOutcome.component.css']
 })
 export class IncomeOutcomeComponent implements OnInit {
-  
-  constructor() {} 
+
+  item: any;
+
+  constructor(public dialog: MatDialogRef<IncomeOutcomeComponent>) {} 
  
   ngOnInit() {
+  }
+
+  submit() {
     
   }
 
-  
 }

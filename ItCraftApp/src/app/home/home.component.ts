@@ -76,6 +76,20 @@ export class HomeComponent implements OnInit {
         });
   }
 
+  public update(model : Product) {
+    model.price = Number(String(model.price).replace(',','.'));
+    model.price = Math.round(model.price*100)/100;
+    this.dataService.updateProduct(model).subscribe(res => {
+      this.toastr.success(`${model.name} was updated`)  
+    }, err => {
+      if (err.status === 400) {
+          this.toastr.error('Operation failed.');
+        } else {
+          console.log(err);
+        }
+    });
+  }
+
   changeCurrentItem(item: Product) {
     this.currentItem = item;
   }
