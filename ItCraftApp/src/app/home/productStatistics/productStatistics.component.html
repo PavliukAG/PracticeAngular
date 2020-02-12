@@ -15,9 +15,11 @@
         <strong id="count" class="col-11 offset-1" for="">{{item.count}}</strong>
         <hr>
         <label class="col-12" for="">TOTAL COST: </label>
-        <strong id="total" class="col-11 offset-1">{{item.price * item.count}}$</strong>
+        <strong id="total" class="col-11 offset-1">{{getTotalCost()}}$</strong>
     </div>
-    <ng-template #unknownItem class="col-11 offset-1">Empty</ng-template>
+    <ng-template #unknownItem class="row">
+        <strong class="col-12">Empty</strong>
+    </ng-template>
     <hr>
     <button class="col-10 offset-1" (click)="openDialogAC()">JOURNAL</button>
 </section>

@@ -22,7 +22,7 @@
                 <td>{{t.appUserName}}</td>
                 <td>{{t.operationType? 'Outcome':'Income'}}</td>
                 <td>{{t.amount}}</td>
-                <td>{{t.dateTime}}</td>
+                <td>{{getDate(t.dateTime)}}</td>
             </tr>
         </table> 
 </mat-dialog-content>

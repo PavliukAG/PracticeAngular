@@ -27,6 +27,7 @@ export class IncomeOutcomeComponent implements OnInit {
       amount: Number(this.value),
       dateTime: new Date()
     }
+
     this.dialog.close(model)
   }
 

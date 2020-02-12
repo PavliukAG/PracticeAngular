@@ -17,6 +17,7 @@ export class ProductStatisticsComponent implements OnInit {
   }
 
   public openDialogAC() {
+    if (!this.item) return;
     const dialogRef = this.dialog.open(AccountingComponent, {
       height: '50%',
       width: '80%',
@@ -25,6 +26,10 @@ export class ProductStatisticsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  public getTotalCost() {
+    return (this.item.price * this.item.count).toFixed(2);
   }
 
 }
