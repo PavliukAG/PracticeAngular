@@ -15,4 +15,8 @@ export class IncomeOutcomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  submit() {
+    
+  }
+
 }

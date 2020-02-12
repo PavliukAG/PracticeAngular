@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit {
 
   public update(model : Product) {
     model.price = Number(String(model.price).replace(',','.'));
-    
+    model.price = Math.round(model.price*100)/100;
     this.dataService.updateProduct(model).subscribe(res => {
       this.toastr.success(`${model.name} was updated`)  
     }, err => {
