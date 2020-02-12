@@ -11,6 +11,8 @@ import { DeleteProductComponent } from './deleteProduct/deleteProduct.component'
   styleUrls: ['./table.component.css']
 })
 
+
+
 export class TableComponent implements OnInit {
 
   constructor(private service: ProductHttpService, private toastr: ToastrService, public matDialog: MatDialog) {
@@ -85,12 +87,10 @@ export class TableComponent implements OnInit {
   // todo: need to combine two methods below
   public sortName() {
     this.sortDirectionName = !this.sortDirectionName;
-    this.items.sort((a, b) => {
-      if (a.name > b.name) { return 1; }
-      if (b.name > a.name) { return -1; } else { return 0; }
-    });
+    this.items.sort((a, b) =>  a.name === b.name ? 0 : a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
     if (this.sortDirectionName) { this.items.reverse(); }
   }
+  
   public sortPrice() {
     this.sortDirectionPrice = !this.sortDirectionPrice;
     this.items.sort((a, b) => {
