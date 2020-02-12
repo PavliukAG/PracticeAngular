@@ -10,12 +10,12 @@
         </div>
             <div class="col-6 offset-1">
                 <label class="col-12" name="name" for="input">{{item.name}}</label>
-                <input class="col-12" name="input" placeholder="number" value="0">
+                <input class="col-12" name="input" placeholder="number" [(ngModel)]="value">
             </div>
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="row">
     <button mat-button mat-dialog-close mat-raised-button type="button" class="btn btn-primary col-4 offset-1">Close</button>
-    <button mat-button mat-raised-button type="button" class="btn btn-primary col-4" id="btn-save">Save</button>
+    <button mat-button mat-raised-button type="button" class="btn btn-primary col-4" id="btn-save" (click)="submit()">Save</button>
 </mat-dialog-actions>
 

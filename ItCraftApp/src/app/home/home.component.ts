@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductHttpService } from '../core/product-http.service';
 import { ToastrService } from 'ngx-toastr';
 import { AddProductFormComponent } from './add-product-form/add-product-form.component';
+import { AccountingHttpService } from '../core/accounting-http.service';
 
 class Product {
   productId: number;
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit {
   public editItem: Product;
   @ViewChild(AddProductFormComponent,  {static: false}) addComponent: AddProductFormComponent; 
 
-  constructor(private dataService: ProductHttpService, private toastr: ToastrService) { }
+  constructor(private dataService: ProductHttpService, private accountingService: AccountingHttpService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.initProducts();
@@ -88,6 +89,23 @@ export class HomeComponent implements OnInit {
           console.log(err);
         }
     });
+  }
+
+  public addItemAcounting(model) {
+
+    
+  this.accountingService.addAccounting(model).subscribe(
+    (res) => {
+      this.toastr.success(`was added to table`);
+    },
+    err => {
+      if (err.status === 400) {
+          this.toastr.error(err.error, 'Operation failed.');
+        } else {
+          console.log(err);
+        }
+      }
+    );
   }
 
   changeCurrentItem(item: Product) {

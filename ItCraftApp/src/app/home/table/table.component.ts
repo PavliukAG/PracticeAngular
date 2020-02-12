@@ -23,6 +23,7 @@ export class TableComponent implements OnInit {
   @Output() changeCurrentItemTableEmitter = new EventEmitter();
   @Output() removeItemEmitter = new EventEmitter();
   @Output() updateItemEmitter = new EventEmitter();
+  @Output() addAccountingItemEmitter = new EventEmitter(); 
 
   private sortDirectionName = true;
   private sortDirectionPrice = true;
@@ -30,6 +31,12 @@ export class TableComponent implements OnInit {
   openDialogIncomeOutcome(item) {
     let dialog = this.matDialog.open(IncomeOutcomeComponent);
     dialog.componentInstance.item = item;
+
+    dialog.afterClosed().subscribe(result => {
+      if (result) {
+        this.addAccountingItemEmitter.emit(result);
+      }
+    });
   }
 
   openDialogDeleteProduct(item) {

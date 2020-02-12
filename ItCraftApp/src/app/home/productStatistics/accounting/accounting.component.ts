@@ -43,20 +43,4 @@ export class AccountingComponent implements OnInit {
         console.log(err);
       });
     }
-
-    public addAccounting(model) {
-      this.dataService.addAccounting(model).subscribe(
-        (res : Accounting) => {
-          this.toastr.success(`was added to table`);
-        },
-        err => {
-          if (err.status === 400) {
-            this.toastr.error(err.error, 'Operation failed.');
-          } else {
-            console.log(err);
-          }
-        }
-      );
-    }
-
 }

@@ -8,7 +8,7 @@
             <app-add-product-form (addNewProductEmitter)="addProductItem($event)"></app-add-product-form>
         </div>
         <div class="col-md-10 offset-2 table-container">
-            <app-table [items]="products" (changeCurrentItemTableEmitter)="changeCurrentItem($event)" (removeItemEmitter)="remove($event)" (updateItemEmitter)="update($event)"></app-table>
+            <app-table [items]="products" (changeCurrentItemTableEmitter)="changeCurrentItem($event)" (removeItemEmitter)="remove($event)" (updateItemEmitter)="update($event)" (addAccountingItemEmitter)="addItemAcounting($event)"></app-table>
         </div>
     </div>
 </div>

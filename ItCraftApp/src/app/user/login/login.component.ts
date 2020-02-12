@@ -25,6 +25,7 @@ formModel = {
     // not any
     (res: any) => {
       // localStorage service +
+      alert(res.token)
       localStorage.setItem('token', res.token);
       this.router.navigateByUrl('/home');
     },
