@@ -6,7 +6,10 @@
     <h3 class="col-12">DETAILS</h3>
     <hr>
     <div *ngIf="item; else unknownItem">
-        <strong id="name" class="col-12">{{item.name}}</strong>
+        <div class="col-12 name-container row" data-toggle="tooltip" data-placement="right" title="{{item.name}}">
+            <span class="tip col-12" *ngIf="item.name.length >= 15">Hover me for get full name!</span>
+            <strong class="col-12">{{getName(item.name)}}</strong>
+        </div>
         <hr>
         <label class="col-12" for="">PRICE: </label>
         <strong id="price" class="col-11 offset-1">{{item.price}}$</strong>
@@ -21,5 +24,5 @@
         <strong class="col-12">Empty</strong>
     </ng-template>
     <hr>
-    <button class="col-10 offset-1" (click)="openDialogAC()">JOURNAL</button>
+    <button class="col-10 offset-1" (click)="openDialogAC()">Accounting</button>
 </section>

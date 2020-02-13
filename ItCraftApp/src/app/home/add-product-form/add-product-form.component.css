@@ -32,7 +32,7 @@ button[type="submit"] {
     font-weight: 700;
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
     box-sizing: border-box;
-    background: radial-gradient(circle at top, #acc6c4, #8c9aaf);
+    background: radial-gradient(circle at top, #acd6c4, #8cbaaf);
     filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.7));
     transition: 0.2s;
     cursor: pointer;
@@ -52,7 +52,7 @@ button[type="submit"]:active {
 
 button[type="submit"]:disabled {
     box-shadow: inset 0px 0px 50px #00000050;
-    background: radial-gradient(circle at top, #bcb6c4, #8c9aaf);
+    background: radial-gradient(circle at top, #ccb6c4, #ac9aaf);
 }
 
 .form-group {

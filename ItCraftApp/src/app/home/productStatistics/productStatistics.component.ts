@@ -32,4 +32,11 @@ export class ProductStatisticsComponent implements OnInit {
     return (this.item.price * this.item.count).toFixed(2);
   }
 
+  getName() {
+    if (this.item.name.length >= 15) {
+      return `${this.item.name.slice(0, 12)}...`;
+    }
+    return this.item.name;
+  }
+
 }

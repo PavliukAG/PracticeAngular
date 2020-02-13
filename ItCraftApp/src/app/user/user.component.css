@@ -50,6 +50,18 @@ h2 {
     animation: shadowAnim 2s forwards;
   }
 
+  button[type=submit].btn,
+  .btn,
+  button {
+      background-color: var(--interactiveColor);
+      color: #fff;
+      border: 0;
+  }
+  
+  button:focus {
+      outline: 0
+  }
+  
   @media (max-width: 576px) {
     .auth-wrapper > .wrapped-div {
       height: 100vh;

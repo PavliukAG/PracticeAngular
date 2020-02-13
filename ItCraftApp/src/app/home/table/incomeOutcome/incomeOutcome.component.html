@@ -2,14 +2,14 @@
 <mat-dialog-content>
     <form class="row">
         <div class="col-5">
-            <label class="col-12" for="select">Choise operation</label>
+            <label class="col-12" for="select">Choose operation</label>
             <select name="select" class="col-12" [(ngModel)]="currentOperationType">
                 <option *ngFor="let i of operationTypes" [value]="i.id">{{i.name}}</option>
             </select>
         </div>
             <div class="col-6 offset-1">
-                <label class="col-12" name="name" for="input">{{item.name}}</label>
-                <input class="col-12" name="input" placeholder="number" [(ngModel)]="value">
+                <label class="col-12" name="name" for="input" data-toggle="tooltip" data-placement="right" title="{{item.name}}">{{item.name}}</label>
+                <input class="col-12" name="input" placeholder="Amount" [(ngModel)]="value">
             </div>
     </form>
 </mat-dialog-content>
