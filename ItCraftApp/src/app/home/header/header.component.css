@@ -17,8 +17,21 @@ ul {
     box-sizing: border-box;
     padding-right: 20px;
     background-color: #4b4852;
+    box-sizing: border-box;
+    height: 55px;
+}
+
+.logout {
+    position: absolute;
+    top: 10px;
+    right: 30px
 }
 
 .profile-container {
-    
+    position: relative;
+    top: -30px;
+}
+
+.collapse, [data-toggle="collapse"] {
+    transition: 2s !important;
 }
