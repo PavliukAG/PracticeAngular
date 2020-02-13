@@ -9,12 +9,12 @@ label > strong {
 }
 
 mat-dialog-content {
-    background-color: #00000010;    
     height: 100%;
     width: 95%;
     margin-left: 2.5%;
     padding: 0;
     border-bottom: 4px solid black;
+    border-right: 5px solid black;
 }
 
 table {
