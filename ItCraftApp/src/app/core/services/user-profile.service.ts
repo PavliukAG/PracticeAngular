@@ -8,9 +8,12 @@ import {BaseURL} from "../config/config";
 
 export class UserProfileService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
 
-  getUserProfile(){
+  }
+
+  public getUserProfile(){
     return this.http.get(`${BaseURL}/UserProfile`);
   }
+  
 }

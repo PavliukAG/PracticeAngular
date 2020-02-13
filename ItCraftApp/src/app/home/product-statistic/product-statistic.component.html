@@ -1,0 +1,31 @@
+<header>
+    <img src="../../../assets/images/itcraft-logo2.png" alt="ITCRAFT">
+</header>
+<section>
+    <div id="border"></div>
+    <h3 class="col-12">DETAILS</h3>
+    <hr>
+    <div *ngIf="currentProduct; else unknownItem">
+        <div class="col-12 name-container row custom-tooltip">
+            <div *ngIf="currentProduct.name.length >= 15">
+                <span class="tip col-12">Hover me to get full name!</span>
+                <span class="tooltiptext">{{currentProduct.name}}</span>
+            </div>
+            <strong class="col-12">{{this.productName}}</strong>
+        </div>
+        <hr>
+        <label class="col-12" for="">PRICE: </label>
+        <strong id="price" class="col-11 offset-1">{{currentProduct.price}}$</strong>
+        <hr>
+        <label class="col-12" for="">AMOUNT: </label>
+        <strong id="count" class="col-11 offset-1" for="">{{currentProduct.count}}</strong>
+        <hr>
+        <label class="col-12" for="">TOTAL COST: </label>
+        <strong id="total" class="col-11 offset-1">{{this.totalCost}}$</strong>
+    </div>
+    <ng-template #unknownItem class="row">
+        <strong class="col-12">Empty</strong>
+    </ng-template>
+    <hr>
+    <button *ngIf="currentProduct" class="col-10 offset-1" (click)="openDialogAC()">Accounting</button>
+</section>

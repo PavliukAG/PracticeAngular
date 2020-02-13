@@ -1,11 +1,11 @@
 <form [formGroup]="form" class="row" autocomplete="off" (submit)="submit()">
     <div class="form-group col-5 offset-1">
         <label>Name</label>
-        <input class="form-control" [(ngModel)]="form.name" formControlName="name" required placeholder="Enter the name of product">
+        <input class="form-control" [(ngModel)]="form.name" required placeholder="Enter the name of product">
     </div>
     <div class="form-group col-5">
         <label>Price</label>
-        <input class="form-control" [(ngModel)]="form.price" formControlName="price" required placeholder="Enter the price of product">
+        <input class="form-control" [(ngModel)]="form.price" required placeholder="Enter the price of product">
     </div>
     <div class="button-container col-2 offset-5">
         <button type="submit" [disabled]="form.invalid">

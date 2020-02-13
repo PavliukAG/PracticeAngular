@@ -2,8 +2,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProductHttpService } from './../../core/services/product-http.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog} from '@angular/material';
-import { DeleteProductComponent } from './deleteProduct/deleteProduct.component';
 import { IncomeOutcomeFormComponent } from './income-outcome-form/income-outcome-form.component';
+import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
+import { Product } from 'src/app/core/models/Product';
 
 @Component({
   selector: 'app-table',
@@ -11,12 +12,11 @@ import { IncomeOutcomeFormComponent } from './income-outcome-form/income-outcome
   styleUrls: ['./table.component.css']
 })
 
-
-
 export class TableComponent implements OnInit {
 
   constructor(private service: ProductHttpService, private toastr: ToastrService, public matDialog: MatDialog) {
   }
+  
   @Input() public items: any;
   public currentEditable: any;
   public pageNumber = 1;
@@ -31,20 +31,18 @@ export class TableComponent implements OnInit {
   private sortDirectionName = true;
   private sortDirectionPrice = true;
 
-  openDialogIncomeOutcome(item) {
-    let dialog = this.matDialog.open(IncomeOutcomeFormComponent);
-    dialog.componentInstance.item = item;
+  openDialogIncomeOutcome(item:Product) {
+    let dialog = this.matDialog.open(IncomeOutcomeFormComponent, { data: item });
 
     dialog.afterClosed().subscribe(result => {
       if (result) {
         this.addAccountingItemEmitter.emit(result);
-        // this.updateTable.emit();
       }
     });
   }
 
   openDialogDeleteProduct(item) {
-    let dialog = this.matDialog.open(DeleteProductComponent);
+    let dialog = this.matDialog.open(DeleteConfirmComponent);
     
     dialog.afterClosed().subscribe(result => {
       if (result) this.remove(item);

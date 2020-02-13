@@ -5,6 +5,10 @@
     --textcolor: #545d6a;
 }
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 body {
     margin: 0;
     overflow-y: hidden;
@@ -99,5 +103,22 @@ div.form-group label:first-child {
     text-transform: uppercase;
     font-size: 0.9rem;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.custom-tooltip  .tooltiptext {
+    opacity: 0;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 5;
+    top: 70px;
+    left: 40px;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .custom-tooltip:hover .tooltiptext {
+    opacity: 0.8;
+    transition: 0.5s;
+}

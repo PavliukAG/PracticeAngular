@@ -1,7 +1,7 @@
 <mat-dialog-actions>
     <button mat-buttton mat-raised-button type="button" (click)="close()" class="btn btn-primary col-1 offset-11">Close</button>
 </mat-dialog-actions>
-<label class="col-12" mat-dialog-title>Accounting of <strong>{{item.name}}</strong></label>
+<label class="col-12" mat-dialog-title>Accounting of <strong>{{currentProduct.name}}</strong></label>
 <mat-dialog-content class="row">
         <table *ngIf="accountingList.length > 0; else empty" class="col-12">
             <tr class="table-header">

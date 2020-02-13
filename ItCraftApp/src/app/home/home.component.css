@@ -16,4 +16,5 @@
     top: 0;
     width: 14%;
     min-width: 160px;
+    z-index: 8;
 }

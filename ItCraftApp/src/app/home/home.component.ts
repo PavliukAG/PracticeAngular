@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit {
     this.accountingService.addAccounting(model).subscribe(
       (res) => {
         this.toastr.success('Operation was successful');
-        this.initProducts();
+        this.currentItem = this.products.find(x => x.productId === this.currentItem.productId)
       },
       err => {
         if (err.status === 400) {

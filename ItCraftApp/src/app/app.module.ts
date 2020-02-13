@@ -15,12 +15,12 @@ import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { TableComponent } from 'src/app/home/table/table.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ProductStatisticsComponent } from './home/productStatistics/productStatistics.component';
-import { DeleteProductComponent } from './home/table/deleteProduct/deleteProduct.component';
 import { AddProductFormComponent } from './home/add-product-form/add-product-form.component';
 import { HeaderComponent } from './home/header/header.component';
-import { AccountingComponent } from './home/productStatistics/accounting/accounting.component';
 import { IncomeOutcomeFormComponent } from './home/table/income-outcome-form/income-outcome-form.component';
+import { AccountingComponent } from './home/product-statistic/accounting/accounting.component';
+import { ProductStatisticComponent } from './home/product-statistic/product-statistic.component';
+import { DeleteConfirmComponent } from './home/table/delete-confirm/delete-confirm.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +32,12 @@ import { IncomeOutcomeFormComponent } from './home/table/income-outcome-form/inc
     HeaderComponent,
     TableComponent,
     AddProductFormComponent,
-    ProductStatisticsComponent,
+    ProductStatisticComponent,
     IncomeOutcomeFormComponent,
-    DeleteProductComponent,
+    DeleteConfirmComponent,
     AccountingComponent
   ],
-  entryComponents: [IncomeOutcomeFormComponent, DeleteProductComponent, AccountingComponent],
+  entryComponents: [IncomeOutcomeFormComponent, DeleteConfirmComponent, AccountingComponent],
   imports: [
     MatDialogModule,
     BrowserModule,
