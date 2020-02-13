@@ -27,7 +27,6 @@ export class IncomeOutcomeComponent implements OnInit {
       amount: Number(this.value),
       dateTime: new Date()
     }
-    // model.dateTime.getTimezoneOffset()
     this.dialog.close(model)
   }
 
