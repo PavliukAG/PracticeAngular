@@ -91,7 +91,9 @@ export class HomeComponent implements OnInit {
     this.accountingService.addAccounting(model).subscribe(
       (res) => {
         this.toastr.success('Operation was successful');
-        this.currentItem = this.products.find(x => x.productId === this.currentItem.productId)
+        this.currentItem.count += model.amount * (model.operationType - 1);
+        this.initProducts();
+        this.currentItem = this.products.find((x:Product) => x.productId === this.currentItem.productId);
       },
       err => {
         if (err.status === 400) {
@@ -105,6 +107,7 @@ export class HomeComponent implements OnInit {
 
   changeCurrentItem(item: Product) {
     this.currentItem = item;
+    this.currentItem.count = item.count;
   }
 
 }
