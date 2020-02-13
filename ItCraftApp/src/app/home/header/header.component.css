@@ -17,7 +17,7 @@ ul {
     box-sizing: border-box;
     padding-right: 20px;
     box-sizing: border-box;
-    height: 55px;
+    height: 51px;
     background-color: #6b6774;
     box-shadow: inset 0 -2px 4px #00000025;
 }
@@ -29,15 +29,11 @@ ul {
 }
 
 .profile-container {
-
     position: relative;
     top: -30px;
 }
 
-.logout {
+.logout, [data-toggle="collapse"] {
     background-color: rgb(241, 245, 248);
     color: #57545e;
-}
-
-.logout:hover {
 }

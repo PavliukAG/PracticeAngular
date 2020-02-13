@@ -8,15 +8,15 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AddProductFormComponent implements OnInit {
 
-  private formAdding : FormGroup;
+  public form: FormGroup;
 
-  @Output() addNewProductEmitter = new EventEmitter();
+  @Output() addNewProduct = new EventEmitter();
 
   constructor(private fb: FormBuilder) { 
   }
 
   ngOnInit() {
-    this.formAdding = this.fb.group({
+    this.form = this.fb.group({
       name : ['', [Validators.required, Validators.maxLength(50)]],
       // todo: check if price is 0
       price : ['', [Validators.required, Validators.pattern(`^[0-9]*[.,]?[0-9]{0,2}$`)]],
@@ -24,15 +24,15 @@ export class AddProductFormComponent implements OnInit {
     });
   }
 
-  public resetForm() {
-    this.formAdding.reset();
+  public reset() {
+    this.form.reset();
   }
 
-  public sendModel() {
+  public submit() {
     let model = {
-      name : this.formAdding.value.name,
-      price : Number(String(this.formAdding.value.price).replace(',','.'))
+      name : this.form.value.name,
+      price : Number(String(this.form.value.price).replace(',','.'))
     }
-    this.addNewProductEmitter.emit(model);
+    this.addNewProduct.emit(model);
   }
 }

@@ -19,7 +19,7 @@
                 </td>
             </tr>
             <tr *ngFor="let t of accountingList">
-                <td>{{t.appUserName}}</td>
+                <td>{{t.userName}}</td>
                 <td>{{t.operationType? 'Outcome':'Income'}}</td>
                 <td>{{t.amount}}</td>
                 <td>{{getDate(t.dateTime)}}</td>

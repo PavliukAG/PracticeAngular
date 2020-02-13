@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 class Accounting {
   Id: number;
   operationType: number;
-  appUserName: string;
+  userName: string;
   amount: number;
   dateTime: Date;
 }

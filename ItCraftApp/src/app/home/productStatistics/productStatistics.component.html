@@ -7,7 +7,7 @@
     <hr>
     <div *ngIf="item; else unknownItem">
         <div class="col-12 name-container row" data-toggle="tooltip" data-placement="right" title="{{item.name}}">
-            <span class="tip col-12" *ngIf="item.name.length >= 15">Hover me for get full name!</span>
+            <span class="tip col-12" *ngIf="item.name.length >= 15">Hover me to get full name!</span>
             <strong class="col-12">{{getName(item.name)}}</strong>
         </div>
         <hr>

@@ -70,7 +70,7 @@ strong:first-of-type {
     font-size: 12px;
     text-align: center;
     margin-top: -5px;
-    animation: anim1 2s linear infinite reverse;
+    animation: anim1 2s ease-in-out infinite reverse;
 }
 
 button {

@@ -14,13 +14,13 @@ import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { TableComponent } from 'src/app/home/table/table.component';
-import { IncomeOutcomeComponent } from './home/table/incomeOutcome/incomeOutcome.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProductStatisticsComponent } from './home/productStatistics/productStatistics.component';
 import { DeleteProductComponent } from './home/table/deleteProduct/deleteProduct.component';
 import { AddProductFormComponent } from './home/add-product-form/add-product-form.component';
 import { HeaderComponent } from './home/header/header.component';
 import { AccountingComponent } from './home/productStatistics/accounting/accounting.component';
+import { IncomeOutcomeFormComponent } from './home/table/income-outcome-form/income-outcome-form.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +33,11 @@ import { AccountingComponent } from './home/productStatistics/accounting/account
     TableComponent,
     AddProductFormComponent,
     ProductStatisticsComponent,
-    IncomeOutcomeComponent,
+    IncomeOutcomeFormComponent,
     DeleteProductComponent,
     AccountingComponent
   ],
-  entryComponents: [IncomeOutcomeComponent, DeleteProductComponent, AccountingComponent],
+  entryComponents: [IncomeOutcomeFormComponent, DeleteProductComponent, AccountingComponent],
   imports: [
     MatDialogModule,
     BrowserModule,

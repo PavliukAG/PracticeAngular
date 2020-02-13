@@ -1,4 +1,4 @@
-<form #form='ngForm' [formGroup]="formAdding" class="row" autocomplete="off" (submit)="sendModel()">
+<form [formGroup]="form" class="row" autocomplete="off" (submit)="submit()">
     <div class="form-group col-5 offset-1">
         <label>Name</label>
         <input class="form-control" [(ngModel)]="form.name" formControlName="name" required placeholder="Enter the name of product">

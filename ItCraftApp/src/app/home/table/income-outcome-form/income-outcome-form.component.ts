@@ -1,19 +1,18 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
 
 @Component({
-  selector: 'app-incomeOutcome',
-  templateUrl: './incomeOutcome.component.html',
-  styleUrls: ['./incomeOutcome.component.css']
+  selector: 'app-income-outcome-form',
+  templateUrl: './income-outcome-form.component.html',
+  styleUrls: ['./income-outcome-form.component.css']
 })
-export class IncomeOutcomeComponent implements OnInit {
+export class IncomeOutcomeFormComponent implements OnInit {
 
   item: any;
   value: number;
   currentOperationType: number = 0; 
 
-  constructor(public dialog: MatDialogRef<IncomeOutcomeComponent>) {} 
+  constructor(private dialog: MatDialogRef<IncomeOutcomeFormComponent>) {} 
   
   operationTypes = [{id:0, name: "Income"}, {id:1, name: "Outcome"}];
 

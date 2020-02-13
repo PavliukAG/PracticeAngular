@@ -29,7 +29,11 @@ export class HomeComponent implements OnInit {
         this.products = res;
       },
       err => {
-        console.log(err);
+        if (err.status === 400) {
+          this.toastr.error(err.error, 'Download table failed');
+        } else {
+          console.log(err);
+        }
       });
     }
 
@@ -37,8 +41,7 @@ export class HomeComponent implements OnInit {
       this.dataService.addProduct(model).subscribe(
         (res : Product) => {
           this.toastr.success(`${res.name} was added to table`);
-          // todo: add reseting form in addForm component 
-          this.addComponent.resetForm();
+          this.addComponent.reset();
           this.initProducts();
         },
         err => {
@@ -87,7 +90,8 @@ export class HomeComponent implements OnInit {
   public addItemAcounting(model) {
     this.accountingService.addAccounting(model).subscribe(
       (res) => {
-        this.toastr.success((model.operationType?'Outcome ':'Income ') + model.amount);
+        this.toastr.success('Operation was successful');
+        this.initProducts();
       },
       err => {
         if (err.status === 400) {
@@ -97,7 +101,6 @@ export class HomeComponent implements OnInit {
         }
       }
       );
-      this.initProducts();
   }
 
   changeCurrentItem(item: Product) {

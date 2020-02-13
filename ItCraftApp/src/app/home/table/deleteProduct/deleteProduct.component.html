@@ -1,8 +1,9 @@
-<h2 mat-dialog-title>Delete this product</h2>
+<h2 mat-dialog-title>Are you want to delete this product?</h2>
 
 <div class="button-row">
-<mat-dialog-actions>
-    <button mat-buttton mat-raised-button type="button" class="btn btn-primary" (click)="confirmDelete()">Ok</button>
-    <button mat-button  mat-raised-button type="button" class="btn btn-primary" id="btn-cancel" (click)="cancel()">Cancel</button>
+<mat-dialog-actions class="row">
+    <button mat-button  mat-raised-button type="button" class="btn btn-primary col-4 offset-1" id="btn-cancel" (click)="cancel()">Cancel</button>
+    <button mat-buttton mat-raised-button type="button" class="btn btn-primary btn-success col-4 offset-1" (click)="confirmDelete()">Ok</button>
+    <div class="col-1"></div>
 </mat-dialog-actions>
 </div>

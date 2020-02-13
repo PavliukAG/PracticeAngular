@@ -2,8 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProductHttpService } from './../../core/services/product-http.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog} from '@angular/material';
-import { IncomeOutcomeComponent } from './incomeOutcome/incomeOutcome.component';
 import { DeleteProductComponent } from './deleteProduct/deleteProduct.component';
+import { IncomeOutcomeFormComponent } from './income-outcome-form/income-outcome-form.component';
 
 @Component({
   selector: 'app-table',
@@ -26,17 +26,19 @@ export class TableComponent implements OnInit {
   @Output() removeItemEmitter = new EventEmitter();
   @Output() updateItemEmitter = new EventEmitter();
   @Output() addAccountingItemEmitter = new EventEmitter(); 
+  @Output() updateTable = new EventEmitter();
 
   private sortDirectionName = true;
   private sortDirectionPrice = true;
 
   openDialogIncomeOutcome(item) {
-    let dialog = this.matDialog.open(IncomeOutcomeComponent);
+    let dialog = this.matDialog.open(IncomeOutcomeFormComponent);
     dialog.componentInstance.item = item;
 
     dialog.afterClosed().subscribe(result => {
       if (result) {
         this.addAccountingItemEmitter.emit(result);
+        // this.updateTable.emit();
       }
     });
   }
