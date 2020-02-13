@@ -50,6 +50,7 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   public getSegmentOfList() {
@@ -101,25 +102,24 @@ export class TableComponent implements OnInit {
   }
   
   public editProduct(item) {
-    this.currentEditable = item;
+    this.currentEditable = JSON.parse(JSON.stringify(item));
   }
 
   public updateProduct() {
     if (this.currentEditable.productId !== null) {
-      this.currentEditable.price = Number(this.currentEditable.price) 
-      if (this.isValid(this.currentEditable)) {
+      if (this.isValid(this.currentEditable) && typeof(Number(this.currentEditable.price)) === 'number') {
         this.updateItemEmitter.emit(this.currentEditable);
+        let id = this.items.findIndex(x => x.productId === this.currentEditable.productId);
+        this.items[id] = JSON.parse(JSON.stringify(this.currentEditable));
         this.cancel();
-      } else {
-        this.toastr.error("Invalid data");
       }
     }
   }
-  
-  public cancel() {
-    this.currentEditable = null;
-  }
 
+  public cancel() {
+      this.currentEditable = null;
+  }
+ 
   isValid(item): boolean {
     let reg = /[0-9]*[.,]?[0-9]{0,2}$/;
     if (reg.exec(item.price) && (item.name.length <=50) && (Number(item.price) > 0)) {

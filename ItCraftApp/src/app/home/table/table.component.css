@@ -30,13 +30,41 @@ nav:first-of-type {
 }
 
 .page-link {
-    background-color: #6d7279;
-    border: 0;
-    color: white;
-    border: 2px solid #545d6a;
-    border-radius: 0;
+    background-color: rgb(248, 248, 248);
+    border: 1px solid #7e7e7e;
+    box-shadow: 0 0 2px #616161;
+    font-weight: 500;
+    color: #737476;
     box-sizing: border-box;
     margin: 0;
+    height: 38px;
+    z-index: 1;
+}
+
+.page-link > div {
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+    border: 2px solid #737476;
+    border-top-width: 0;
+    border-right-width: 0;
+}
+
+.page-item:nth-of-type(3) > .page-link > div {
+    transform: rotate(-135deg);
+}
+
+.page-link:hover {
+    filter: brightness(1.025);
+    z-index: 3;
+}
+
+.page-item:nth-of-type(2) > .page-link {
+    z-index: 2;
+}
+
+.page-item:nth-of-type(2) > .page-link:hover {
+    filter: none;
 }
 
 table {

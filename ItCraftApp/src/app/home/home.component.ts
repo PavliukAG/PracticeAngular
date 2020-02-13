@@ -84,10 +84,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  public addItemAcounting(model: Product) {
+  public addItemAcounting(model) {
     this.accountingService.addAccounting(model).subscribe(
       (res) => {
-        this.toastr.success(`was added to table`);
+        this.toastr.success((model.operationType?'Outcome ':'Income ') + model.amount);
       },
       err => {
         if (err.status === 400) {

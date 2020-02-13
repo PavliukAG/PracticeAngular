@@ -3,7 +3,7 @@
 </mat-dialog-actions>
 <label class="col-12" mat-dialog-title>Accounting of <strong>{{item.name}}</strong></label>
 <mat-dialog-content class="row">
-        <table class="col-12">
+        <table *ngIf="accountingList.length > 0; else empty" class="col-12">
             <tr class="table-header">
                 <td>
                     <span>User</span>
@@ -25,6 +25,11 @@
                 <td>{{getDate(t.dateTime)}}</td>
             </tr>
         </table> 
+        <ng-template #empty class="col-12">
+            <span class="error">
+                Table is empty
+            </span> 
+        </ng-template>
 </mat-dialog-content>
 
 

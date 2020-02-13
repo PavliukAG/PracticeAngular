@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Income and Outcome</h2>
+<h2 mat-dialog-title class="col-12" name="name" data-toggle="tooltip" data-placement="right" title="{{item.name}}">{{item.name}}</h2>
 <mat-dialog-content>
     <form class="row">
         <div class="col-5">
@@ -7,10 +7,7 @@
                 <option *ngFor="let i of operationTypes" [value]="i.id">{{i.name}}</option>
             </select>
         </div>
-            <div class="col-6 offset-1">
-                <label class="col-12" name="name" for="input" data-toggle="tooltip" data-placement="right" title="{{item.name}}">{{item.name}}</label>
-                <input class="col-12" name="input" placeholder="Amount" [(ngModel)]="value">
-            </div>
+            <input class="col-6 offset-1" name="input" placeholder="Amount" [(ngModel)]="value">
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="row">

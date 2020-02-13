@@ -7,6 +7,7 @@
 
 h2 {
   text-align: center;
+  font-size: 30px;
 }
 
 form {
@@ -18,15 +19,9 @@ select {
   width: 100%;
 }
 
-[name="name"] {
-  border-bottom: 2px solid #00000080;
-  margin-top: 10px;
-}
-
 input {
   border: 0;
-  border-left: 2px solid #000000aa;
-  background-color: #00000010;
+  border-bottom: 4px solid #000000aa;
   font-size: 24px;
   padding: 5px;
   padding-left: 15%;
