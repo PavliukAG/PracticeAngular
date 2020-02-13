@@ -1,17 +1,17 @@
 <h2 mat-dialog-title class="col-12" name="name" data-toggle="tooltip" data-placement="right" title="{{product.name}}">{{this.productName}}</h2>
-<mat-dialog-content>
-    <form class="row">
-        <div class="col-5">
-            <label class="col-12" for="select">Choose operation</label>
-            <select name="select" class="col-12" [(ngModel)]="currentOperationType">
-                <option *ngFor="let i of operationTypes" [value]="i.id">{{i.name}}</option>
-            </select>
-        </div>
-            <input class="col-6 offset-1" name="input" placeholder="Amount" [(ngModel)]="value">
-    </form>
-</mat-dialog-content>
-<mat-dialog-actions class="row">
-    <button mat-button mat-dialog-close mat-raised-button type="button" class="btn btn-primary col-4 offset-1">Close</button>
-    <button mat-button mat-raised-button type="button" class="btn btn-primary col-4" id="btn-save" (click)="submit()">Save</button>
-</mat-dialog-actions>
-
+    <mat-dialog-content>
+        <form class="row">
+            <div class="col-5">
+                <label class="col-12" for="select">Choose operation</label>
+                <select name="select" class="col-12" [(ngModel)]="currentOperationType">
+                    <option *ngFor="let i of operationTypes" [value]="i.id">{{i.name}}</option>
+                </select>
+            </div>
+            <input class="col-6 offset-1" name="input" placeholder="Amount" [(ngModel)]="value" required>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions class="row">
+        <button mat-button mat-dialog-close mat-raised-button type="button" class="btn btn-primary col-4 offset-1">Close</button>
+        <button mat-button mat-raised-button type="button" type="submit" class="btn btn-success col-4" id="btn-save" [disabled]="!value" (click)="submit()">Save</button>
+    </mat-dialog-actions>
+    
