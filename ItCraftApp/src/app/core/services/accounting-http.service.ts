@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { BaseURL } from '../config/config';
 
 
@@ -11,8 +11,9 @@ export class AccountingHttpService {
   constructor(private http: HttpClient) { }
   readonly AccountingApiURL = '/Operation';
 
-  getAccounting(id: number) {
-    return this.http.get(`${BaseURL}${this.AccountingApiURL}/${id}`);
+  getAccounting(id: number, sortOption: number) {
+    let params = new HttpParams().set("sortOrder", String(sortOption))
+    return this.http.get<any>(`${BaseURL}${this.AccountingApiURL}/${id}`,  {params, observe:'response'});
   }
   addAccounting(model) {
     return this.http.post(`${BaseURL}${this.AccountingApiURL}`, model);

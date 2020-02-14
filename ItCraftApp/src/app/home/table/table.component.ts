@@ -82,21 +82,21 @@ export class TableComponent {
     this.removeItemEmitter.emit(item);
   }
   // todo: need to combine two methods below
-  public sortByName() {
-    this.sortOrder = 0 + this.sortDirectionName;
-    this.sortDirectionName = (this.sortDirectionName + 1) % 2;
-    this.sortDirectionPrice = 0;
+  public sortBy(colId:number) {
+    if (colId === 0) {
+      this.sortOrder = 0 + this.sortDirectionName;
+      this.sortDirectionName = (this.sortDirectionName + 1) % 2;
+      this.sortDirectionPrice = 0;
+    }
+    if (colId === 1) {
+      this.sortOrder = 2 + this.sortDirectionPrice;
+      this.sortDirectionPrice = (this.sortDirectionPrice + 1) % 2;
+      this.sortDirectionName = 0;
+    }
     this.initProductsEmitter.emit(
       new IinitTableConfig(this.pageSize, this.sortOrder, this.pageNumber));
   }
-  public sortByPrice() {
-    this.sortOrder = 2 + this.sortDirectionPrice;
-    this.sortDirectionPrice = (this.sortDirectionPrice + 1) % 2;
-    this.sortDirectionName = 0;
-    this.initProductsEmitter.emit(
-      new IinitTableConfig(this.pageSize, this.sortOrder, this.pageNumber));
-  }
-
+  
   public editProduct(item) {
     this.currentEditable = JSON.parse(JSON.stringify(item));
   }

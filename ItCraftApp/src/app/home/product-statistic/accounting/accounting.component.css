@@ -22,7 +22,33 @@ table {
 }
 
 .table-header {
-    border: 2px solid #0f0f0f;
+    border: 2px solid #929292;
+}
+
+.table-header > td {
+    border-right: 1px solid #0f0f0f;
+    background-color: #e6e6e6;
+    padding-left: 2%;
+}
+
+.table-header > td > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-header > td > div > img {
+    height: 16px;
+}
+
+.table-header > td:hover {
+    cursor: pointer;
+    filter: brightness(1.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.table-header > td:active {
+    filter: brightness(1.08);
 }
 
 td {

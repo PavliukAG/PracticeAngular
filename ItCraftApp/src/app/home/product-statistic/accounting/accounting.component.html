@@ -5,17 +5,29 @@
 <mat-dialog-content class="row">
         <table *ngIf="accountingList.length > 0; else empty" class="col-12">
             <tr class="table-header">
-                <td>
-                    <span>User</span>
+                <td (click)="initAccounting(0)">
+                    <div>
+                        <span>User</span>
+                        <img src="../../../../assets/images/sorticon.png">
+                    </div>
                 </td>
-                <td>
-                    <span>Operation</span>
+                <td (click)="initAccounting(2)">
+                    <div>
+                        <span>Operation</span>
+                        <img src="../../../../assets/images/sorticon.png">
+                    </div>
                 </td>
-                <td>
-                    <span>Value</span>
+                <td (click)="initAccounting(4)">
+                    <div>
+                        <span>Value</span>
+                        <img src="../../../../assets/images/sorticon.png">
+                    </div>
                 </td>
-                <td>
-                    <span>Date</span>
+                <td (click)="initAccounting(6)">
+                    <div>
+                        <span>Date</span>
+                        <img src="../../../../assets/images/sorticon.png">
+                    </div>
                 </td>
             </tr>
             <tr *ngFor="let t of accountingList">

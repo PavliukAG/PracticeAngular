@@ -20,14 +20,14 @@
     </div>
     <table class="col-12" *ngIf="items.length > 0">
         <tr>
-            <td class="">
-                <button (click)="sortByName()">
+            <td class="nameCol">
+                <button (click)="sortBy(0)">
                     <span>NAME</span>
                     <img src="../../../assets/images/sorticon.png" alt="">
                 </button>
             </td>
             <td class="priceCol">
-                <button (click)="sortByPrice()">
+                <button (click)="sortBy(1)">
                     <span>PRICE</span>
                     <img src="../../../assets/images/sorticon.png" alt="">
                 </button>

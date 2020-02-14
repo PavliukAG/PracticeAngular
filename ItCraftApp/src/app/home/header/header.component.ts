@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public showProfile() {
-      let dialog = this.matDialog.open(ProfileInfoDialogComponent, {
+      this.matDialog.open(ProfileInfoDialogComponent, {
         data: this.userDetails
       });
   }

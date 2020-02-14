@@ -4,6 +4,7 @@ import { AccountingHttpService } from '../../../core/services/accounting-http.se
 import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/core/models/Product';
 import { Accounting } from 'src/app/core/models/Accounting';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-accounting',
@@ -25,13 +26,20 @@ export class AccountingComponent implements OnInit {
     }
 
     ngOnInit() {
-      this.initAccounting();
+      this.initAccounting(7);
     }
 
-    public initAccounting() {
-      this.dataService.getAccounting(this.currentProduct.productId).subscribe(
-        (res : Accounting[]) => {
-          this.accountingList = res;
+    private toggle = [true, true, true, true]
+
+    public initAccounting(sortOrder: number) {
+      let idtoggle = Math.ceil(sortOrder/2)
+      this.toggle[idtoggle] = !this.toggle[idtoggle]
+      
+      sortOrder += this.toggle[idtoggle]? 0:1;
+
+      this.dataService.getAccounting(this.currentProduct.productId, sortOrder).subscribe(
+        (res : HttpResponse<Accounting[]>) => {
+          this.accountingList = res.body;
         },
         err => {
           console.log(err);
