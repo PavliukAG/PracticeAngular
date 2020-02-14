@@ -2,14 +2,14 @@
     <div id="border"></div>
     <div class="col-md-4 col-xs-12" id="selectPageSize-group">
         <label class="offset-1" for="selectPageSize">Count of goods</label>
-        <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" (change)="pageNumber=1">
+        <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" (change)="changePageSize()">
             <option *ngFor="let c of [10,25,50,100]" value="{{c}}">{{c}}</option>
         </select>
     </div>
     
     <ul class="col-md-4 offset-4 col-xs-12 pagination row" *ngIf="pageSize != null">
         <li class="page-item"><button class="page-link" (click)="prevPage()"><div></div></button></li>
-        <li class="page-item"><button disabled class="page-link"> {{pageNumber}} of {{pagesCount()}} </button></li>
+        <li class="page-item"><button disabled class="page-link"> {{pageNumber}} of {{totalPages}} </button></li>
         <li class="page-item"><button class="page-link" (click)="nextPage()"><div></div></button></li>
     </ul>
 </nav>
@@ -18,13 +18,13 @@
     <table class="col-12" *ngIf="items.length > 0">
         <tr>
             <td class="">
-                <button (click)="sortName()">
+                <button (click)="sortByName()">
                     <span>NAME</span>
                     <img src="../../../assets/images/sorticon.png" alt="">
                 </button>
             </td>
             <td class="priceCol">
-                <button (click)="sortPrice()">
+                <button (click)="sortByPrice()">
                     <span>PRICE</span>
                     <img src="../../../assets/images/sorticon.png" alt="">
                 </button>
@@ -33,7 +33,7 @@
                 <span>ACTIONS</span>
             </td>
         </tr>
-        <tr class="trProduct" *ngFor="let item of getSegmentOfList(); let id = index">
+        <tr class="trProduct" *ngFor="let item of items; let id = index">
             <ng-template [ngIf]="currentEditable?.productId != item.productId" [ngIfElse]="edit">
                 <td (click)="showStatistics(item)">{{item.name}}</td>
                 <td class="priceCol" (click)="showStatistics(item)">{{item.price}} $</td>
@@ -63,13 +63,13 @@
     <div id="border"></div>
     <div class="col-md-4 col-xs-12" id="selectPageSize-group">
         <label class="offset-1" for="selectPageSize">Count of goods</label>
-        <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" (change)="pageNumber=1">
+        <select id="selectPageSize" class="offset-1" [(ngModel)]="pageSize" (change)="changePageSize()">
             <option *ngFor="let c of [10,25,50,100]" value="{{c}}">{{c}}</option>
         </select>
     </div>
     <ul class="col-md-4 col-xs-12 of offset-1 pagination" *ngIf="pageSize != null">
         <li class="page-item"><button class="page-link" (click)="prevPage()"><div></div></button></li>
-        <li class="page-item"><button disabled class="page-link"> {{pageNumber}} of {{pagesCount()}} </button></li>
+        <li class="page-item"><button disabled class="page-link"> {{pageNumber}} of {{totalPages}} </button></li>
         <li class="page-item"><button class="page-link" (click)="nextPage()"><div></div></button></li>
     </ul>
 </nav>

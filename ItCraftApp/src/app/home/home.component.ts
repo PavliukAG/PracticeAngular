@@ -4,6 +4,18 @@ import { ToastrService } from 'ngx-toastr';
 import { AddProductFormComponent } from './add-product-form/add-product-form.component';
 import { AccountingHttpService } from '../core/services/accounting-http.service';
 import { Product } from '../core/models/Product';
+import { Config } from 'protractor';
+import { HttpResponse } from '@angular/common/http';
+
+interface ConfigTablePagination {
+  TotalCount: number,
+  PageSize: number,
+  PageNumber: number,
+  TotalPages: number
+  HasNext: boolean,
+  HasPrevious: boolean,
+  SortOrder : number
+}
 
 @Component({
   selector: 'app-home',
@@ -15,18 +27,35 @@ export class HomeComponent implements OnInit {
   public products: Product[];
   public currentItem: Product;
   public editItem: Product;
+
+  public tablePageSize:number = 10;
+  public tableSortOrder:number = 0;
+  public tablePageNumber:number = 1;
+  public tableTotalPages:number;
+
   @ViewChild(AddProductFormComponent,  {static: false}) addComponent: AddProductFormComponent; 
 
   constructor(private dataService: ProductHttpService, private accountingService: AccountingHttpService, private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.initProducts();
+    this.initProducts(this.tablePageSize, this.tableSortOrder, this.tablePageNumber);
   }
 
-  public initProducts() {
-    this.dataService.getProducts().subscribe(
-      (res : Product[]) => {
-        this.products = res;
+  public initProducts(_pageSize: number, _sortOrder: number, _pageNumber?: number) {
+    let config = { pageSize: _pageSize, 
+      sortOrder: _sortOrder, 
+      pageNumber: _pageNumber }
+      
+      this.dataService.getProducts(config).subscribe(
+      (res : HttpResponse<Product[]>) => {
+        let head = res.headers.get('Pagination');
+        let postConfig : ConfigTablePagination;
+        postConfig = JSON.parse(head);
+        this.tablePageSize = postConfig.PageSize;
+        this.tableSortOrder = postConfig.SortOrder;
+        this.tablePageNumber = postConfig.PageNumber;
+        this.tableTotalPages = postConfig.TotalPages;
+        this.products = res.body;
       },
       err => {
         if (err.status === 400) {
@@ -37,12 +66,16 @@ export class HomeComponent implements OnInit {
       });
     }
 
-    public addProductItem(model: Product) {
+    public initProductsDecorator(config : {_pageSize: number, _sortOrder: number, _pageNumber: number}) {
+      this.initProducts(config._pageSize, config._sortOrder, config._pageNumber);
+    }
+
+    public addProductItem(model) {
       this.dataService.addProduct(model).subscribe(
         (res : Product) => {
           this.toastr.success(`${res.name} was added to table`);
           this.addComponent.reset();
-          this.initProducts();
+          this.initProducts(this.tablePageSize, this.tableSortOrder);
         },
         err => {
           if (err.status === 400) {
@@ -59,7 +92,7 @@ export class HomeComponent implements OnInit {
           (res:object) => {
             this.toastr.success(`${item.name} was successfully deleted`);
             const id = this.products.indexOf(item);
-            this.initProducts();
+            this.initProducts(this.tablePageSize, this.tableSortOrder);
             this.products = this.products.slice(0, id).concat(this.products.slice(id + 1, this.products.length));
           },
           err => {
@@ -92,7 +125,7 @@ export class HomeComponent implements OnInit {
       (res) => {
         this.toastr.success('Operation was successful');
         this.currentItem.count += model.amount * (model.operationType - 1);
-        this.initProducts();
+        this.initProducts(this.tablePageSize, this.tableSortOrder, this.tablePageNumber);
         this.currentItem = this.products.find((x:Product) => x.productId === this.currentItem.productId);
       },
       err => {
