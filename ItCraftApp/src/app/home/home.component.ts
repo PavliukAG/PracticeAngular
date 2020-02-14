@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
       this.initProducts(config._pageSize, config._sortOrder, config._pageNumber);
     }
 
-    public addProductItem(model) {
+    public addProductItem(model: Product) {
       this.dataService.addProduct(model).subscribe(
         (res : Product) => {
           this.toastr.success(`${res.name} was added to table`);
@@ -78,12 +78,12 @@ export class HomeComponent implements OnInit {
       );
     }
 
-    public remove(item: Product) {
+    public removeProductItem(item: Product) {
         this.dataService.removeProduct(item.productId).subscribe(
           (res:object) => {
             this.toastr.success(`${item.name} was successfully deleted`);
             const id = this.products.indexOf(item);
-            this.initProducts(this.tablePageSize, this.tableSortOrder);
+            this.initProducts(this.tablePageSize, this.tableSortOrder, this.tablePageNumber);
             this.products = this.products.slice(0, id).concat(this.products.slice(id + 1, this.products.length));
           },
           err => {
@@ -97,7 +97,7 @@ export class HomeComponent implements OnInit {
         });
   }
 
-  public update(model : Product) {
+  public updateProductItem(model : Product) {
     model.price = Number(String(model.price).replace(',','.'));
     model.price = Number(model.price.toFixed(2));
     this.dataService.updateProduct(model).subscribe(res => {
