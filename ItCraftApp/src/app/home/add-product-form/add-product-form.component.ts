@@ -29,7 +29,7 @@ export class AddProductFormComponent implements OnInit {
 
   public submit() {
     let model = {
-      name : this.form.value.name,
+      name : this.form.value.name.trim(),
       price : Number(String(this.form.value.price).replace(',','.'))
     }
     this.addNewProduct.emit(model);

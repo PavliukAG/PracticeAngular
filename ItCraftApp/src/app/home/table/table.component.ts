@@ -103,11 +103,14 @@ export class TableComponent {
 
   public updateProduct() {
     if (this.currentEditable.productId !== null) {
+      this.currentEditable.name = this.currentEditable.name.trim();
       if (this.isValid(this.currentEditable) && typeof (Number(this.currentEditable.price)) === 'number') {
         this.updateItemEmitter.emit(this.currentEditable);
         let id = this.items.findIndex(x => x.productId === this.currentEditable.productId);
         this.items[id] = JSON.parse(JSON.stringify(this.currentEditable));
         this.cancel();
+      } else {
+        this.toastr.error('Invalid data');
       }
     }
   }

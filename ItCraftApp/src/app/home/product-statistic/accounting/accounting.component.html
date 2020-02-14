@@ -22,7 +22,7 @@
                 <td>{{t.userName}}</td>
                 <td>{{t.operationType? 'Outcome':'Income'}}</td>
                 <td>{{t.amount}}</td>
-                <td>{{getDate(t.dateTime)}}</td>
+                <td>{{t.dateTime | date:"dd/MM/yyyy"}} <br> {{t.dateTime | date: "hh:mm:ss"}}</td>
             </tr>
         </table> 
         <ng-template #empty class="col-12">

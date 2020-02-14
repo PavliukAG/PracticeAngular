@@ -16,8 +16,7 @@ export class AccountingComponent implements OnInit {
   public currentProduct: Product;
    
   constructor(private dialog: MatDialogRef<AccountingComponent>, private dataService: AccountingHttpService, private toastr: ToastrService,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: Product
-    ) {
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: Product) {
       this.currentProduct = data;
     }
 
@@ -38,10 +37,4 @@ export class AccountingComponent implements OnInit {
           console.log(err);
       });
     }
-
-    public getDate(dateString : string):string {
-      let date = new Date(dateString)
-      return `${date.getFullYear()}.${date.getMonth()}.${date.getDate()}  ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-    }
-
 }
