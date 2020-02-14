@@ -8,8 +8,10 @@
         <input class="form-control" [(ngModel)]="form.price" formControlName="price" required placeholder="Enter the price of product">
     </div>
     <div class="button-container col-2 offset-5">
-        <button type="submit" [disabled]="form.invalid">
-        ADD PRODUCT
+        <div>
+        </div>
+            <button type="submit" [disabled]="form.invalid">
+                ADD PRODUCT
     </button>
     </div>
 </form>
