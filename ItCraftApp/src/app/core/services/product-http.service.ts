@@ -10,13 +10,13 @@ export class ProductHttpService { // productHTTPService
   constructor(private http: HttpClient) { }
   readonly ProductApiURL = '/Product';
 
-  getProducts(config) {
-    let params = new HttpParams().set("pageSize", config.pageSize)
-    .set("sortOrder", config.sortOrder)
-    // .set("pageNumber", config.pageNumber);
-
-    // if (params.get('pageNumber') === undefined)
-    // params.delete('pageNumber');
+  getProducts(config : {pageSize:number, sortOrder:number, pageNumber:number}) {
+    let params;
+    if (config.pageNumber != null) {
+      params = new HttpParams().set("pageSize", String(config.pageSize)).set("sortOrder", String(config.sortOrder)).set('pageNumber', String(config.pageNumber));
+    } else {
+      params = new HttpParams().set("pageSize", String(config.pageSize)).set("sortOrder", String(config.sortOrder));
+    }
     
     return this.http.get<any>(`${BaseURL}${this.ProductApiURL}`, {params, observe:'response'});
   }

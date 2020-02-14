@@ -6,16 +6,7 @@ import { AccountingHttpService } from '../core/services/accounting-http.service'
 import { Product } from '../core/models/Product';
 import { Config } from 'protractor';
 import { HttpResponse } from '@angular/common/http';
-
-interface ConfigTablePagination {
-  TotalCount: number,
-  PageSize: number,
-  PageNumber: number,
-  TotalPages: number
-  HasNext: boolean,
-  HasPrevious: boolean,
-  SortOrder : number
-}
+import { ConfigTablePagination } from './ConfigTablePagination';
 
 @Component({
   selector: 'app-home',
@@ -75,7 +66,7 @@ export class HomeComponent implements OnInit {
         (res : Product) => {
           this.toastr.success(`${res.name} was added to table`);
           this.addComponent.reset();
-          this.initProducts(this.tablePageSize, this.tableSortOrder);
+          this.initProducts(this.tablePageSize, this.tableSortOrder, this.tablePageNumber);
         },
         err => {
           if (err.status === 400) {
@@ -124,7 +115,7 @@ export class HomeComponent implements OnInit {
     this.accountingService.addAccounting(model).subscribe(
       (res) => {
         this.toastr.success('Operation was successful');
-        this.currentItem.count += model.amount * (model.operationType - 1);
+        this.currentItem.count += model.amount * (model.operationType?-1:1);
         this.initProducts(this.tablePageSize, this.tableSortOrder, this.tablePageNumber);
         this.currentItem = this.products.find((x:Product) => x.productId === this.currentItem.productId);
       },
