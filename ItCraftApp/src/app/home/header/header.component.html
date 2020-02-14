@@ -1,25 +1,16 @@
 <nav class="navbar row">
-    <div class="ofset-2"></div>
-    <!-- todo: create dropright list -->   
-    <div class="col-10">            
-        <button class="btn offset-9 col-2" data-toggle="collapse" href="#userProf" aria-controls="userProf">
-            User Profile
+    <div class="col-2"></div>
+    <div class="col-9 row">            
+        <div class="col-11 profile-container">
+            <ul class="col-10 row" *ngIf="userDetails && showingProfile">
+                <li class="col-4"><span><strong>Username : </strong>{{userDetails.userName}}</span></li>
+                <li class="col-4"><span><strong>Full Name : </strong>{{userDetails.fullName}}</span></li>
+                <li class="col-4"><span><strong>Email : </strong>{{userDetails.email}}</span></li> 
+            </ul>
+        </div>
+        <button class="btn btn-profile col-1" (click)="showProfile()">
+            Profile
         </button>
-        
-        <div class="collapse" id="userProf">
-            <div class="profile-container">
-                <ul class="col-10 row" *ngIf="userDetails">
-                    <li class="col-4"><span><strong>Username : </strong>{{userDetails.userName}}</span></li>
-                    <li class="col-4"><span><strong>Full Name : </strong>{{userDetails.fullName}}</span></li>
-                    <li class="col-4"><span><strong>Email : </strong>{{userDetails.email}}</span></li> 
-                </ul>
-                <ul class="col-10 row" *ngIf="!userDetails">
-                    <li class="col-4"><strong>Username is empty</strong></li>
-                    <li class="col-4"><strong>Full Name is empty</strong></li>
-                    <li class="col-4"><strong>Email is empty</strong></li>
-                </ul>
-            </div>
-        </div>        
     </div>  
-    <button class="btn logout" (click)="onLogout()">Logout</button>
+    <button class="btn logout col-1" (click)="onLogout()">Logout</button>
 </nav>

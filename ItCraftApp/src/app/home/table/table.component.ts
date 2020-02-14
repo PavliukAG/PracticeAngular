@@ -25,7 +25,7 @@ class IinitTableConfig {
 
 export class TableComponent {
 
-  constructor(private service: ProductHttpService, private toastr: ToastrService, public matDialog: MatDialog) {
+  constructor(private service: ProductHttpService, private toastr: ToastrService, private matDialog: MatDialog) {
   }
 
   @Input() public items: Product[];

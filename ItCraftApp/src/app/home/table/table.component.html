@@ -14,7 +14,10 @@
     </ul>
 </nav>
 <div class="row">
-    <div *ngIf="items.length === 0" class="col-12 message">Database is empty. Please, add new product.</div>
+    <div *ngIf="items && items.length === 0" class="col-12 message">Database is empty. Please, add new product.</div>
+    <div *ngIf="!items" class="col-12 message row"> <span class="col-12" >Loading data. Please, wait...</span> 
+    <div class="loading"></div>
+    </div>
     <table class="col-12" *ngIf="items.length > 0">
         <tr>
             <td class="">

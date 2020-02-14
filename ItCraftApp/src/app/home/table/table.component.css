@@ -230,6 +230,31 @@ tr:first-child {
 
 .message {
     text-align: center;
-    font-size: 2.5vh;
-    background-color: rgb(255, 134, 134);
+    font-size: 2.5vw;
+    margin-top: 3vh;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    50% {
+        filter: brightness(1.05);
+        transform: rotate(180deg) scale(0.8);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    border: 10px dotted #9b9b9b;
+    animation: rotate 2.5s  infinite;
+    margin-top: 3vh;
 }

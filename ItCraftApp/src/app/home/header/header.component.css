@@ -22,18 +22,16 @@ ul {
     box-shadow: inset 0 -2px 4px #00000025;
 }
 
-.logout {
-    position: absolute;
-    top: 8px;
-    right: 30px
-}
-
 .profile-container {
-    position: relative;
-    top: -30px;
+    height: 40px;
 }
 
-.logout, [data-toggle="collapse"] {
+.logout, .btn-profile {
     background-color: rgb(241, 245, 248);
     color: #57545e;
+}
+
+.row {
+    padding-bottom: 0;
+    padding-top: 0;
 }

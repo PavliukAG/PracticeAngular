@@ -21,6 +21,7 @@ import { IncomeOutcomeFormComponent } from './home/table/income-outcome-form/inc
 import { AccountingComponent } from './home/product-statistic/accounting/accounting.component';
 import { ProductStatisticComponent } from './home/product-statistic/product-statistic.component';
 import { DeleteConfirmComponent } from './home/table/delete-confirm/delete-confirm.component';
+import { ProfileInfoDialogComponent } from './home/header/profile-info-dialog/profile-info-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,9 +36,10 @@ import { DeleteConfirmComponent } from './home/table/delete-confirm/delete-confi
     ProductStatisticComponent,
     IncomeOutcomeFormComponent,
     DeleteConfirmComponent,
-    AccountingComponent
+    AccountingComponent,
+    ProfileInfoDialogComponent
   ],
-  entryComponents: [IncomeOutcomeFormComponent, DeleteConfirmComponent, AccountingComponent],
+  entryComponents: [IncomeOutcomeFormComponent, DeleteConfirmComponent, AccountingComponent, ProfileInfoDialogComponent],
   imports: [
     MatDialogModule,
     BrowserModule,
