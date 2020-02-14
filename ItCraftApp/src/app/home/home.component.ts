@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
   constructor(private dataService: ProductHttpService, private accountingService: AccountingHttpService, private toastr: ToastrService) { }
 
   ngOnInit() {
+    this.products = [];
     this.initProducts(this.tablePageSize, this.tableSortOrder, this.tablePageNumber);
   }
 

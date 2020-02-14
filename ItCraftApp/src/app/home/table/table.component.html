@@ -14,7 +14,7 @@
     </ul>
 </nav>
 <div class="row">
-    <h1 *ngIf="!items" class="col-10 offset-1"> <br>Data base is empty. Please add new product</h1>
+    <div *ngIf="items.length === 0" class="col-12 message">Database is empty. Please, add new product.</div>
     <table class="col-12" *ngIf="items.length > 0">
         <tr>
             <td class="">
