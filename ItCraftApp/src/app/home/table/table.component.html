@@ -38,7 +38,7 @@
         </tr>
         <tr class="trProduct" *ngFor="let item of items; let id = index">
             <ng-template [ngIf]="currentEditable?.productId != item.productId" [ngIfElse]="edit">
-                <td (click)="showStatistics(item)">{{item.name}}</td>
+                <td class="nameCol" (click)="showStatistics(item)">{{item.name}}</td>
                 <td class="priceCol" (click)="showStatistics(item)">{{item.price}} $</td>
 
                 <div class="action-row">
@@ -50,7 +50,7 @@
                 </div>
             </ng-template>
             <ng-template #edit>
-                <td> <input type="text" class="" [(ngModel)]="currentEditable.name"></td>
+                <td class="nameCol"> <input type="text" class="" [(ngModel)]="currentEditable.name"></td>
                 <td class="priceCol"> <input type="text" class="" [(ngModel)]="currentEditable.price"></td>
 
                 <div class="action-row">

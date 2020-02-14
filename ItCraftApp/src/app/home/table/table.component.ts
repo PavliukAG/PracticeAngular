@@ -96,7 +96,7 @@ export class TableComponent {
     this.initProductsEmitter.emit(
       new IinitTableConfig(this.pageSize, this.sortOrder, this.pageNumber));
   }
-  
+
   public editProduct(item) {
     this.currentEditable = JSON.parse(JSON.stringify(item));
   }
